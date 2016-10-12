@@ -1,19 +1,28 @@
 {
-  "name": "hexo-site",
+  "name": "raygesualdo.com",
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.1.1"
+    "version": "3.2.2"
+  },
+  "scripts": {
+    "preview": "hexo server -l -o",
+    "build": "hexo generate --watch",
+    "dev": "npm run preview & npm run build",
+    "compile": "hexo generate"
   },
   "dependencies": {
     "hexo": "^3.1.0",
     "hexo-generator-archive": "^0.1.2",
     "hexo-generator-category": "^0.1.2",
-    "hexo-generator-index": "^0.1.2",
-    "hexo-generator-tag": "^0.1.1",
-    "hexo-renderer-ejs": "^0.1.0",
-    "hexo-renderer-stylus": "^0.3.0",
+    "hexo-generator-feed": "^1.1.0",
+    "hexo-generator-index": "^0.2.0",
+    "hexo-generator-tag": "^0.2.0",
+    "hexo-reading-time": "^1.0.0",
+    "hexo-renderer-jade": "^0.3.0",
     "hexo-renderer-marked": "^0.2.4",
-    "hexo-server": "^0.1.2"
+    "hexo-renderer-scss": "git+https://github.com/raygesualdo/hexo-renderer-scss.git",
+    "hexo-renderer-stylus": "^0.3.0",
+    "hexo-server": "^0.2.0"
   }
 }
