@@ -1,0 +1,85 @@
+// Font families
+$font-family-body: Merriweather, serif;
+$font-family-header: "Merriweather Sans", Merriweather, sans-serif;
+
+// Font sizing
+$html-font-size: 10px;
+$body-font-size: 2.2rem;
+
+// Transition easings
+$ease-sine: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
+// Layout
+$max-width: 65rem;
+
+// Responsive breakpoints
+$bp-large:   "(min-width: 1100px)";
+$bp-medium:  "(min-width: 750px)";
+$bp-small:   "(min-width: 550px)";
+$bp-x-small: "(min-width: 400px)";
+
+// Colors
+$color-primary: #002A32;
+$color-primary-dark: darken($color-primary, 15);
+$color-primary-light: lighten($color-primary, 15);
+$color-background: #fff;
+$color-accent: #F40076;
+$color-gray: #73888c;
+$color-border: rgba($color-primary, .12);
+
+// Palette: https://www.materialpalette.com/cyan/deep-orange
+// $color-primary: #00bcd4;
+// $color-primary-dark: #0097a7;
+// $color-primary-light: #b2ebf2;
+// $color-background: #fff;
+// $color-accent: #ff5722;
+// $color-text-primary: #212121;
+// $color-text-secondary: #727272;
+// $color-divider: #b6b6b6;
+
+// Dark red palette
+// http://paletton.com/#uid=75C0u0kqti+hrrLmjncvie7GM8V
+// $color-primary: #961A1D;
+// $color-primary-dark: #6F0205;
+// $color-primary-light: #B7373A;
+// $color-background: #fff;
+// $color-accent: #32962D;
+// $color-gray: #f5efef;
+// $color-text-primary: #464040;
+// $color-text-secondary: #727272;
+// $color-divider: #b6b6b6;
+
+// Bright red palette
+// http://paletton.com/#uid=5030u0kw0qmm1xusivlAElxINgi
+// $color-primary: #D20F00;
+// $color-primary-dark: #AC0D00;
+// $color-primary-light: #FA2D1D;
+// $color-background: #fff;
+// $color-accent: #00A11C;
+// $color-gray: #f5efef;
+// $color-text-primary: #464040;
+// $color-text-secondary: #727272;
+// $color-divider: #b6b6b6;
+
+// Purple palette
+// http://paletton.com/#uid=74Y0u0klVkvbov3gNpAr8fexs9Z
+// $color-primary: #6F2369;
+// $color-primary-dark: #AC0D00;
+// $color-primary-light: #FA2D1D;
+// $color-background: #fff;
+// $color-accent: #56902D;
+// $color-gray: #f5efef;
+// $color-text-primary: #464040;
+// $color-text-secondary: #727272;
+// $color-divider: #b6b6b6;
+
+// Dark blue green palette
+// http://paletton.com/#uid=33q0u0klYtNclJVhGzJrkrLtalp
+// $color-primary: #337995;
+// $color-primary-dark: #196C8B;
+// $color-primary-light: #5092AB;
+// $color-background: #fff;
+// $color-accent: #ED674B;
+// $color-gray: #dce7eb;
+// $color-text-primary: #404a4e;
+// $color-text-secondary: #727272;

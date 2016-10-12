@@ -1,0 +1,14 @@
+.articles
+  each post in page.posts.toArray()
+    article.article.article--compact
+      h1.article__title.article__title--compact
+        a.header__title-link(href=href=url_for(post.path))= post.title
+      p.article__meta-data
+        span= full_date(post.date, 'MMMM Do YYYY, h:mm a')
+        span.article__meta-data-separator
+        span= readingTime(post.content)
+      .article__excerpt!= post.excerpt
+      .article__read-more
+        a.article__read-more-link(href=url_for(post.path)) Read More
+
+include includes/pagination

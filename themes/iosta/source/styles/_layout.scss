@@ -1,0 +1,120 @@
+.main {
+  max-width: $max-width;
+  margin: 2rem auto 1rem;
+  padding: 1.5rem 1.125rem;
+
+  // @include bp(s) {
+  //   margin: 5rem auto 2rem;
+  //   flex-direction: row;
+  // }
+}
+
+.header {
+  display: flex;
+  padding-bottom: 1rem;
+  margin-bottom: 5rem;
+  border-bottom: 3px solid $color-border;
+
+  &__title {
+    text-shadow: 2px 2px 1px $color-accent, 2px 2px 4px currentColor;
+  }
+  &__social-links {
+    transition: .2s all $ease-sine;
+  }
+
+  &__social-link {
+    display: inline-block;
+    width: 2.8rem;
+    height: 2.8rem;
+    margin: 0 .25em;
+
+    .inner-shape {
+      fill: currentColor;
+      transition: all .25s ease-out;
+    }
+  }
+
+  &__subtitle {
+    font-size: .8em;
+    margin: 0 0 1rem;
+  }
+
+  &__menu {
+    flex: 1;
+    text-align: right;
+    align-self: flex-end;
+  }
+
+  &__menu-item {
+    margin: 0 1rem;
+  }
+
+}
+
+.content {
+  flex: 1;
+  transition: .2s all $ease-sine;
+
+}
+
+.article {
+  &--compact {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__title {
+    margin-bottom: 2.5rem;
+    // border-bottom: 2px solid $color-border;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &--compact &__title {
+    font-size: 1.4em;
+  }
+
+  &__meta-data {
+    font-size: .9em;
+    margin-top: -2.5rem;
+    font-style: italic;
+    color: $color-gray;
+    // margin-bottom: 1rem;
+  }
+
+  &--compact &__meta-data {
+    margin-bottom: 0;
+  }
+
+  &__meta-data-separator {
+    margin: 0 1rem;
+    border-left: 2px solid $color-border;
+  }
+
+  &__read-more {
+    text-transform: uppercase;
+    font-size: .65em;
+  }
+
+  &__read-more-link {
+    text-decoration: none;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer {
+  max-width: $max-width;
+  margin: 5rem auto;
+  text-align: center;
+
+  &__copyright {
+    font-size: .9em;
+  }
+}

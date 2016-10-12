@@ -1,0 +1,16 @@
+head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+  meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+  
+  if config.author
+    meta(name="author", content=config.author)
+  
+  title
+    block site_title
+      = config.title
+  
+  link(href='https://fonts.googleapis.com/css?family=Merriweather+Sans:800|Merriweather:400,400i,700' rel='stylesheet')
+  link(href='/styles/style.css' rel='stylesheet')
+  
+  block head

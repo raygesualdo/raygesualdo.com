@@ -1,0 +1,124 @@
+html {
+  font-size: $html-font-size;
+}
+
+body {
+  font-size: $body-font-size;
+  font-family: $font-family-body;
+  line-height: 1.75;
+  color: $color-primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1em 0 .2em;
+  font-family: $font-family-header;
+  font-weight: 800;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.65em;
+}
+
+h3 {
+  font-size: 1.35em;
+}
+
+h4 {
+  font-size: 1.125em;
+}
+
+h5 {
+  font-size: .9em;
+}
+
+h6 {
+  font-size: .75em;
+}
+
+a {
+  color: $color-accent;
+  transition: all .15s ease-out;
+
+  &:visited {
+    //color: darken($color-accent, 30);
+  }
+
+  &:hover {
+    // color: $color-primary;
+    color: darken($color-accent, 15);
+  }
+
+  &:focus,
+  &:active {
+    color: $color-primary-dark;
+    outline: 0;
+  }
+
+  &[disabled] {
+    opacity: .4;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+p {
+  margin: 0 0 2rem;
+}
+
+hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid $color-gray;
+}
+
+blockquote {
+  margin: 0 3rem 2rem;
+  padding-left: 2rem;
+  border-left: 5px solid $color-gray;
+}
+
+dl {
+  margin: 0 0 2rem;
+}
+
+dt {
+  font-weight: 600;
+}
+
+dd {
+  margin-left: 1rem;
+}
+
+ul,
+ol {
+  margin: 0 0 2rem;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  border-top: 1px solid $color-gray;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0
+}

@@ -1,0 +1,4 @@
+node_sass:
+  debug: true
+  outputStyle: expanded
+  sourceComments: true
