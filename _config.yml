@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: RayGesualdo.com
+title: raygesualdo.com
 subtitle:
 description:
 author: Ray Gesualdo
@@ -11,7 +11,6 @@ language: en
 timezone: America/New_York
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://raygesualdo.com
 root: /
 permalink: :year/:month/:day/:title/
@@ -22,7 +21,7 @@ source_dir: source
 public_dir: public
 tag_dir: tags
 archive_dir: archives
-category_dir: categories
+category_dir: topics
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
@@ -31,8 +30,8 @@ skip_render:
 new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
-filename_case: 0
+external_link: true
+filename_case: 1
 render_drafts: false
 post_asset_folder: false
 relative_link: false
@@ -63,9 +62,32 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: landscape
+theme: iosta
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type:
+
+# Markdown options
+# marked:
+
+# Sass options
+node_sass:
+  # outputStyle: compressed
+  # sourceComments: false
+
+# Social media
+sm:
+  twitter:
+    link: https://twitter.com/RayGesualdo
+  github:
+    link: https://github.com/raygesualdo
+  linkedin:
+    link: https://www.linkedin.com/in/raygesualdo
+
+# Feed
+feed:
+  type: rss2
+  path: feed.xml
+  limit: 20
