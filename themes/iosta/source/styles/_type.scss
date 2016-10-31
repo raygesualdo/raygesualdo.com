@@ -50,12 +50,12 @@ a {
   transition: all .15s ease-out;
 
   &:visited {
-    //color: darken($color-accent, 30);
+    // color: darken($color-accent, 15);
   }
 
   &:hover {
-    // color: $color-primary;
-    color: darken($color-accent, 15);
+    color: $color-primary;
+    // color: darken($color-accent, 15);
   }
 
   &:focus,

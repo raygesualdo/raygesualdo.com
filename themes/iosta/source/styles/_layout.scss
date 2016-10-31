@@ -16,7 +16,11 @@
   border-bottom: 3px solid $color-border;
 
   &__title {
-    text-shadow: 2px 2px 1px $color-accent, 2px 2px 4px currentColor;
+    margin-left: -.7rem;
+    padding: .6rem .7rem .8rem;
+    color: $color-accent;
+    background: $color-primary;
+    // text-shadow: 2px 2px 1px $color-accent, 2px 2px 4px currentColor;
   }
   &__social-links {
     transition: .2s all $ease-sine;
