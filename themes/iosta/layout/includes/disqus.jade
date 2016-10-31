@@ -1,0 +1,16 @@
+#disqus_thread
+  noscript Please enable Javascript to use the comments feature.
+
+unless page.noComments
+  script.
+    var disqus_config = function () {
+      this.page.url = "#{page.permalink}";
+      this.page.identifier = "#{page.path}";
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = '//raygesualdo-com.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
