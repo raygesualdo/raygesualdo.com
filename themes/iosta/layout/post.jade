@@ -1,7 +1,6 @@
+include includes/mixins
+
 article.article
   h1.article__title= page.title
-  p.article__meta-data
-    span= full_date(page.date, 'MMMM Do YYYY, h:mm:ss a')
-    span.article__meta-data-separator
-    span= readingTime(page.content)
+  +metadata(page)
   != page.content

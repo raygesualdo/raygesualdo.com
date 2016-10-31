@@ -1,0 +1,9 @@
+mixin metadata(article)
+  p.article__meta-data
+    span.article__meta-data-icon.article__meta-data-icon--calendar
+      include ../../source/images/calendar.svg 
+    span= full_date(article.date, 'MMMM Do YYYY, h:mm a')
+    span.article__meta-data-separator
+    span.article__meta-data-icon.article__meta-data-icon--clock
+      include ../../source/images/alarm.svg
+    span= readingTime(article.content)
