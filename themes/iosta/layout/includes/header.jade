@@ -1,7 +1,7 @@
 .header 
   .header__info
-    h1.header__title Ray Gesualdo
-    .header__subtitle Biographical content goes here.
+    h1.header__title= config.author
+    .header__subtitle!= config.authorBio
     .header__social-links
       a.header__social-link.header__social-link--github(href=config.sm.github.link)
         span.sr-only GitHub
