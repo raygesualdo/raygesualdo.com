@@ -91,3 +91,8 @@ feed:
   type: rss2
   path: feed.xml
   limit: 20
+
+# Graph
+graph:
+  twitterId: 'raygesualdo'
+  googlePlus: 'https://plus.google.com/u/1/105077044726476233174'

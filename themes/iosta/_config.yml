@@ -2,3 +2,8 @@ node_sass:
   debug: true
   outputStyle: expanded
   sourceComments: true
+
+graph:
+  twitterId: ''
+  googlePlus: ''
+  fbAdmin: ''
