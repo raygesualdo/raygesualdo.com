@@ -1,51 +1,52 @@
-import React, { PropTypes } from "react"
-import { Link } from "phenomic"
-import Svg from "react-svg-inline"
+import React, { PropTypes } from 'react'
+import twitterSvg from '../icons/iconmonstr-twitter-1.svg'
+import gitHubSvg from '../icons/iconmonstr-github-1.svg'
+import {
+  HeaderContainer,
+  HeaderLeft,
+  HeaderRight,
+  SiteTitle,
+  SiteTitleLink,
+  Menu,
+  MenuItem,
+  MenuLink,
+  IconLink,
+  IconSvg
+} from './styles'
 
-import twitterSvg from "../icons/iconmonstr-twitter-1.svg"
-import gitHubSvg from "../icons/iconmonstr-github-1.svg"
-
-import styles from "./index.css"
-
-const Header = (props, { metadata: { pkg } }) => (
-  <header className={ styles.header }>
-    <nav className={ styles.nav }>
-      <div className={ styles.navPart1 }>
-        <Link
-          className={ styles.link }
-          to={ "/" }
-        >
-          { "Home" }
-        </Link>
-      </div>
-      <div className={ styles.navPart2 }>
-        {
-          pkg.twitter &&
-          <a
-            href={ `https://twitter.com/${pkg.twitter}` }
-            className={ styles.link }
-          >
-            <Svg svg={ twitterSvg } cleanup />
-            { "Twitter" }
-          </a>
-        }
-        {
-          pkg.repository &&
-          <a
-            href={ pkg.repository }
-            className={ styles.link }
-          >
-            <Svg svg={ gitHubSvg } cleanup />
-            { "GitHub" }
-          </a>
-        }
-      </div>
-    </nav>
-  </header>
+const Header = (props, { metadata: { pkg, menu } }) => (
+  <HeaderContainer>
+    <HeaderLeft>
+      <SiteTitle>
+        <SiteTitleLink to='/' title={pkg.title} rel='home'>
+          {pkg.title}
+        </SiteTitleLink>
+      </SiteTitle>
+      <Menu role='navigation'>
+        {[...menu].map(([id, item]) => (
+          <MenuItem key={id}>
+            <MenuLink to={item.url} title={item.title} {...item.props}>{item.title}</MenuLink>
+          </MenuItem>
+        ))}
+      </Menu>
+    </HeaderLeft>
+    <HeaderRight>
+      { pkg.twitter &&
+        <IconLink href={`https://twitter.com/${pkg.twitter}`}>
+          <IconSvg svg={twitterSvg} cleanup title='Twitter' />
+        </IconLink>
+      }
+      { pkg.github &&
+        <IconLink href={`https://github.com/${pkg.github}`}>
+          <IconSvg svg={gitHubSvg} cleanup title='GitHub' />
+        </IconLink>
+      }
+    </HeaderRight>
+  </HeaderContainer>
 )
 
 Header.contextTypes = {
-  metadata: PropTypes.object.isRequired,
+  metadata: PropTypes.object.isRequired
 }
 
 export default Header

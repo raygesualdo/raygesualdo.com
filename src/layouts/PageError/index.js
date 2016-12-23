@@ -1,46 +1,48 @@
-import React, { PropTypes } from "react"
+import React, { PropTypes } from 'react'
+import styled from 'styled-components'
+import Page from '../Page'
 
-import Page from "../Page"
-
-import styles from "./index.css"
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  padding: 1rem 0;
+  text-align: center;
+`
+const Title = styled.div`
+  font-size: 8rem;
+  line-height: 8rem;
+`
+const Subtitle = styled.p`
+  margin: 2rem 0 4rem;
+  font-size: 3.5rem;
+  line-height: 4rem;
+`
 
 const PageError = ({ error, errorText }) => (
-  <Page
-    head={{
-      // hero credit: https://www.flickr.com/photos/mypubliclands/16101654539/
-      hero: "https://farm8.staticflickr.com/7559/16101654539_bee5151340_k.jpg",
-    }}
-  >
-    <div className={ styles.container }>
-      <div className={ styles.oops }>{ "😱 Oooops!" }</div>
-      <div className={ styles.text }>
-        <p className={ styles.title }>
-          <strong>{ error }</strong>
-          { " " }
-          { errorText }
-        </p>
-        {
-          error === 404 &&
-          <div>
-            { "It seems you found a broken link. " }
-            { "Sorry about that. " }
-            <br />
-            { "Do not hesitate to report this page 😁." }
-          </div>
+  <Page head={{}}>
+    <Container>
+      <Title>🤕 <strong>{error}</strong></Title>
+      <Subtitle>{errorText}</Subtitle>
+      <div>
+        { error === 404 &&
+          <div>It seems you found a broken link. Sorry about that.<br />Please <a href='https://github.com/raygesualdo/raygesualdo.com/issues/new'>file an issue</a> so I can resolve it!</div>
         }
       </div>
-    </div>
+    </Container>
   </Page>
 )
 
 PageError.propTypes = {
   error: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]),
-  errorText: PropTypes.string,
+  errorText: PropTypes.string
 }
 
 PageError.defaultProps = {
   error: 404,
-  errorText: "Page Not Found",
+  errorText: 'Page Not Found'
 }
 
 export default PageError

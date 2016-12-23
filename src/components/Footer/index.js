@@ -1,22 +1,23 @@
-import React from "react"
+import React from 'react'
+import styled from 'styled-components'
 
-import styles from "./index.css"
+const { PHENOMIC_NAME, PHENOMIC_HOMEPAGE } = process.env
+const year = new Date().getFullYear()
+const FooterContainer = styled.footer`
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  opacity: .6;
+`
 
 const Footer = () => (
-  <footer className={ styles.footer }>
-    { /* If you like Phenomic, this is a way to share the love ;) */ }
+  <FooterContainer>
     <p>
-      <a
-        href={ process.env.PHENOMIC_HOMEPAGE }
-        className={ styles.phenomicReference }
-      >
-        { "Website generated with " }
-        <span className={ styles.phenomicReferenceName }>
-          {  `<${ process.env.PHENOMIC_NAME} />` }
-        </span>
-      </a>
+      &copy; {year} Ray Gesualdo. All rights reserved.
+      <br />
+      Website generated with <a href={PHENOMIC_HOMEPAGE}>{` <${PHENOMIC_NAME} />`}</a>
     </p>
-  </footer>
+  </FooterContainer>
 )
 
 export default Footer

@@ -1,11 +1,6 @@
 ---
 title: Phenomic base theme
 layout: Homepage
-hero: https://farm4.staticflickr.com/3949/15589950511_3675b15e59_k.jpg
-# hero credit: https://www.flickr.com/photos/pslee999/15589950511/
-cta:
-  label: About this theme
-  link: "about"
 ---
 
 Hi there. Before having fun with Phenomic, be sure to read the documentation :
@@ -14,6 +9,13 @@ Hi there. Before having fun with Phenomic, be sure to read the documentation :
 * [Getting Started with Phenomic](https://phenomic.io/docs/getting-started/)
 * [Usage & APIs](https://phenomic.io/docs/usage/)
 * [FAQ](https://phenomic.io/docs/faq/)
+
+# Header 1
+## Header 2
+### Header 3
+#### Header 4
+##### Header 5
+###### Header 6
 
 Also take a look at
 [existing websites that use Phenomic](https://phenomic.io/showcase/),
@@ -27,6 +29,8 @@ some projects share their source code!
     React
   </a>.
 </small>
+
+![React](assets/react.svg)
 
 ---
 

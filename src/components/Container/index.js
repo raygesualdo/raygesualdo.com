@@ -1,15 +1,20 @@
-import React, { PropTypes } from "react"
+import React, { PropTypes } from 'react'
+import styled from 'styled-components'
 
-import styles from "./index.css"
+const Wrapper = styled.div`
+  max-width: 720px;
+  padding: 20px;
+  margin: 0 auto;
+`
 
 const Container = (props) => (
-  <div className={ styles.container }>
+  <Wrapper>
     { props.children }
-  </div>
+  </Wrapper>
 )
 
 Container.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 }
 
 export default Container
