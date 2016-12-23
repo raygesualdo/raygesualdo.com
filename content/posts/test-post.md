@@ -1,5 +1,5 @@
 ---
-title: Focus on the content
+title: Test Post
 date: 2016-12-22
 layout: Post
 ---
