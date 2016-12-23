@@ -34,10 +34,10 @@ const Spinner = styled.div`
 
 TopBarProgressIndicator.config({
   barColors: {
-    '0': '#fff',
-    '1.0': '#fff'
+    '0': '#007998',
+    '1.0': '#007998'
   },
-  shadowBlur: 5
+  shadowBlur: 1
 })
 
 const Loading = () => (
