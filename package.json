@@ -1,28 +1,121 @@
 {
-  "name": "raygesualdo.com",
-  "version": "0.0.0",
   "private": true,
-  "hexo": {
-    "version": "3.2.2"
-  },
+  "name": "personal-website",
+  "title": "Ray Gesualdo",
+  "homepage": "https://www.raygesualdo.com",
+  "shortUrl": "raygesualdo.com",
+  "twitter": "raygesualdo",
+  "github": "raygesualdo",
+  "repository": "https://github.com/raygesualdo/raygesualdo.com.git",
   "scripts": {
-    "preview": "hexo server -l -o",
-    "build": "hexo generate --watch",
-    "dev": "npm run preview & npm run build",
-    "compile": "hexo generate"
+    "lint": "standard --fix",
+    "start": "phenomic start",
+    "build": "phenomic build",
+    "pretest": "npm run lint",
+    "test": "npm run build"
   },
-  "dependencies": {
-    "hexo": "^3.1.0",
-    "hexo-generator-archive": "^0.1.2",
-    "hexo-generator-category": "^0.1.2",
-    "hexo-generator-feed": "^1.1.0",
-    "hexo-generator-index": "^0.2.0",
-    "hexo-generator-tag": "^0.2.0",
-    "hexo-reading-time": "^1.0.0",
-    "hexo-renderer-jade": "^0.3.0",
-    "hexo-renderer-marked": "^0.2.4",
-    "hexo-renderer-scss": "git+https://github.com/raygesualdo/hexo-renderer-scss.git",
-    "hexo-renderer-stylus": "^0.3.0",
-    "hexo-server": "^0.2.0"
+  "phenomic": {
+    "CNAME": false,
+    "nojekyll": false
+  },
+  "#babel": "webpack-(development|production) are useful for webpack 2, otherwise use development|production",
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          "babel-preset-latest",
+          "babel-preset-stage-1",
+          "babel-preset-react"
+        ]
+      },
+      "development": {
+        "presets": [
+          "babel-preset-latest",
+          "babel-preset-stage-1",
+          "babel-preset-react"
+        ],
+        "plugins": [
+          "babel-plugin-transform-react-jsx-source",
+          "babel-plugin-transform-react-jsx-self",
+          "react-hot-loader/babel"
+        ]
+      },
+      "production": {
+        "presets": [
+          "babel-preset-react-optimize",
+          "babel-preset-latest",
+          "babel-preset-stage-1",
+          "babel-preset-react"
+        ]
+      },
+      "webpack-development": {
+        "presets": [
+          [
+            "babel-preset-latest",
+            {
+              "es2015": {
+                "modules": false
+              }
+            }
+          ],
+          "babel-preset-stage-1",
+          "babel-preset-react"
+        ],
+        "plugins": [
+          "babel-plugin-transform-react-jsx-source",
+          "babel-plugin-transform-react-jsx-self",
+          "react-hot-loader/babel"
+        ]
+      },
+      "webpack-production": {
+        "presets": [
+          "babel-preset-react-optimize",
+          [
+            "babel-preset-latest",
+            {
+              "es2015": {
+                "modules": false
+              }
+            }
+          ],
+          "babel-preset-stage-1",
+          "babel-preset-react"
+        ]
+      }
+    }
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-react-jsx-self": "^6.11.0",
+    "babel-plugin-transform-react-jsx-source": "^6.9.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-react-optimize": "^1.0.1",
+    "babel-preset-stage-1": "^6.16.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "history": "^3.2.1",
+    "json-loader": "^0.5.2",
+    "moment": "^2.17.1",
+    "phenomic": "latest",
+    "raw-loader": "^0.5.1",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-helmet": "^3.2.3",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-redux": "^5.0.1",
+    "react-router": "^3.0.0",
+    "react-svg-inline": "^1.2.0",
+    "react-topbar-progress-indicator": "^1.0.0",
+    "redux": "^3.6.0",
+    "standard": "^8.6.0",
+    "styled-components": "^1.2.1",
+    "webpack": "^1.14.0",
+    "whatwg-fetch": "^0.11.0"
   }
 }
