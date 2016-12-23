@@ -120,14 +120,12 @@ export default (config = {}) => {
       }),
 
       // webpack 1
-      new ExtractTextPlugin('[name].[hash].css', { disable: config.dev }),
+      // new ExtractTextPlugin('[name].[hash].css', { disable: config.dev }),
       // webpack 2
-      /*
       new ExtractTextPlugin({
-        filename: "[name].[hash].css",
-        disable: config.dev,
+        filename: '[name].[hash].css',
+        disable: config.dev
       }),
-      */
 
       ...config.production && [
         // webpack 2
