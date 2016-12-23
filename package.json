@@ -16,7 +16,8 @@
   },
   "phenomic": {
     "CNAME": false,
-    "nojekyll": false
+    "nojekyll": false,
+    "assets": false
   },
   "#babel": "webpack-(development|production) are useful for webpack 2, otherwise use development|production",
   "babel": {
