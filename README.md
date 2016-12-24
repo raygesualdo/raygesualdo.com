@@ -1,19 +1,5 @@
-# [Phenomic](https://github.com/MoOx/phenomic) phenomic-theme-base
+# raygesualdo.com
 
-## Install dependencies
+Ths repo contains the content and structure to generate my website using [Phenomic](https://phenomic.io).
 
-```sh
-npm install
-```
-
-## Run development server
-
-```sh
-npm start
-```
-
-## Build for production
-
-```sh
-npm run build
-```
+If you find any problems with the site, please [file an issue](https://github.com/raygesualdo/raygesualdo.com/issues/new)!
