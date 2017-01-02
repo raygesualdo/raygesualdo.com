@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
-import Page from '../Page'
 
 const Container = styled.div`
   display: flex;
@@ -22,17 +21,15 @@ const Subtitle = styled.p`
 `
 
 const PageError = ({ error, errorText }) => (
-  <Page head={{}}>
-    <Container>
-      <Title>🤕 <strong>{error}</strong></Title>
-      <Subtitle>{errorText}</Subtitle>
-      <div>
-        { error === 404 &&
-          <div>It seems you found a broken link. Sorry about that.<br />Please <a href='https://github.com/raygesualdo/raygesualdo.com/issues/new'>file an issue</a> so I can resolve it!</div>
-        }
-      </div>
-    </Container>
-  </Page>
+  <Container>
+    <Title>🤕 <strong>{error}</strong></Title>
+    <Subtitle>{errorText}</Subtitle>
+    <div>
+      { error === 404 &&
+        <div>It seems you found a broken link. Sorry about that.<br />Please <a href='https://github.com/raygesualdo/raygesualdo.com/issues/new'>file an issue</a> so I can resolve it!</div>
+      }
+    </div>
+  </Container>
 )
 
 PageError.propTypes = {
