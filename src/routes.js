@@ -8,6 +8,13 @@ import PageError from './layouts/PageError'
 import Homepage from './layouts/Homepage'
 import Post from './layouts/Post'
 
+const handlePageview = () => {
+  if (typeof window !== 'undefined' && typeof ga === 'function') {
+    ga('set', 'page', window.location.pathname)
+    ga('send', 'pageview')
+  }
+}
+
 const PageContainer = (props) => (
   <PhenomicPageContainer
     {...props}
@@ -21,7 +28,7 @@ const PageContainer = (props) => (
 )
 
 export default (
-  <Route component={AppContainer}>
+  <Route component={AppContainer} onUpdate={handlePageview}>
     <Route path='*' component={PageContainer} />
   </Route>
 )

@@ -77,6 +77,10 @@ export default (config = {}) => {
     },
 
     plugins: [
+      new webpack.DefinePlugin({
+        __ENV__: JSON.stringify(process.env)
+      }),
+
       // webpack 2
       /*
       // You should be able to remove the block below when the following
