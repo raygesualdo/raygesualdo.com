@@ -14,8 +14,9 @@ export const MoreLink = styled(Link)`
   font-size: .8em;
 `
 export const Body = styled.div`
+  margin-top: 2rem;
   & p {
-    color: #787878;
+    color: #454545;
   }
   & a {
     color: #007acc;
