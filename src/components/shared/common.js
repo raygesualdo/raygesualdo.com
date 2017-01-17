@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'phenomic'
+import { fontSize } from '../../style-utils'
 
 export const Article = styled.article`
   margin-bottom: 8rem;
@@ -34,4 +35,13 @@ export const Body = styled.div`
     max-width: 100%;
     height: auto;
   }
+`
+export const TalkTitle = styled.p`
+  ${fontSize(22)}
+  font-weight: 600;
+  margin: 0;
+`
+export const TalkResourceList = styled.ul`
+  list-style: none;
+  margin: 1rem 2rem 2rem;
 `

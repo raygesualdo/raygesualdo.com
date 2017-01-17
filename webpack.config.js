@@ -102,7 +102,7 @@ export default (config = {}) => {
       new PhenomicLoaderFeedWebpackPlugin({
         // here you define generic metadata for your feed
         feedsOptions: {
-          title: pkg.name,
+          title: pkg.title,
           site_url: pkg.homepage
         },
         feeds: {

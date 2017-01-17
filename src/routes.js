@@ -7,6 +7,8 @@ import Page from './layouts/Page'
 import PageError from './layouts/PageError'
 import Homepage from './layouts/Homepage'
 import Post from './layouts/Post'
+import Talks from './layouts/Talks'
+const Talk = () => {}
 
 const handlePageview = () => {
   if (typeof window !== 'undefined' && typeof ga === 'function') {
@@ -22,7 +24,9 @@ const PageContainer = (props) => (
       Page,
       PageError,
       Homepage,
-      Post
+      Post,
+      Talks,
+      Talk
     }}
   />
 )
