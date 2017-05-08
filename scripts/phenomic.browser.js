@@ -1,5 +1,5 @@
 // Hot loading HRM Patch
-import 'react-hot-loader/patch'
+// import 'react-hot-loader/patch'
 // fetch polyfill
 import 'whatwg-fetch'
 import phenomicClient from 'phenomic/lib/client'

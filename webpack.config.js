@@ -18,11 +18,7 @@ export default (config = {}) => {
     module: {
       noParse: /\.min\.js/,
       // webpack 1
-      loaders: [
-      // webpack 2
-      /*
       rules: [
-      */
         // *.md => consumed via phenomic special webpack loader
         // allow to generate collection and rss feed.
         {
@@ -36,13 +32,6 @@ export default (config = {}) => {
             // ]
             // see https://phenomic.io/docs/usage/plugins/
           }
-        },
-
-        // *.json => like in node, return json
-        // (not handled by webpack by default)
-        {
-          test: /\.json$/,
-          loader: 'json-loader'
         },
 
         // *.js => babel + eslint
@@ -81,24 +70,6 @@ export default (config = {}) => {
         __ENV__: JSON.stringify(process.env)
       }),
 
-      // webpack 2
-      /*
-      // You should be able to remove the block below when the following
-      // issue has been correctly handled (and postcss-loader supports
-      // "plugins" option directly in query, see postcss-loader usage above)
-      // https://github.com/postcss/postcss-loader/issues/99
-      new webpack.LoaderOptionsPlugin({
-        test: /\.css$/,
-        options: {
-          // required to avoid issue css-loader?modules
-          // this is normally the default value, but when we use
-          // LoaderOptionsPlugin, we must specify it again, otherwise,
-          // context is missing (and css modules names can be broken)!
-          context: __dirname,
-        },
-      }),
-      */
-
       new PhenomicLoaderFeedWebpackPlugin({
         // here you define generic metadata for your feed
         feedsOptions: {
@@ -123,19 +94,12 @@ export default (config = {}) => {
         site_url: pkg.homepage
       }),
 
-      // webpack 1
-      // new ExtractTextPlugin('[name].[hash].css', { disable: config.dev }),
-      // webpack 2
       new ExtractTextPlugin({
         filename: '[name].[hash].css',
         disable: config.dev
       }),
 
       ...config.production && [
-        // webpack 2
-        // DedupePlugin does not work correctly with Webpack 2, yet ;)
-        // https://github.com/webpack/webpack/issues/2644
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin(
           { compress: { warnings: false } }
         )
@@ -148,15 +112,6 @@ export default (config = {}) => {
       filename: '[name].[hash].js'
     },
 
-    // webpack 1
-    resolve: {
-      extensions: [ '.js', '.json', '' ],
-      root: [ path.join(__dirname, 'node_modules') ]
-    },
-    resolveLoader: { root: [ path.join(__dirname, 'node_modules') ] }
-    // webpack 2
-    /*
-    resolve: { extensions: [ ".js", ".json" ] },
-    */
+    resolve: { extensions: [ '.js', '.json' ] }
   }
 }

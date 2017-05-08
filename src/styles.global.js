@@ -163,6 +163,12 @@ injectGlobal`
     overflow: auto;
     max-width: 100%;
   }
+  code:not(.hljs) {
+    font-family: monospace;
+    padding: .2rem .4rem;
+    background-color: rgba(0, 122, 204, 0.15);
+    /* color: #c70a0a; */
+  }
   a {
     color: #007998;
     transition: color .25s ease-in-out;
