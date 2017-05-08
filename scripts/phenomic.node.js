@@ -1,8 +1,8 @@
-import phenomicStatic from 'phenomic/lib/static'
+const phenomicStatic = require('phenomic/lib/static').default
 
-import metadata from '../src/metadata.js'
-import routes from '../src/routes.js'
-import store from '../src/store.js'
+const metadata = require('../src/metadata.js')
+const routes = require('../src/routes.js')
+const store = require('../src/store.js')
 
 module.exports = (options) =>
   phenomicStatic({ ...options, metadata, routes, store })
