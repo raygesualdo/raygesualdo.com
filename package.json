@@ -24,15 +24,15 @@
     "env": {
       "test": {
         "presets": [
-          "babel-preset-latest",
-          "babel-preset-stage-1",
+          "babel-preset-env",
+          "babel-preset-stage-2",
           "babel-preset-react"
         ]
       },
       "development": {
         "presets": [
-          "babel-preset-latest",
-          "babel-preset-stage-1",
+          "babel-preset-env",
+          "babel-preset-stage-2",
           "babel-preset-react"
         ],
         "plugins": [
@@ -43,22 +43,20 @@
       "production": {
         "presets": [
           "babel-preset-react-optimize",
-          "babel-preset-latest",
-          "babel-preset-stage-1",
+          "babel-preset-env",
+          "babel-preset-stage-2",
           "babel-preset-react"
         ]
       },
       "webpack-development": {
         "presets": [
           [
-            "babel-preset-latest",
+            "babel-preset-env",
             {
-              "es2015": {
-                "modules": false
-              }
+              "modules": false
             }
           ],
-          "babel-preset-stage-1",
+          "babel-preset-stage-2",
           "babel-preset-react"
         ],
         "plugins": [
@@ -70,14 +68,12 @@
         "presets": [
           "babel-preset-react-optimize",
           [
-            "babel-preset-latest",
+            "babel-preset-env",
             {
-              "es2015": {
-                "modules": false
-              }
+              "modules": false
             }
           ],
-          "babel-preset-stage-1",
+          "babel-preset-stage-2",
           "babel-preset-react"
         ]
       }
@@ -97,10 +93,8 @@
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-react-jsx-self": "^6.11.0",
     "babel-plugin-transform-react-jsx-source": "^6.9.0",
-    "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-react-optimize": "^1.0.1",
-    "babel-preset-stage-1": "^6.16.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "history": "2",
@@ -118,8 +112,12 @@
     "react-topbar-progress-indicator": "^1.0.0",
     "redux": "^3.6.0",
     "standard": "^10.0.2",
-    "styled-components": "^1.2.1",
+    "styled-components": "^1.4.6",
     "webpack": "^2.5.1",
     "whatwg-fetch": "^2.0.3"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-stage-2": "^6.24.1"
   }
 }
