@@ -2,9 +2,10 @@ import React, { PropTypes } from 'react'
 import Helmet from 'react-helmet'
 import { joinUri } from 'phenomic'
 import PostTitle from '../../components/shared/PostTitle'
-import { Article, Body, TalkTitle, TalkResourceList } from '../../components/shared/common'
+import { Article, Body, TalkTitle, TalkResourceList, TalkAbstract } from '../../components/shared/common'
 
 const ResourceLink = props => {
+  if (!props.link) return null
   if (!props.link.startsWith('http') && !props.link.startsWith('/')) {
     return <span>{props.type}: {props.link}</span>
   }
@@ -49,7 +50,7 @@ const Homepage = (
               <li><ResourceLink type='Slides' link={talk.slides} /></li>
               <li><ResourceLink type='Code' link={talk.code} /></li>
             </TalkResourceList>
-            <p>{talk.abstract}</p>
+            <TalkAbstract>{talk.abstract}</TalkAbstract>
           </Article>
         ))}
       </Body>
