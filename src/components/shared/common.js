@@ -45,3 +45,6 @@ export const TalkResourceList = styled.ul`
   list-style: none;
   margin: 1rem 2rem 2rem;
 `
+export const TalkAbstract = styled.p`
+  white-space: pre-line;
+`
