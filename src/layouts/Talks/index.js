@@ -5,7 +5,7 @@ import PostTitle from '../../components/shared/PostTitle'
 import { Article, Body, TalkTitle, TalkResourceList } from '../../components/shared/common'
 
 const ResourceLink = props => {
-  if (!props.link.startsWith('http')) {
+  if (!props.link.startsWith('http') && !props.link.startsWith('/')) {
     return <span>{props.type}: {props.link}</span>
   }
   return <a href={props.link} title={props.type}>{props.type}</a>
