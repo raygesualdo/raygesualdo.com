@@ -118,6 +118,7 @@
   },
   "dependencies": {
     "babel-preset-env": "^1.4.0",
-    "babel-preset-stage-2": "^6.24.1"
+    "babel-preset-stage-2": "^6.24.1",
+    "copy-webpack-plugin": "^4.0.1"
   }
 }

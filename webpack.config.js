@@ -2,6 +2,7 @@ import path from 'path'
 
 import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 import { phenomicLoader } from 'phenomic'
 import PhenomicLoaderFeedWebpackPlugin
   from 'phenomic/lib/loader-feed-webpack-plugin'
@@ -66,6 +67,10 @@ export default (config = {}) => {
     },
 
     plugins: [
+      new CopyWebpackPlugin([
+        { from: 'static' }
+      ]),
+
       new webpack.DefinePlugin({
         __ENV__: JSON.stringify(process.env)
       }),
