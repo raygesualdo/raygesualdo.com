@@ -42,7 +42,7 @@ const Homepage = (
       <Helmet {...helmet} />
       <PostTitle nolink>Talks</PostTitle>
       <Body>
-        {talks.sort(titleSort).map(talk => (
+        {talks.map(talk => (
           <Article>
             <TalkTitle>{talk.title}</TalkTitle>
             <TalkResourceList>
@@ -71,14 +71,14 @@ Homepage.contextTypes = {
 
 export default Homepage
 
-function titleSort (a, b) {
-  const titleA = a.title.toUpperCase()
-  const titleB = b.title.toUpperCase()
-  if (titleA < titleB) {
-    return -1
-  }
-  if (titleA > titleB) {
-    return 1
-  }
-  return 0
-}
+// function titleSort (a, b) {
+//   const titleA = a.title.toUpperCase()
+//   const titleB = b.title.toUpperCase()
+//   if (titleA < titleB) {
+//     return -1
+//   }
+//   if (titleA > titleB) {
+//     return 1
+//   }
+//   return 0
+// }
