@@ -1,5 +1,10 @@
 [
   {
+    "title": "CSS-in-React with styled-components",
+    "slides": "/slides/ct2017-styled-components/",
+    "abstract": "CSS in production applications is hard and our industry has worked to mitigate this in multiple ways. Pre/post-processors brought code organization and logic. Class naming conventions helped with specificity. CSS Modules took a big leap forward by providing a certain level of modularity. But CSS never truly matched the level of componentization in its web counterpart, JavaScript...until now. Learn how styled-components leverages React's component paradigm to provide completely modularized and declarative styling in your React applications."
+  },
+  {
     "title": "Tame the Async Redux Beast with redux-logic",
     "video": "Coming Soon!",
     "slides": "/slides/ct2017-redux-logic/",
