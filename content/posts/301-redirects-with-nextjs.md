@@ -99,4 +99,4 @@ Lastly, I edited `dev` and `start` scripts in `package.json` to the new configur
 
 With that, the 301 redirects are all set up. This code is running in production for us beautifully. Hope the walkthrough was helpful!
 
-NOTE: The 3blades website is entirely open-sourced, so you can check out the [source code](https://github.com/3Blades/www-site).
+*UPDATED*: The 3Blades website repo has been set as closed source. Consequently, the link to the repo was removed from the article.
