@@ -3,122 +3,46 @@
   "name": "personal-website",
   "title": "Ray Gesualdo",
   "homepage": "https://www.raygesualdo.com",
-  "shortUrl": "raygesualdo.com",
-  "twitter": "raygesualdo",
-  "github": "raygesualdo",
+  "version": "1.0.0",
+  "author": "Ray Gesualdo <ray@raygesualdo.com>",
   "repository": "https://github.com/raygesualdo/raygesualdo.com.git",
-  "scripts": {
-    "lint": "standard --fix",
-    "start": "phenomic start",
-    "build": "phenomic build",
-    "pretest": "npm run lint",
-    "test": "npm run build"
-  },
-  "phenomic": {
-    "CNAME": false,
-    "nojekyll": false,
-    "assets": false
-  },
-  "#babel": "webpack-(development|production) are useful for webpack 2, otherwise use development|production",
-  "babel": {
-    "env": {
-      "test": {
-        "presets": [
-          "babel-preset-env",
-          "babel-preset-stage-2",
-          "babel-preset-react"
-        ]
-      },
-      "development": {
-        "presets": [
-          "babel-preset-env",
-          "babel-preset-stage-2",
-          "babel-preset-react"
-        ],
-        "plugins": [
-          "babel-plugin-transform-react-jsx-source",
-          "babel-plugin-transform-react-jsx-self"
-        ]
-      },
-      "production": {
-        "presets": [
-          "babel-preset-react-optimize",
-          "babel-preset-env",
-          "babel-preset-stage-2",
-          "babel-preset-react"
-        ]
-      },
-      "webpack-development": {
-        "presets": [
-          [
-            "babel-preset-env",
-            {
-              "modules": false
-            }
-          ],
-          "babel-preset-stage-2",
-          "babel-preset-react"
-        ],
-        "plugins": [
-          "babel-plugin-transform-react-jsx-source",
-          "babel-plugin-transform-react-jsx-self"
-        ]
-      },
-      "webpack-production": {
-        "presets": [
-          "babel-preset-react-optimize",
-          [
-            "babel-preset-env",
-            {
-              "modules": false
-            }
-          ],
-          "babel-preset-stage-2",
-          "babel-preset-react"
-        ]
-      }
-    }
-  },
-  "standard": {
-    "parser": "babel-eslint",
-    "globals": [
-      "__ENV__",
-      "ga"
-    ]
+  "dependencies": {
+    "@raygesualdo/gatsby-plugin-settings": "^1.0.2",
+    "gatsby": "^1.9.243",
+    "gatsby-link": "^1.6.40",
+    "gatsby-plugin-feed": "^1.3.20",
+    "gatsby-plugin-google-analytics": "^1.0.25",
+    "gatsby-plugin-manifest": "^1.0.15",
+    "gatsby-plugin-offline": "^1.0.15",
+    "gatsby-plugin-preact": "^1.0.17",
+    "gatsby-plugin-react-helmet": "^2.0.8",
+    "gatsby-plugin-sharp": "^1.6.41",
+    "gatsby-plugin-styled-components": "^2.0.11",
+    "gatsby-plugin-typography": "^1.7.18",
+    "gatsby-remark-copy-linked-files": "^1.5.30",
+    "gatsby-remark-images": "^1.5.60",
+    "gatsby-remark-prismjs": "^1.2.21",
+    "gatsby-remark-responsive-iframe": "^1.4.18",
+    "gatsby-remark-smartypants": "^1.4.12",
+    "gatsby-source-filesystem": "^1.5.27",
+    "gatsby-transformer-remark": "^1.7.38",
+    "gatsby-transformer-sharp": "^1.6.22",
+    "gatsby-transformer-yaml": "^1.5.16",
+    "lodash": "^4.17.5",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
+    "styled-components": "^3.2.3",
+    "typography-theme-stern-grove": "^0.15.10"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-core": "^6.21.0",
-    "babel-eslint": "^7.1.1",
-    "babel-loader": "^7.0.0",
-    "babel-plugin-transform-react-jsx-self": "^6.11.0",
-    "babel-plugin-transform-react-jsx-source": "^6.9.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-react-optimize": "^1.0.1",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "file-loader": "^0.11.1",
-    "history": "2",
-    "json-loader": "^0.5.2",
-    "moment": "^2.17.1",
-    "phenomic": "latest",
-    "raw-loader": "^0.5.1",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "react-helmet": "^5.0.3",
-    "react-hot-loader": "^1.3.1",
-    "react-redux": "^5.0.1",
-    "react-router": "2.3",
-    "react-svg-inline": "^2.0.0",
-    "react-topbar-progress-indicator": "^1.0.0",
-    "redux": "^3.6.0",
-    "standard": "^10.0.2",
-    "styled-components": "^1.4.6",
-    "webpack": "^2.5.1",
-    "whatwg-fetch": "^2.0.3"
+    "prettier": "^1.9.2"
   },
-  "dependencies": {
-    "babel-preset-env": "^1.4.0",
-    "babel-preset-stage-2": "^6.24.1",
-    "copy-webpack-plugin": "^4.0.1"
+  "scripts": {
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "format": "prettier --write 'src/**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
