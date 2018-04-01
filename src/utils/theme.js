@@ -7,9 +7,3 @@ export const theme = {
   headerBgColor: '#062f4f',
   headerColor: '#fff',
 }
-
-export const globalStyles = () => injectGlobal`
-  .gatsby-highlight {
-    margin: 0 ${rhythm(1)} ${rhythm(1.5)};
-  }
-`

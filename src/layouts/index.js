@@ -3,16 +3,12 @@ import styled, { ThemeProvider } from 'styled-components'
 import { get } from 'lodash/fp'
 import { rhythm } from '../utils/typography'
 import Header from '../components/Header/Header'
-import { theme, globalStyles } from '../utils/theme'
-
-globalStyles()
+import { theme } from '../utils/theme'
 
 const Content = styled.div`
   max-width: ${rhythm(25)};
-  padding: ${rhythm(1.25)} ${rhythm(1.25)};
   margin: 0 auto;
-  background-color: ${get('theme.white')};
-  border-radius: 2px;
+  padding: ${rhythm(.5)} ${rhythm(.5)};
 `
 
 class Template extends React.Component {

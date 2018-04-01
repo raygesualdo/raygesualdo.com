@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import BlogTitle from '../components/BlogTitle/BlogTitle'
+import BlogContent from '../components/BlogContent/BlogContent'
 import './prism-xonokai.css'
 
 const BlogPostTemplate = props => {
@@ -27,7 +28,7 @@ const BlogPostTemplate = props => {
         date={post.frontmatter.date}
         timeToRead={post.timeToRead}
       />
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <BlogContent dangerouslySetInnerHTML={{ __html: post.html }} />
     </Fragment>
   )
 }
