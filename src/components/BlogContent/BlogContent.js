@@ -4,12 +4,12 @@ import { rhythm } from '../../utils/typography'
 
 const BlogContent = styled.div`
   .gatsby-highlight {
-    margin: 0 0 ${rhythm(1.5)};
+    margin: 0 0 ${rhythm(1)};
     transition: margin .2s ease-in-out;
   }
   ${MIN_MOBILE_MEDIA_QUERY} {
     .gatsby-highlight {
-      margin: 0 ${rhythm(1)} ${rhythm(1.5)};
+      margin: 0 ${rhythm(1)} ${rhythm(1)};
     }
   }
 `
