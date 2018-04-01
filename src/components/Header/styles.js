@@ -20,24 +20,22 @@ export const HeaderLayout = styled.div`
   margin: 0 auto;
   padding: ${rhythm(1.25)};
   display: flex;
+  flex-wrap: wrap;
 `
 
-export const HeaderLeft = styled.div`
-  flex: 1;
-  display: flex;
-`
-
-export const HeaderRight = styled.div`
+export const IconLinks = styled.div`
   display: flex;
 `
 
 export const SiteTitle = styled.div`
   flex: 1;
   margin: 0;
+  margin-right: ${rhythm(1)};
   padding: 0;
   ${{ ...scale(0.25) }};
   font-weight: 400;
   text-transform: uppercase;
+  white-space: nowrap;
 `
 
 export const SiteTitleLink = styled(Link)`

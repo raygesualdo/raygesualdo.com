@@ -2,8 +2,7 @@ import React from 'react'
 import {
   HeaderBackground,
   HeaderLayout,
-  HeaderLeft,
-  HeaderRight,
+  IconLinks,
   SiteTitle,
   SiteTitleLink,
   Menu,
@@ -17,7 +16,6 @@ import {
 const Header = props => (
   <HeaderBackground>
     <HeaderLayout>
-      <HeaderLeft>
         <SiteTitle>
           <SiteTitleLink to="/" title={props.meta.title} rel="home">
             {props.meta.title}
@@ -32,8 +30,7 @@ const Header = props => (
             </MenuItem>
           ))}
         </Menu>
-      </HeaderLeft>
-      <HeaderRight>
+      <IconLinks>
         {props.social.twitter && (
           <IconLink href={`https://twitter.com/${props.social.twitter}`}>
             <HeaderIconTwitter title="Twitter" />
@@ -44,7 +41,7 @@ const Header = props => (
             <HeaderIconGitHub title="GitHub" />
           </IconLink>
         )}
-      </HeaderRight>
+      </IconLinks>
     </HeaderLayout>
   </HeaderBackground>
 )
