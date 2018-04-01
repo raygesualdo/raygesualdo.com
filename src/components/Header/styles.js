@@ -21,21 +21,18 @@ export const HeaderBackground = styled.div`
 export const HeaderLayout = styled.div`
   max-width: ${rhythm(25)};
   margin: 0 auto;
-  padding: ${rhythm(1.25)};
+  padding: ${rhythm(.5)};
   display: grid;
   grid-gap: ${rhythm(0.25)} ${rhythm(1)};
   grid-template-columns: 100%;
   ${MIN_TABLET_MEDIA_QUERY} {
     grid-template-columns: 1fr min-content min-content;
+    padding: ${rhythm(1.25)};
   }
-  ${'' /* display: flex;
-  flex-wrap: wrap; */};
 `
 
 export const SiteTitle = styled.div`
-  ${'' /* flex: 1;
-  margin: 0;
-  padding: 0; */} ${{ ...scale(0.25) }};
+  ${{ ...scale(0.25) }};
   font-weight: 400;
   text-transform: uppercase;
   white-space: nowrap;
@@ -51,8 +48,6 @@ export const SiteTitleLink = styled(Link)`
 
 export const Menu = styled.nav`
   display: flex;
-  margin: 0;
-  padding: 0;
   ${TABLET_MEDIA_QUERY} {
     justify-content: center;
   }

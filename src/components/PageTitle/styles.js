@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { rhythm } from '../../utils/typography'
+import { responsiveTitleMargins } from '../../utils/theme'
 
 export const Layout = styled.div`
-  margin: ${rhythm(2)} 0;
+  ${responsiveTitleMargins};
   text-align: center;
 `
 
