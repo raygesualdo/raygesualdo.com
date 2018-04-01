@@ -21,7 +21,7 @@ export const HeaderBackground = styled.div`
 export const HeaderLayout = styled.div`
   max-width: ${rhythm(25)};
   margin: 0 auto;
-  padding: ${rhythm(.5)};
+  padding: ${rhythm(.75)};
   display: grid;
   grid-gap: ${rhythm(0.25)} ${rhythm(1)};
   grid-template-columns: 100%;
