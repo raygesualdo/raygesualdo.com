@@ -15,7 +15,7 @@ Pro Tip: My favorite app for finding inexpensive flights is [Hopper](https://www
 
 **Look for hotel alternatives**
 
-I'm a big fan of AirBnB. I know some who have had bad experiences, but mine have always been stellar. Check to see if AirBnB (or other simlar services) have any available options near your conference venue. You may be surprised by what you find. I used AirBnB and was able to book a full apartment for less than a hotel room.
+I'm a big fan of AirBnB. I know some who have had bad experiences, but mine have always been stellar. Check to see if AirBnB (or other similar services) have any available options near your conference venue. You may be surprised by what you find. I used AirBnB and was able to book a full apartment for less than a hotel room.
 
 **Stay close to the venue**
 
@@ -27,7 +27,7 @@ Everyone has a different approach to preparing talks. Some have their slides fin
 
 **Spend time with the other speakers/attendees**
 
-Fair warning, I'm an extrovert. For all my introverts out there, this may be a little more taxing, espeically after a full day of being around/speaking with people, so your mileage may vary. I will simply say that the people I met and the friends I reconnected with made the conference worth going to. [After all, code is ephemeral. People are not.](https://twitter.com/jennschiffer/status/600109116019838976)
+Fair warning, I'm an extrovert. For all my introverts out there, this may be a little more taxing, especially after a full day of being around/speaking with people, so your mileage may vary. I will simply say that the people I met and the friends I reconnected with made the conference worth going to. [After all, code is ephemeral. People are not.](https://twitter.com/jennschiffer/status/600109116019838976)
 
 **Get food recommendations from locals**
 
