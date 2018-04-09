@@ -41,6 +41,15 @@ Each city has its own personality. I found it invigoration walking the streets o
 
 Travelling can be stressful. Speaking can be stressful. Mash those two together and it can make for quite the stress cocktail. Relax. Breathe. Be yourself, spend time with people, enjoy the time, and it will be alright.
 
+## From the Almighty Twitter
+
+- [@jonkemp](https://twitter.com/jonkemp): "I would add, try to get your employer to cover the cost of travel. I've been fortunate to have all of my expenses so far covered by work!" ([Source](https://twitter.com/jonkemp/status/982694721289179136))
+- [@jcreamer898](https://twitter.com/jcreamer898): "+1 on eating at Mother's. 😜 To me, conferences are as much about people as they are about content." ([Source](https://twitter.com/jcreamer898/status/982795738781552640))
+- [@DerikWhittaker](https://twitter.com/DerikWhittaker): "Don't forget to attend sessions.  As a speaker you should make an effort to attend a few sessions." ([Source](https://twitter.com/DerikWhittaker/status/982376446697107461))
+- [@MaximumGilliard](https://twitter.com/MaximumGilliard): "One thing which served me very well @devnexus was to seek out friends or friends of friends who were attending, via Twitter and through my company before I went.  I'm naturally a bit of an introvert so having some people who I'd already arranged to meet was a big help." ([Source](https://twitter.com/MaximumGilliard/status/982371116642635777))
+
+Thank you to everyone who provided feedback!
+
 ---
 
 Anything I missed? Any other lessons you've learned traveling? Share them with me on [Twitter](https://twitter.com/RayGesualdo) and I'll add them here (with attribution 😀).
