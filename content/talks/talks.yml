@@ -5,7 +5,7 @@
   abstract: "Static site generators are one of the hottest trends right now in front-end development and for good reason. In a world of CMSes, databases, templating engines, and application servers, static sites provide significant benefits to developers, content creators, and consumers alike. Together, we'll explore these benefits while creating a static site using the popular Gatsby static site generator."
 -
   title: "Tame the Async Redux Beast with redux-logic"
-  video: "Coming Soon!"
+  video: "https://www.recallact.com/presentation/tame-async-redux-beast-redux-logic"
   slides: "/slides/jazzcon2018-redux-logic/"
   abstract: "Keeping our Redux applications tidy can be difficult once we start adding business logic, especially asynchronous code. Where do we write it? How do we write it? And how does our code interact with Redux? Together, we'll answer these questions and more by exploring how redux-logic lets us \"bring our own code\" and integrate it in a structured, declarative way with Redux."
 -
