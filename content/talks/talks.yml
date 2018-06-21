@@ -1,6 +1,6 @@
 -
   title: "Using Gatsby to Supercharge Your Static Sites"
-  slides: "/slides/werise2018-gatsby/"
+  slides: "https://rayg.me/werise2018-gatsby"
   abstract: "Static site generators have been around for the better part of a decade, but they've seen a resurgence in popularity recently and for good reason. Static sites provide significant benefits - performance, security, durability, ease of deployment - to developers, content creators, and consumers alike. Not all static site generators are created equal, however. Gatsby supercharges the process and brings many unique strengths to the table, including a strong plugin ecosystem, a data fetching layer based on GraphQL, the ability to collate data from multiple sources, and Progressive Web App functionality infused into the static sites it generates. Together, we'll explore these strengths and more as we delve into why Gatsby is one of the top static site generators in the industry."
 # -
 #   title: "Rockin' the JAMstack with Gatsby"
