@@ -5,19 +5,21 @@ import { rhythm, scale, options } from '../../utils/typography'
 const BlogContent = styled.div`
   .gatsby-highlight {
     margin: 0 0 ${rhythm(1)};
-    transition: margin 0.2s ease-in-out;
   }
-  ${MIN_MOBILE_MEDIA_QUERY} {
-    .gatsby-highlight {
-      margin: 0 ${rhythm(1)} ${rhythm(1)};
-    }
-  }
+
   .gatsby-resp-image-figcaption {
-    margin: .25rem;
+    margin: 0.25rem;
     text-align: center;
     ${{ ...scale(-3 / 10) }};
     font-family: ${options.headerFontFamily.join(',')};
     font-style: italic;
+  }
+
+  *:not(pre) > code[class*='language-'] {
+    padding: 0.2em 0.4em 0.15em;
+    border: none;
+    border-radius: 2px;
+    box-shadow: none;
   }
 `
 
