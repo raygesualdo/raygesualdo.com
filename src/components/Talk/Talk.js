@@ -1,7 +1,9 @@
 import React from 'react'
+import slug from 'slug'
 import {
   Article,
   TalkTitle,
+  TalkTitleAnchor,
   TalkResourceList,
   TalkResourceListItem,
   TalkAbstract,
@@ -21,7 +23,10 @@ const ResourceLink = props => {
 
 const Talk = talk => (
   <Article>
-    <TalkTitle>{talk.title}</TalkTitle>
+    <TalkTitle id={slug(talk.title)}>
+      <TalkTitleAnchor href={slug(talk.title)}>#</TalkTitleAnchor>
+      {talk.title}
+    </TalkTitle>
     <TalkResourceList>
       <TalkResourceListItem>
         <ResourceLink type="Video" link={talk.video} />

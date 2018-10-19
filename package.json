@@ -33,6 +33,7 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-helmet": "^5.2.0",
+    "slug": "^0.9.1",
     "styled-components": "^3.2.6",
     "typography-theme-stern-grove": "^0.15.10"
   },
