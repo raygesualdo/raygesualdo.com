@@ -1,6 +1,12 @@
+- 
+  title: "GraphQL in a Serverless World"
+  slides: "https://rayg.me/connecttech2018-graphql"
+  code: "https://github.com/raygesualdo/serverless-graphql-demo"
+  abstract: > 
+    "GraphQL" and "Serverless" generate a lot of industry buzz separately. Combining slick serverless paradigms with the statically-typed goodness of GraphQL may just break the internet...but that's what we're going to do. Together, we'll briefly cover what "serverless" means and how GraphQL works. Then, we'll construct a simple GraphQL API from scratch using open-source tools and deploy the API to multiple serverless environments. Finally, we'll discuss the benefits and tradeoffs of deploying a GraphQL API in a serverless fashion.
 -
   title: "Using Gatsby to Supercharge Your Static Sites"
-  slides: "https://rayg.me/werise2018-gatsby"
+  slides: "https://rayg.me/connecttech2018-gatsby"
   abstract: "Static site generators have been around for the better part of a decade, but they've seen a resurgence in popularity recently and for good reason. Static sites provide significant benefits - performance, security, durability, ease of deployment - to developers, content creators, and consumers alike. Not all static site generators are created equal, however. Gatsby supercharges the process and brings many unique strengths to the table, including a strong plugin ecosystem, a data fetching layer based on GraphQL, the ability to collate data from multiple sources, and Progressive Web App functionality infused into the static sites it generates. Together, we'll explore these strengths and more as we delve into why Gatsby is one of the top static site generators in the industry."
 # -
 #   title: "Rockin' the JAMstack with Gatsby"
