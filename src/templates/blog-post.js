@@ -1,13 +1,21 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import Layout from '../components/Layout/Layout'
 import BlogTitle from '../components/BlogTitle/BlogTitle'
 import BlogContent from '../components/BlogContent/BlogContent'
 import './prism-xonokai.css'
 
 const BlogPostTemplate = props => {
-  const { post, settings, site: { meta: { siteTitle, siteUrl } } } = props.data
+  const {
+    post,
+    settings,
+    site: {
+      meta: { siteTitle, siteUrl },
+    },
+  } = props.data
   return (
-    <Fragment>
+    <Layout>
       <Helmet>
         <title>{`${post.frontmatter.title} | ${siteTitle}`}</title>
         <meta property="og:type" content="article" />
@@ -29,14 +37,14 @@ const BlogPostTemplate = props => {
         timeToRead={post.timeToRead}
       />
       <BlogContent dangerouslySetInnerHTML={{ __html: post.html }} />
-    </Fragment>
+    </Layout>
   )
 }
 
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostByPath($slug: String!) {
+  query($slug: String!) {
     site {
       meta: siteMetadata {
         siteTitle: title

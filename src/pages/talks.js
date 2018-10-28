@@ -1,10 +1,12 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import Layout from '../components/Layout/Layout'
 import Talk from '../components/Talk/Talk'
 import PageLayout from '../components/PageLayout/PageLayout'
 
 const Talks = props => (
-  <Fragment>
+  <Layout>
     <Helmet>
       <title>Talks</title>
     </Helmet>
@@ -13,13 +15,13 @@ const Talks = props => (
         <Talk key={talk.title} {...talk} />
       ))}
     </PageLayout>
-  </Fragment>
+  </Layout>
 )
 
 export default Talks
 
 export const pageQuery = graphql`
-  query TalksQuery {
+  {
     talks: allTalksYaml {
       edges {
         node {

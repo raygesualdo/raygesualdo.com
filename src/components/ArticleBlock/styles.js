@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import { rhythm, scale, options } from '../../utils/typography'
 
 export const Article = styled.article`

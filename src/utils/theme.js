@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { rhythm, scale } from './typography'
+import { rhythm } from './typography'
 import { MIN_TABLET_MEDIA_QUERY } from 'typography-breakpoint-constants'
 
 export const theme = {

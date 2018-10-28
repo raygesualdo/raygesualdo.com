@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { rhythm, scale, options } from '../../utils/typography'
+import { scale, options } from '../../utils/typography'
 import { responsiveTitleMargins } from '../../utils/theme'
 
 export const Layout = styled.div`

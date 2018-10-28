@@ -1,11 +1,19 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import Layout from '../components/Layout/Layout'
 import PageTitle from '../components/PageTitle/PageTitle'
 
 const PageTemplate = props => {
-  const { page, settings, site: { meta: { siteTitle, siteUrl } } } = props.data
+  const {
+    page,
+    settings,
+    site: {
+      meta: { siteTitle, siteUrl },
+    },
+  } = props.data
   return (
-    <Fragment>
+    <Layout>
       <Helmet>
         <title>{`${page.frontmatter.title} | ${siteTitle}`}</title>
         <meta property="og:type" content="website" />
@@ -23,14 +31,14 @@ const PageTemplate = props => {
       </Helmet>
       <PageTitle title={page.frontmatter.title} />
       <div dangerouslySetInnerHTML={{ __html: page.html }} />
-    </Fragment>
+    </Layout>
   )
 }
 
 export default PageTemplate
 
 export const pageQuery = graphql`
-  query PageBySlug($slug: String!) {
+  query($slug: String!) {
     site {
       meta: siteMetadata {
         siteTitle: title

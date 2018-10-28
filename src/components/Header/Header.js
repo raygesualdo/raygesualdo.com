@@ -1,4 +1,5 @@
 import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import {
   HeaderBackground,
   HeaderLayout,
@@ -13,37 +14,71 @@ import {
   HeaderIconTwitter,
 } from './styles'
 
-const Header = props => (
-  <HeaderBackground>
-    <HeaderLayout>
-        <SiteTitle>
-          <SiteTitleLink to="/" title={props.meta.title} rel="home">
-            {props.meta.title}
-          </SiteTitleLink>
-        </SiteTitle>
-        <Menu role="navigation">
-          {props.menu.map(item => (
-            <MenuItem key={item.url}>
-              <MenuLink to={item.url} title={item.title} {...item.props}>
-                {item.title}
-              </MenuLink>
-            </MenuItem>
-          ))}
-        </Menu>
-      <IconLinks>
-        {props.social.twitter && (
-          <IconLink href={`https://twitter.com/${props.social.twitter}`}>
-            <HeaderIconTwitter title="Twitter" />
-          </IconLink>
-        )}
-        {props.social.github && (
-          <IconLink href={`https://github.com/${props.social.github}`}>
-            <HeaderIconGitHub title="GitHub" />
-          </IconLink>
-        )}
-      </IconLinks>
-    </HeaderLayout>
-  </HeaderBackground>
+const query = graphql`
+  {
+    site {
+      meta: siteMetadata {
+        title
+      }
+    }
+    settings: siteSettings {
+      social {
+        twitter
+        github
+      }
+      menus {
+        header {
+          url
+          title
+          props {
+            target
+          }
+        }
+      }
+    }
+  }
+`
+
+const Header = () => (
+  <StaticQuery
+    query={query}
+    render={data => (
+      <HeaderBackground>
+        <HeaderLayout>
+          <SiteTitle>
+            <SiteTitleLink to="/" title={data.site.meta.title} rel="home">
+              {data.site.meta.title}
+            </SiteTitleLink>
+          </SiteTitle>
+          <Menu role="navigation">
+            {data.settings.menus.header.map(item => (
+              <MenuItem key={item.url}>
+                <MenuLink to={item.url} title={item.title} {...item.props}>
+                  {item.title}
+                </MenuLink>
+              </MenuItem>
+            ))}
+          </Menu>
+          <IconLinks>
+            {data.settings.social.twitter && (
+              <IconLink
+                href={`https://twitter.com/${data.settings.social.twitter}`}
+              >
+                <HeaderIconTwitter title="Twitter" />
+              </IconLink>
+            )}
+            {data.settings.social.github && (
+              <IconLink
+                href={`https://github.com/${data.settings.social.github}`}
+              >
+                <HeaderIconGitHub title="GitHub" />
+              </IconLink>
+            )}
+          </IconLinks>
+        </HeaderLayout>
+      </HeaderBackground>
+    )}
+  />
 )
 
 export default Header

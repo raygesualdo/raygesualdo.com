@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import { get } from 'lodash/fp'
 import {
   MIN_TABLET_MEDIA_QUERY,
@@ -21,7 +21,7 @@ export const HeaderBackground = styled.div`
 export const HeaderLayout = styled.div`
   max-width: ${rhythm(25)};
   margin: 0 auto;
-  padding: ${rhythm(.75)};
+  padding: ${rhythm(0.75)};
   display: grid;
   grid-gap: ${rhythm(0.25)} ${rhythm(1)};
   grid-template-columns: 100%;

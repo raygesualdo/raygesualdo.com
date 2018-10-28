@@ -1,8 +1,8 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-
+import Layout from '../components/Layout/Layout'
 import PageLayout from '../components/PageLayout/PageLayout'
 import ArticleBlock from '../components/ArticleBlock/ArticleBlock'
 
@@ -10,19 +10,21 @@ const BlogIndex = props => {
   const siteTitle = get(props, 'data.site.siteMetadata.title')
   const posts = get(props, 'data.allMarkdownRemark.edges')
   return (
-    <PageLayout>
+    <Layout>
       <Helmet title={siteTitle} />
-      {posts.map(({ node: post }) => (
-        <ArticleBlock key={post.fields.slug} post={post} />
-      ))}
-    </PageLayout>
+      <PageLayout>
+        {posts.map(({ node: post }) => (
+          <ArticleBlock key={post.fields.slug} post={post} />
+        ))}
+      </PageLayout>
+    </Layout>
   )
 }
 
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  {
     site {
       siteMetadata {
         title

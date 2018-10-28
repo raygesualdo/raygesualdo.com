@@ -34,8 +34,8 @@ const pageSets = [
   { query: blogPostsQuery, component: blogPostTemplate },
 ]
 
-exports.createPages = ({ graphql, boundActionCreators, getNode }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ graphql, actions, getNode }) => {
+  const { createPage } = actions
   pageSets.forEach(async ({ query, component }) => {
     const response = await graphql(query)
     if (response.errors) {
@@ -54,8 +54,8 @@ exports.createPages = ({ graphql, boundActionCreators, getNode }) => {
   })
 }
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
     const parent = getNode(node.parent)

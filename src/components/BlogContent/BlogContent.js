@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { MIN_MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
 import { rhythm, scale, options } from '../../utils/typography'
 
 const BlogContent = styled.div`
