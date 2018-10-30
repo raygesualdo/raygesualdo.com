@@ -2,9 +2,11 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 const pageTemplate = path.resolve('./src/templates/page.js')
-const pagesQuery = `
+const pagesQuery = /* GraphQL */ `
   {
-    collection: allMarkdownRemark(filter: { fileAbsolutePath: { glob: "**/pages/**" } }) {
+    collection: allMarkdownRemark(
+      filter: { fields: { contentGroup: { eq: "pages" } } }
+    ) {
       edges {
         node {
           fields {
@@ -16,9 +18,11 @@ const pagesQuery = `
   }
 `
 const blogPostTemplate = path.resolve('./src/templates/blog-post.js')
-const blogPostsQuery = `
+const blogPostsQuery = /* GraphQL */ `
   {
-    collection: allMarkdownRemark(filter: { fileAbsolutePath: { glob: "**/posts/**" } }) {
+    collection: allMarkdownRemark(
+      filter: { fields: { contentGroup: { eq: "posts" } } }
+    ) {
       edges {
         node {
           fields {
@@ -63,9 +67,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const value = `${pathPrefix}${createFilePath({ node, getNode })}`
 
     createNodeField({
-      name: `slug`,
+      name: 'slug',
       node,
       value,
+    })
+    createNodeField({
+      name: 'contentGroup',
+      node,
+      value: parent.sourceInstanceName,
     })
   }
 }
