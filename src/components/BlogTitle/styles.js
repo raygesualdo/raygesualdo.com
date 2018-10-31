@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { scale, options } from '../../utils/typography'
-import { responsiveTitleMargins } from '../../utils/theme'
+import { responsiveTitleMargins } from '../../utils/styles'
 
 export const Layout = styled.div`
   ${responsiveTitleMargins};

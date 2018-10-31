@@ -1,18 +1,16 @@
-import { css } from 'styled-components'
-import { rhythm } from './typography'
-import { MIN_TABLET_MEDIA_QUERY } from 'typography-breakpoint-constants'
-
-export const theme = {
+const colors = {
   white: '#fff',
-  htmlBgGradient: 'linear-gradient(275deg, #813772, #b82601)',
-  headerBgColor: '#062f4f',
-  headerColor: '#fff',
+  gray: '#e5e5e5',
+  red: '#e32',
+  blue: '#062f4f',
 }
 
-export const responsiveTitleMargins = css`
-  margin: ${rhythm(1)} 0;
-  transition: all 0.1s ease-in;
-  ${MIN_TABLET_MEDIA_QUERY} {
-    margin: ${rhythm(2)} 0;
-  }
-`
+export const theme = {
+  white: colors.white,
+  htmlBgGradient: 'linear-gradient(275deg, #813772, #b82601)',
+  headerColor: colors.red,
+  topBarBgColor: colors.blue,
+  topBarColor: colors.white,
+  codeBgColor: colors.gray,
+  codeColor: colors.red,
+}

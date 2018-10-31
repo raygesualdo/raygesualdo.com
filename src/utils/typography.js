@@ -1,9 +1,10 @@
 import Typography from 'typography'
 import SternGrove from 'typography-theme-stern-grove'
+import { theme } from './theme'
 
 const typography = new Typography({
   ...SternGrove,
-  headerColor: '#e32',
+  headerColor: theme.headerColor,
   overrideThemeStyles: (vr, options, styles) => ({
     a: {
       textDecoration: 'underline',

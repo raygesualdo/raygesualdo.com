@@ -13,8 +13,8 @@ const undecoratedStyles = css`
 `
 
 export const HeaderBackground = styled.div`
-  background-color: ${get('theme.headerBgColor')};
-  color: ${get('theme.headerColor')};
+  background-color: ${get('theme.topBarBgColor')};
+  color: ${get('theme.topBarColor')};
   font-family: ${options.headerFontFamily.join(',')};
 `
 
