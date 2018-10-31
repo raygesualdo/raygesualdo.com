@@ -8,6 +8,9 @@ const typography = new Typography({
     a: {
       textDecoration: 'underline',
     },
+    code: {
+      lineHeight: vr.rhythm(3 / 4),
+    },
   }),
 })
 
