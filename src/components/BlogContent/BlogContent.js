@@ -19,7 +19,6 @@ const BlogContent = styled.div`
     border: none;
     border-radius: 2px;
     box-shadow: none;
-    color: #fff;
   }
 `
 
