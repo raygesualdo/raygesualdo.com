@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { get } from 'lodash/fp'
 import { rhythm, scale, options } from '../../utils/typography'
 
 const BlogContent = styled.div`
@@ -19,6 +20,8 @@ const BlogContent = styled.div`
     border: none;
     border-radius: 2px;
     box-shadow: none;
+    background-color: ${get('theme.codeBgColor')};
+    color: ${get('theme.codeColor')};
   }
 `
 
