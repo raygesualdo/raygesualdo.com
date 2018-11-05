@@ -1,6 +1,8 @@
 const colors = {
   white: '#fff',
   gray: '#e5e5e5',
+  grayLight: '#eee',
+  grayLightest: '#f5f5f5',
   red: '#e32',
   blue: '#062f4f',
 }
@@ -11,6 +13,6 @@ export const theme = {
   headerColor: colors.red,
   topBarBgColor: colors.blue,
   topBarColor: colors.white,
-  codeBgColor: colors.gray,
+  codeBgColor: colors.grayLight,
   codeColor: colors.red,
 }
