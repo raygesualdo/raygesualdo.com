@@ -24,7 +24,7 @@ const ResourceLink = props => {
 const Talk = talk => (
   <Article>
     <TalkTitle id={slug(talk.title)}>
-      <TalkTitleAnchor href={slug(talk.title)}>#</TalkTitleAnchor>
+      <TalkTitleAnchor href={'#' + slug(talk.title)}>#</TalkTitleAnchor>
       {talk.title}
     </TalkTitle>
     <TalkResourceList>
