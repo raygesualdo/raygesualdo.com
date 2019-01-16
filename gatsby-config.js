@@ -22,6 +22,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/content/til`,
+        name: 'til',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/content/pages`,
         name: 'pages',
       },
@@ -52,7 +59,12 @@ module.exports = {
               wrapperStyle: 'margin-bottom: 1.0725rem',
             },
           },
-          'gatsby-remark-prismjs',
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              showLineNumbers: true,
+            },
+          },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
         ],
@@ -89,26 +101,28 @@ module.exports = {
                 guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                 custom_elements: [{ 'content:encoded': edge.node.html }],
               })),
-            query: `
-            {
-              allMarkdownRemark(
-                limit: 100,
-                sort: { order: DESC, fields: [frontmatter___date] },
-                filter: { fileAbsolutePath: { glob: "**/posts/**" } }
-              ) {
-                edges {
-                  node {
-                    excerpt
-                    html
-                    fields { slug }
-                    frontmatter {
-                      title
-                      date
+            query: /* GraphQL */ `
+              {
+                allMarkdownRemark(
+                  limit: 100
+                  sort: { order: DESC, fields: [frontmatter___date] }
+                  filter: { fileAbsolutePath: { glob: "**/posts/**" } }
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields {
+                        slug
+                      }
+                      frontmatter {
+                        title
+                        date
+                      }
                     }
                   }
                 }
               }
-            }
             `,
             output: '/feed.xml',
           },

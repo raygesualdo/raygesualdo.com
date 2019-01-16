@@ -63,6 +63,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const parent = getNode(node.parent)
+
+    if (parent.sourceInstanceName !== 'til') {
     const pathPrefix = parent.sourceInstanceName === 'posts' ? '/posts' : ''
     const value = `${pathPrefix}${createFilePath({ node, getNode })}`
 
@@ -71,6 +73,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     })
+    }
+    if (parent.sourceInstanceName === 'til') {
+      const [, value] = node.fileAbsolutePath.match(/(\d{4}-\d{2}-\d{2})\.md/)
+      createNodeField({
+        name: 'date',
+        node,
+        value,
+      })
+    }
     createNodeField({
       name: 'contentGroup',
       node,
