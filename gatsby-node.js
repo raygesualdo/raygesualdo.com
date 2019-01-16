@@ -37,6 +37,10 @@ const pageSets = [
   { query: pagesQuery, component: pageTemplate },
   { query: blogPostsQuery, component: blogPostTemplate },
 ]
+const createTimestampedPath = node => {
+  const datePath = node.frontmatter.date.slice(0, 10).replace(/-/g, '/')
+  return `/posts/${datePath}`
+}
 
 exports.createPages = ({ graphql, actions, getNode }) => {
   const { createPage } = actions
@@ -65,14 +69,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const parent = getNode(node.parent)
 
     if (parent.sourceInstanceName !== 'til') {
-    const pathPrefix = parent.sourceInstanceName === 'posts' ? '/posts' : ''
-    const value = `${pathPrefix}${createFilePath({ node, getNode })}`
+      // const pathPrefix = parent.sourceInstanceName === 'posts' ? '/posts' : ''
+      const pathPrefix =
+        parent.sourceInstanceName === 'posts' ? createTimestampedPath(node) : ''
+      const value = `${pathPrefix}${createFilePath({ node, getNode })}`
+      console.log(`Path prefix: ${pathPrefix}`)
+      console.log(`Slug: ${value}`)
 
-    createNodeField({
-      name: 'slug',
-      node,
-      value,
-    })
+      createNodeField({
+        name: 'slug',
+        node,
+        value,
+      })
     }
     if (parent.sourceInstanceName === 'til') {
       const [, value] = node.fileAbsolutePath.match(/(\d{4}-\d{2}-\d{2})\.md/)
