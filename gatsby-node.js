@@ -73,8 +73,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       const pathPrefix =
         parent.sourceInstanceName === 'posts' ? createTimestampedPath(node) : ''
       const value = `${pathPrefix}${createFilePath({ node, getNode })}`
-      console.log(`Path prefix: ${pathPrefix}`)
-      console.log(`Slug: ${value}`)
 
       createNodeField({
         name: 'slug',
