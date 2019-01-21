@@ -1,6 +1,7 @@
 import React from 'react'
 import slug from 'slug'
-import { Article, TalkTitle, TalkTitleAnchor } from '../Talk/styles'
+import { Article } from './styles'
+import { TalkTitle, TalkTitleAnchor } from '../Talk/styles'
 
 const Til = til => (
   <Article>
