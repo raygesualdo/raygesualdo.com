@@ -38,7 +38,10 @@ const pageSets = [
   { query: blogPostsQuery, component: blogPostTemplate },
 ]
 const createTimestampedPath = node => {
-  const datePath = node.frontmatter.date.slice(0, 10).replace(/-/g, '/')
+  const datePath = node.frontmatter.date
+    .toISOString()
+    .split('T')[0]
+    .replace(/-/g, '/')
   return `/posts/${datePath}`
 }
 
