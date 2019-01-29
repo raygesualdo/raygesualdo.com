@@ -35,6 +35,7 @@ export const pageQuery = graphql`
           fields {
             date(formatString: "MMMM DD, YYYY")
             rawDate: date
+            slug
           }
         }
       }

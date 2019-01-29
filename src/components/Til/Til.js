@@ -1,14 +1,16 @@
 import React from 'react'
-import slug from 'slug'
-import { Article } from './styles'
-import { TalkTitle, TalkTitleAnchor } from '../Talk/styles'
+import { Link } from 'gatsby'
+import { Article, TilTitle, TilPermalink } from './styles'
+import { IconPaperclip } from '../Icons/Icons'
 
 const Til = til => (
   <Article>
-    <TalkTitle id={slug(til.fields.rawDate)}>
-      <TalkTitleAnchor href={'#' + slug(til.fields.rawDate)}>#</TalkTitleAnchor>
+    <TilTitle>
       {til.fields.date}
-    </TalkTitle>
+      <TilPermalink>
+        <Link to={til.fields.slug}><IconPaperclip /></Link>
+      </TilPermalink>
+    </TilTitle>
     <div dangerouslySetInnerHTML={{ __html: til.html }} />
   </Article>
 )
