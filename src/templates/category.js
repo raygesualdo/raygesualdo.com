@@ -50,6 +50,7 @@ export const pageQuery = graphql`
           fields {
             slug
           }
+          excerpt
           timeToRead
           wordCount {
             paragraphs
