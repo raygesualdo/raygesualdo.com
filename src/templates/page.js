@@ -9,7 +9,7 @@ const PageTemplate = props => {
     page,
     settings,
     site: {
-      meta: { siteTitle, siteUrl },
+      meta: { siteUrl },
     },
   } = props.data
   return (

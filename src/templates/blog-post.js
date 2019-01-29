@@ -11,7 +11,7 @@ const BlogPostTemplate = props => {
     post,
     settings,
     site: {
-      meta: { siteTitle, siteUrl },
+      meta: { siteUrl },
     },
   } = props.data
   return (
