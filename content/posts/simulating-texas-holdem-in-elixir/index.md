@@ -1,6 +1,7 @@
 ---
 title: Simulating Texas Hold'em in Elixir
 date: 2018-08-28
+category: code
 ---
 
 A few weeks ago, [Todd Sharp](https://twitter.com/recursivecodes) wrote an article called ["Simulating Texas Hold'em in Groovy"](https://recursive.codes/blog/post/40) where, no surprise, he simulated a Texas Hold'em hand in Groovy. At the end of the article, he welcomed others to do the same in different languages. I've started looking into Elixir recently and thought it would be a great language in which to replicate the experiment as best I could.
@@ -99,7 +100,7 @@ def initial_deal(deck, player_count) do
         card
       end)
     end)
-    |> List.zip()  
+    |> List.zip()
 
   {hands, deck}
 end

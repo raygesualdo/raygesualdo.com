@@ -1,9 +1,10 @@
 ---
 title: Lessons Learned My First Time Travelling to Speak at a Conference
 date: 2018-04-06
+category: speaking
 ---
 
-![Plane wing over clouds](./samuel-tan-401825-unsplash.jpg "What I wished my view was like.")
+![Plane wing over clouds](./samuel-tan-401825-unsplash.jpg 'What I wished my view was like.')
 
 At the end of March, I had the opportunity to speak at [JazzCon](https://jazzcon.tech/) in New Orleans. It was an incredible conference. I'm fairly new to conference speaking (this was only my second time) and JazzCon was the first time I'd had to travel to speak. There were quite a few things I learned so I collected them here. I hope you find them helpful. Here we go.
 
@@ -45,8 +46,8 @@ Travelling can be stressful. Speaking can be stressful. Mash those two together 
 
 - [@jonkemp](https://twitter.com/jonkemp): "I would add, try to get your employer to cover the cost of travel. I've been fortunate to have all of my expenses so far covered by work!" ([Source](https://twitter.com/jonkemp/status/982694721289179136))
 - [@jcreamer898](https://twitter.com/jcreamer898): "+1 on eating at Mother's. 😜 To me, conferences are as much about people as they are about content." ([Source](https://twitter.com/jcreamer898/status/982795738781552640))
-- [@DerikWhittaker](https://twitter.com/DerikWhittaker): "Don't forget to attend sessions.  As a speaker you should make an effort to attend a few sessions." ([Source](https://twitter.com/DerikWhittaker/status/982376446697107461))
-- [@MaximumGilliard](https://twitter.com/MaximumGilliard): "One thing which served me very well @devnexus was to seek out friends or friends of friends who were attending, via Twitter and through my company before I went.  I'm naturally a bit of an introvert so having some people who I'd already arranged to meet was a big help." ([Source](https://twitter.com/MaximumGilliard/status/982371116642635777))
+- [@DerikWhittaker](https://twitter.com/DerikWhittaker): "Don't forget to attend sessions. As a speaker you should make an effort to attend a few sessions." ([Source](https://twitter.com/DerikWhittaker/status/982376446697107461))
+- [@MaximumGilliard](https://twitter.com/MaximumGilliard): "One thing which served me very well @devnexus was to seek out friends or friends of friends who were attending, via Twitter and through my company before I went. I'm naturally a bit of an introvert so having some people who I'd already arranged to meet was a big help." ([Source](https://twitter.com/MaximumGilliard/status/982371116642635777))
 
 Thank you to everyone who provided feedback!
 

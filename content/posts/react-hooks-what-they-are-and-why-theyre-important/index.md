@@ -1,6 +1,7 @@
 ---
 title: "React Hooks: What They Are and Why They're Important"
 date: 2018-11-05
+category: code
 ---
 
 [Sophie Alpert][satwitter] and [Dan Abramov][datwitter] showcased hooks, React's newest upcoming feature, at ReactConf this year. At first glance, I thought they seemed strange and frankly unhelpful. But as I've worked with them and worked through the spec and documentation, I'm now of a very different opinion. I - along with many others - think hooks are the future of React. In this first article in a 3 part series, I'll discuss what hooks are and why I think they're important for React ecosystem. The second article will deep dive into the specific APIs of each hook included in React. The third article will walk through refactoring a render prop component into a custom hook, in my opinion one of the most interesting aspects of the hooks specification.

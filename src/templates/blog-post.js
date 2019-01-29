@@ -35,6 +35,7 @@ const BlogPostTemplate = props => {
         title={post.frontmatter.title}
         date={post.frontmatter.date}
         timeToRead={post.timeToRead}
+        category={post.frontmatter.category}
       />
       <BlogContent dangerouslySetInnerHTML={{ __html: post.html }} />
     </Layout>
@@ -62,6 +63,10 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM D, YYYY")
+        category {
+          slug
+          name
+        }
       }
       fields {
         slug

@@ -1,10 +1,16 @@
+const siteMetadata = {
+  title: 'Ray Gesualdo',
+  description: 'The personal site of Ray Gesualdo.',
+  author: 'Ray Gesualdo',
+  siteUrl: 'https://www.raygesualdo.com',
+}
+const mapping = {
+  'MarkdownRemark.frontmatter.category': 'CategoriesYaml.slug',
+}
+
 module.exports = {
-  siteMetadata: {
-    title: 'Ray Gesualdo',
-    description: 'The personal site of Ray Gesualdo.',
-    author: 'Ray Gesualdo',
-    siteUrl: 'https://www.raygesualdo.com',
-  },
+  siteMetadata,
+  mapping,
   plugins: [
     {
       resolve: '@raygesualdo/gatsby-plugin-settings',
@@ -38,6 +44,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/talks`,
         name: 'talks',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/categories`,
+        name: 'categories',
       },
     },
     {

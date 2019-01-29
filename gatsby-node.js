@@ -33,9 +33,41 @@ const blogPostsQuery = /* GraphQL */ `
     }
   }
 `
+const tilTemplate = path.resolve('./src/templates/til.js')
+const tilQuery = /* GraphQL */ `
+  {
+    collection: allMarkdownRemark(
+      filter: { fields: { contentGroup: { eq: "til" } } }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`
+const categoriesTemplate = path.resolve('./src/templates/category.js')
+const categoriesQuery = /* GraphQL */ `
+  {
+    collection: allCategoriesYaml {
+      edges {
+        node {
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`
 const pageSets = [
   { query: pagesQuery, component: pageTemplate },
   { query: blogPostsQuery, component: blogPostTemplate },
+  { query: tilQuery, component: tilTemplate },
+  { query: categoriesQuery, component: categoriesTemplate },
 ]
 const createTimestampedPath = node => {
   const datePath = node.frontmatter.date
@@ -45,7 +77,7 @@ const createTimestampedPath = node => {
   return `/posts/${datePath}`
 }
 
-exports.createPages = ({ graphql, actions, getNode }) => {
+exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   pageSets.forEach(async ({ query, component }) => {
     const response = await graphql(query)
@@ -71,8 +103,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const parent = getNode(node.parent)
 
-    if (parent.sourceInstanceName !== 'til') {
-      // const pathPrefix = parent.sourceInstanceName === 'posts' ? '/posts' : ''
+    if (['pages', 'posts'].includes(parent.sourceInstanceName)) {
       const pathPrefix =
         parent.sourceInstanceName === 'posts' ? createTimestampedPath(node) : ''
       const value = `${pathPrefix}${createFilePath({ node, getNode })}`
@@ -85,16 +116,29 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
     if (parent.sourceInstanceName === 'til') {
       const [, value] = node.fileAbsolutePath.match(/(\d{4}-\d{2}-\d{2})\.md/)
+      const slug = `til/${value}`
       createNodeField({
         name: 'date',
         node,
         value,
+      })
+      createNodeField({
+        name: 'slug',
+        node,
+        value: slug,
       })
     }
     createNodeField({
       name: 'contentGroup',
       node,
       value: parent.sourceInstanceName,
+    })
+  }
+  if (node.internal.type === 'CategoriesYaml') {
+    createNodeField({
+      name: 'slug',
+      node,
+      value: `category/${node.slug}`,
     })
   }
 }
