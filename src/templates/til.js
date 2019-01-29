@@ -9,7 +9,7 @@ import BlogContent from '../components/BlogContent/BlogContent'
 const TilTemplate = props => (
   <Layout>
     <Helmet>
-      <title>Today I Learned</title>
+      <title>{`Today I Learned: ${props.data.til.fields.date}`}</title>
     </Helmet>
     <PageTitle title={props.data.til.fields.date} />
     <PageLayout>

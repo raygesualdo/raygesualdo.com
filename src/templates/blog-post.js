@@ -17,7 +17,7 @@ const BlogPostTemplate = props => {
   return (
     <Layout>
       <Helmet>
-        <title>{`${post.frontmatter.title} | ${siteTitle}`}</title>
+        <title>{post.frontmatter.title}</title>
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.frontmatter.title} />
         <meta

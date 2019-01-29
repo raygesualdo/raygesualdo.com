@@ -15,7 +15,7 @@ const PageTemplate = props => {
   return (
     <Layout>
       <Helmet>
-        <title>{`${page.frontmatter.title} | ${siteTitle}`}</title>
+        <title>{page.frontmatter.title}</title>
         <meta property="og:type" content="website" />
         <meta property="og:title" content={page.frontmatter.title} />
         <meta
