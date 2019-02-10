@@ -54,6 +54,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: siteMetadata.siteUrl,
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
