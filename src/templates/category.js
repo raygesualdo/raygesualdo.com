@@ -18,7 +18,11 @@ const CategoryTemplate = props => {
       <PageTitle title={`Category: ${props.data.category.name}`} />
       <PageLayout>
         {posts.map(({ node: post }) => (
-          <ArticleBlock key={post.fields.slug} post={post} />
+          <ArticleBlock
+            key={post.fields.slug}
+            post={post}
+            showCategory={false}
+          />
         ))}
       </PageLayout>
     </Layout>
