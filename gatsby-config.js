@@ -107,6 +107,7 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-plugin-feed',
       options: {
