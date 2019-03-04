@@ -70,32 +70,29 @@ const pageSets = [
   { query: categoriesQuery, component: categoriesTemplate },
 ]
 const createTimestampedPath = node => {
-  const datePath = node.frontmatter.date
-    .toISOString()
-    .split('T')[0]
-    .replace(/-/g, '/')
+  const datePath = node.frontmatter.date.split('T')[0].replace(/-/g, '/')
   return `/posts/${datePath}`
 }
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-  pageSets.forEach(async ({ query, component }) => {
-    const response = await graphql(query)
-    if (response.errors) {
-      console.error(response.errors)
-      throw new Error(response.errors)
-    }
-    response.data.collection.edges.forEach(({ node }) => {
-      createPage({
-        path: node.fields.slug,
-        component,
-        context: {
-          slug: node.fields.slug,
-        },
+exports.createPages = ({ graphql, actions: { createPage } }) =>
+  Promise.all(
+    pageSets.map(async ({ query, component }) => {
+      const response = await graphql(query)
+      if (response.errors) {
+        console.error(response.errors)
+        throw new Error(response.errors)
+      }
+      response.data.collection.edges.forEach(({ node }) => {
+        createPage({
+          path: node.fields.slug,
+          component,
+          context: {
+            slug: node.fields.slug,
+          },
+        })
       })
     })
-  })
-}
+  )
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
