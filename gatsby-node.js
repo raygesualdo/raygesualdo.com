@@ -125,17 +125,5 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         value: slug,
       })
     }
-    createNodeField({
-      name: 'contentGroup',
-      node,
-      value: parent.sourceInstanceName,
-    })
-  }
-  if (node.internal.type === 'CategoriesYaml') {
-    createNodeField({
-      name: 'slug',
-      node,
-      value: `category/${node.slug}`,
-    })
   }
 }

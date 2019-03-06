@@ -5,7 +5,7 @@ const siteMetadata = {
   siteUrl: 'https://www.raygesualdo.com',
 }
 const mapping = {
-  'MarkdownRemark.frontmatter.category': 'CategoriesYaml.slug',
+  // 'MarkdownRemark.frontmatter.category': 'CategoriesYaml.slug',
 }
 
 module.exports = {
@@ -107,6 +107,8 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    'local-categories',
+    'local-add-content-group',
     'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-plugin-feed',
