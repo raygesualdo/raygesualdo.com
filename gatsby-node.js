@@ -55,43 +55,57 @@ const categoriesQuery = /* GraphQL */ `
     collection: allCategoriesYaml {
       edges {
         node {
-          fields {
-            slug
-          }
+          slug
         }
       }
     }
   }
 `
+const categoriesGetPath = node => `category/${node.slug}`
+const categoriesGetContextSlug = node => node.slug
 const pageSets = [
   { query: pagesQuery, component: pageTemplate },
   { query: blogPostsQuery, component: blogPostTemplate },
   { query: tilQuery, component: tilTemplate },
-  { query: categoriesQuery, component: categoriesTemplate },
+  {
+    query: categoriesQuery,
+    component: categoriesTemplate,
+    getPath: categoriesGetPath,
+    getContextSlug: categoriesGetContextSlug,
+  },
 ]
 const createTimestampedPath = node => {
   const datePath = node.frontmatter.date.split('T')[0].replace(/-/g, '/')
   return `/posts/${datePath}`
 }
 
+const getSlug = node => node.fields.slug
+
 exports.createPages = ({ graphql, actions: { createPage } }) =>
   Promise.all(
-    pageSets.map(async ({ query, component }) => {
-      const response = await graphql(query)
-      if (response.errors) {
-        console.error(response.errors)
-        throw new Error(response.errors)
-      }
-      response.data.collection.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component,
-          context: {
-            slug: node.fields.slug,
-          },
+    pageSets.map(
+      async ({
+        query,
+        component,
+        getPath = getSlug,
+        getContextSlug = getSlug,
+      }) => {
+        const response = await graphql(query)
+        if (response.errors) {
+          console.error(response.errors)
+          throw new Error(response.errors)
+        }
+        response.data.collection.edges.forEach(({ node }) => {
+          createPage({
+            path: getPath(node),
+            component,
+            context: {
+              slug: getContextSlug(node),
+            },
+          })
         })
-      })
-    })
+      }
+    )
   )
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
