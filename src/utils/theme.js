@@ -5,6 +5,19 @@ const colors = {
   grayLightest: '#f5f5f5',
   red: '#e32',
   blue: '#062f4f',
+  green: '#78CEA6',
+  // green: '#67B382',
+  lightgreen: '#97C7A6',
+  yellow: '#F0AD4A',
+  lightyellow: '#E8C78E',
+  // lightyellow: '#F5CD90',
+  orange: '#E27A40',
+  beige: '#B8B39C',
+  darkgray: '#8A949E',
+  brown: '#946544',
+  bluegray: '#719596',
+  lightblue: '#ACCFD0',
+  purple: '#9CA1BC',
 }
 
 export const theme = {
@@ -15,4 +28,5 @@ export const theme = {
   topBarColor: colors.white,
   codeBgColor: colors.grayLight,
   codeColor: colors.red,
+  colors,
 }

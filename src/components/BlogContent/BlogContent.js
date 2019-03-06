@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { get } from 'lodash/fp'
 import { rhythm, scale, options } from '../../utils/typography'
+import { prismTheme } from '../../utils/styles'
 
 const BlogContent = styled.div`
   .gatsby-highlight {
@@ -15,7 +16,7 @@ const BlogContent = styled.div`
     font-style: italic;
   }
 
-  *:not(pre) > code[class*='language-'] {
+  ${prismTheme} *:not(pre) > code[class*='language-'] {
     padding: 0.2em 0.4em 0.15em;
     border: none;
     border-radius: 2px;
