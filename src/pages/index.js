@@ -40,9 +40,9 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM D, YYYY")
             title
-            category {
-              slug
+            category: categoryData {
               name
+              slug
             }
           }
           fields {

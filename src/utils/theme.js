@@ -3,16 +3,33 @@ const colors = {
   gray: '#e5e5e5',
   grayLight: '#eee',
   grayLightest: '#f5f5f5',
-  red: '#e32',
+  red: 'hsl(5, 86%, 53%)',
+  blueLighter: 'hsla(206, 86%, 67%, 1)',
+  blueLight: 'hsla(206, 86%, 47%, 1)',
   blue: '#062f4f',
+  blueDark: 'hsla(206, 86%, 5%, 1)',
 }
 
-export const theme = {
-  white: colors.white,
-  htmlBgGradient: 'linear-gradient(275deg, #813772, #b82601)',
+export const lightTheme = {
+  bodyBgColor: colors.white,
+  textColor: colors.black,
+  linkColor: colors.blueLight,
   headerColor: colors.red,
   topBarBgColor: colors.blue,
   topBarColor: colors.white,
   codeBgColor: colors.grayLight,
   codeColor: colors.red,
 }
+
+export const darkTheme = {
+  bodyBgColor: colors.blueDark,
+  textColor: colors.gray,
+  linkColor: colors.blueLighter,
+  headerColor: colors.red,
+  topBarBgColor: colors.blue,
+  topBarColor: colors.white,
+  codeBgColor: colors.grayLight,
+  codeColor: colors.red,
+}
+
+export const theme = lightTheme

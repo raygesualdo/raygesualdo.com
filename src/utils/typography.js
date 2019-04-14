@@ -6,7 +6,11 @@ const typography = new Typography({
   ...SternGrove,
   headerColor: theme.headerColor,
   overrideThemeStyles: (vr, options, styles) => ({
+    body: {
+      color: null,
+    },
     a: {
+      color: null,
       textDecoration: 'underline',
     },
     code: {
