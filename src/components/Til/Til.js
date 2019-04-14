@@ -8,7 +8,9 @@ const Til = til => (
     <TilTitle>
       {til.fields.date}
       <TilPermalink>
-        <Link to={til.fields.slug}><IconPaperclip /></Link>
+        <Link to={'/' + til.fields.slug}>
+          <IconPaperclip />
+        </Link>
       </TilPermalink>
     </TilTitle>
     <div dangerouslySetInnerHTML={{ __html: til.html }} />

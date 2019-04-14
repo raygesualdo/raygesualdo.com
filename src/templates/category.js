@@ -6,13 +6,13 @@ import PageTitle from '../components/PageTitle/PageTitle'
 import PageLayout from '../components/PageLayout/PageLayout'
 import ArticleBlock from '../components/ArticleBlock/ArticleBlock'
 
-const CategoryTemplate = props => {
+const CategoryTemplate = ({ data: { category } }) => {
   return (
     <Layout>
-      <Helmet title={`Category: ${props.data.category.name}`} />
-      <PageTitle title={`Category: ${props.data.category.name}`} />
+      <Helmet title={`Category: ${category.name}`} />
+      <PageTitle title={`Category: ${category.name}`} />
       <PageLayout>
-        {props.data.posts.nodes.map(post => (
+        {category.posts.nodes.map(post => (
           <ArticleBlock
             key={post.fields.slug}
             post={post}
@@ -31,29 +31,26 @@ export const pageQuery = graphql`
     category: categoriesYaml(slug: { eq: $slug }) {
       slug
       name
-    }
-    posts: allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: $slug } } }
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      nodes {
-        frontmatter {
-          title
-          date(formatString: "YYYY-MM-DD")
-          category: categoryData {
-            name
+      posts(sort: { fields: frontmatter___date, order: DESC }) {
+        nodes {
+          frontmatter {
+            title
+            date(formatString: "YYYY-MM-DD")
+            category: categoryData {
+              name
+              slug
+            }
+          }
+          fields {
             slug
           }
-        }
-        fields {
-          slug
-        }
-        excerpt
-        timeToRead
-        wordCount {
-          paragraphs
-          sentences
-          words
+          excerpt
+          timeToRead
+          wordCount {
+            paragraphs
+            sentences
+            words
+          }
         }
       }
     }

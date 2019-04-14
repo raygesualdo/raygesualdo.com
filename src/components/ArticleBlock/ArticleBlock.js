@@ -9,16 +9,15 @@ const ArticleBlock = ({ post, showCategory }) => (
     </Title>
     <Date>
       {post.frontmatter.date} | {post.timeToRead} Minute Read
-      {post.frontmatter.category &&
-        showCategory && (
-          <Fragment>
-            {' '}
-            | Category:{' '}
-            <Link to={`category/${post.frontmatter.category.slug}`}>
-              {post.frontmatter.category.name}
-            </Link>
-          </Fragment>
-        )}
+      {post.frontmatter.category && showCategory && (
+        <Fragment>
+          {' '}
+          | Category:{' '}
+          <Link to={`/category/${post.frontmatter.category.slug}`}>
+            {post.frontmatter.category.name}
+          </Link>
+        </Fragment>
+      )}
     </Date>
     <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
   </Article>

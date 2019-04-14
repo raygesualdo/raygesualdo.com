@@ -11,7 +11,7 @@ const BlogTitle = props => (
         <Fragment>
           {' '}
           | Category:{' '}
-          <Link to={`category/${props.category.slug}`}>
+          <Link to={`/category/${props.category.slug}`}>
             {props.category.name}
           </Link>
         </Fragment>
