@@ -36,6 +36,7 @@ exports.createResolvers = ({ createResolvers }) => {
             args,
             context,
             info,
+            projection: {},
           })
           return data
         },
