@@ -117,7 +117,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     if (['pages', 'posts'].includes(parent.sourceInstanceName)) {
       const pathPrefix =
         parent.sourceInstanceName === 'posts' ? createTimestampedPath(node) : ''
-      const value = `${pathPrefix}${createFilePath({ node, getNode })}`
+      const filepath = createFilePath({ node, getNode }).replace(
+        /^\/\d{3}-/,
+        '/'
+      )
+      const value = `${pathPrefix}${filepath}`
 
       createNodeField({
         name: 'slug',
