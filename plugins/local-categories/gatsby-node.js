@@ -32,12 +32,12 @@ exports.createResolvers = ({ createResolvers }) => {
             filter: { frontmatter: { category: { eq: source.slug } } },
           })
           const typeName = 'MarkdownRemark'
-          const data = await findManyPaginated(typeName)({
+          const data = await findManyPaginated(typeName)(
+            source,
             args,
             context,
-            info,
-            projection: {},
-          })
+            info
+          )
           return data
         },
       },
