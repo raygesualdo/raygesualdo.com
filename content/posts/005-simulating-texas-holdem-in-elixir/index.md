@@ -12,7 +12,7 @@ For those unfamiliar with Texas Hold'em, I'll quote Todd's article as he include
 
 With our poker knowledge now fully intact, let's dive in. While I could have kept all the logic in a single Elixir script file (`.exs`), I decided to create a whole project.
 
-```sh
+```shell
 mix new texas_holdem
 ```
 
@@ -243,7 +243,7 @@ end
 
 Here is the resulting console output from calling `TexasHoldem.main/0` in `iex`:
 
-```sh
+```shell
 Shuffled Deck --> ["Q♠️", "7♣️", "10♦️", "Q♣️", "9♦️", "A♣️", "10♣️", "5♠️", "A♠️", "7♠️", "6❤️", "9♠️", "7❤️", "7♦️", "A❤️", "6♦️", "8♠️", "J♠️", "4❤️", "5♦️", "J❤️", "9❤️", "K♠️", "5♣️", "Q♦️", "3♣️", "J♦️", "2♠️", "9♣️", "8♣️", "3♠️", "4♣️", "6♣️","Q❤️", "J♣️", "2♦️", "4♦️", "2♣️", "3♦️", "K❤️", "K♦️", "8❤️", "2❤️", "6♠️", "10❤️","K♣️", "4♠️", "8♦️", "A♦️", "3❤️", "5❤️", "10♠️"]
 Player Hands --> [["Q♠️", "A♣️"], ["7♣️", "10♣️"], ["10♦️", "5♠️"], ["Q♣️", "A♠️"], ["9♦️", "7♠️"]]
 Flop --> ["9♠️", "7❤️", "7♦️"]
