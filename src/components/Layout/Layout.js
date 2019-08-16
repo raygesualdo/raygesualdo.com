@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 import { rhythm } from '../../utils/typography'
 import { GlobalStyles } from '../GlobalStyles/GlobalStyles'
 import { ThemeModeProvider } from '../ThemeProvider/ThemeProvider'
@@ -22,6 +23,7 @@ const Layout = ({ children }) => (
       <GlobalStyles />
       <Header />
       <Content>{children}</Content>
+      <Footer />
     </Fragment>
   </ThemeModeProvider>
 )

@@ -1,9 +1,12 @@
 const colors = {
   white: '#fff',
+  grayDarkest: '#b2b2b2',
+  grayDark: '#cecece',
   gray: '#e5e5e5',
   grayLight: '#eee',
   grayLightest: '#f5f5f5',
   red: 'hsl(5, 86%, 53%)',
+  blueGray: 'hsl(206, 15%, 43%)',
   blueLighter: 'hsla(206, 86%, 67%, 1)',
   blueLight: 'hsla(206, 86%, 47%, 1)',
   blue: '#062f4f',
@@ -19,6 +22,8 @@ export const lightTheme = {
   topBarColor: colors.white,
   codeBgColor: colors.grayLight,
   codeColor: colors.red,
+  footerColor: colors.blueGray,
+  blockQuoteColor: 'hsla(0,0%,0%,0.03)',
 }
 
 export const darkTheme = {
@@ -30,6 +35,8 @@ export const darkTheme = {
   topBarColor: colors.white,
   codeBgColor: colors.grayLight,
   codeColor: colors.red,
+  footerColor: colors.blueGray,
+  blockQuoteColor: 'hsla(0, 0%, 100%, 0.97)',
 }
 
 export const theme = lightTheme
