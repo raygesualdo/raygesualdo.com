@@ -8,13 +8,12 @@ exports.createResolvers = ({ createResolvers }) => {
     MarkdownRemarkFrontmatter: {
       categoryData: {
         type: 'CategoriesYaml',
-        async resolve(source, args, context) {
-          const data = await context.nodeModel.runQuery({
+        resolve(source, args, context) {
+          return context.nodeModel.runQuery({
             type: 'CategoriesYaml',
             query: { filter: { slug: { eq: source.category } } },
             firstOnly: true,
           })
-          return data
         },
       },
     },
@@ -27,18 +26,12 @@ exports.createResolvers = ({ createResolvers }) => {
           skip: 'Int',
           limit: 'Int',
         },
-        async resolve(source, args, context, info) {
+        resolve(source, args, context, info) {
           merge(args, {
             filter: { frontmatter: { category: { eq: source.slug } } },
           })
           const typeName = 'MarkdownRemark'
-          const data = await findManyPaginated(typeName)({
-            args,
-            context,
-            info,
-            projection: {},
-          })
-          return data
+          return findManyPaginated(typeName)(source, args, context, info)
         },
       },
     },
