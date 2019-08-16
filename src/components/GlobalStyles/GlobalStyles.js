@@ -9,5 +9,9 @@ export const GlobalStyles = createGlobalStyle`
   
   a {
     color: ${get('theme.linkColor')};
+
+    &.anchor svg path {
+      stroke: currentColor;
+    }
   }
 `
