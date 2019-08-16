@@ -6,8 +6,10 @@ import { lightTheme, darkTheme } from '../../utils/theme'
 export const ThemeToggleContext = createContext({})
 
 export const useThemeToggle = () => {
-  const { mode, toggleMode } = useContext(ThemeToggleContext)
-  return [mode, toggleMode]
+  const context = useContext(ThemeToggleContext)
+  if (!context)
+    throw new Error('useThemeToggle must be used with a ThemeModeProvider')
+  return [context.mode, context.toggleMode]
 }
 
 export const ThemeModeProvider = ({ children }) => {
