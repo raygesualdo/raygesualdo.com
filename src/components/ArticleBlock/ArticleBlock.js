@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
-import { Article, Title, TitleLink, Date } from './styles'
+import { Article, Title, TitleLink, Metadata } from './styles'
 
 const ArticleBlock = ({ post, showCategory }) => (
   <Article>
     <Title>
       <TitleLink to={post.fields.slug}>{post.frontmatter.title}</TitleLink>
     </Title>
-    <Date>
+    <Metadata>
       {post.frontmatter.date} | {post.timeToRead} Minute Read
       {post.frontmatter.category && showCategory && (
         <Fragment>
@@ -18,7 +18,7 @@ const ArticleBlock = ({ post, showCategory }) => (
           </Link>
         </Fragment>
       )}
-    </Date>
+    </Metadata>
     <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
   </Article>
 )

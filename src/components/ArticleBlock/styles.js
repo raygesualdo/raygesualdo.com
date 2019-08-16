@@ -15,7 +15,7 @@ export const TitleLink = styled(Link)`
   text-decoration: none;
 `
 
-export const Date = styled.div`
+export const Metadata = styled.div`
   margin-bottom: ${rhythm(1 / 4)};
   ${{ ...scale(-1 / 5) }};
   font-family: ${options.headerFontFamily.join(',')};
