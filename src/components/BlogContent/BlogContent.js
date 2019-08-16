@@ -23,6 +23,10 @@ const BlogContent = styled.div`
     background-color: ${get('theme.codeBgColor')};
     color: ${get('theme.codeColor')};
   }
+
+  blockquote {
+    background-color: ${get('theme.blockQuoteColor')};
+  }
 `
 
 export default BlogContent
