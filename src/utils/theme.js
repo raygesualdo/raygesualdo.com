@@ -23,7 +23,8 @@ export const lightTheme = {
   codeBgColor: colors.grayLight,
   codeColor: colors.red,
   footerColor: colors.blueGray,
-  blockQuoteColor: 'hsla(0,0%,0%,0.03)',
+  blockquoteBgColor: 'hsla(0,0%,0%,0.03)',
+  blockquoteBorderColor: colors.blue,
 }
 
 export const darkTheme = {
@@ -36,7 +37,8 @@ export const darkTheme = {
   codeBgColor: colors.grayLight,
   codeColor: colors.red,
   footerColor: colors.blueGray,
-  blockQuoteColor: 'hsla(0, 0%, 100%, 0.97)',
+  blockquoteBgColor: 'hsla(0, 0%, 100%, 0.2)',
+  blockquoteBorderColor: colors.blueLight,
 }
 
 export const theme = lightTheme

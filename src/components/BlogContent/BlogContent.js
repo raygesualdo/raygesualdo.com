@@ -25,7 +25,18 @@ const BlogContent = styled.div`
   }
 
   blockquote {
-    background-color: ${get('theme.blockQuoteColor')};
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: ${rhythm(1)};
+    padding-left: ${rhythm(14 / 16)};
+    padding-right: ${rhythm(1 / 2)};
+    padding-top: ${rhythm(2 / 3)};
+    padding-bottom: ${rhythm(2 / 3)};
+    line-height: ${rhythm(1)};
+    background-color: ${get('theme.blockquoteBgColor')};
+    border-left: ${rhythm(3 / 16)} solid ${get('theme.blockquoteBorderColor')};
+    font-style: italic;
   }
 `
 

@@ -16,6 +16,7 @@ const typography = new Typography({
     code: {
       lineHeight: vr.rhythm(3 / 4),
     },
+    blockquote: null,
   }),
 })
 
