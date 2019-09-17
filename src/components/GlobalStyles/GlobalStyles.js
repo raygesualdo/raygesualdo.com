@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${get('theme.bodyBgColor')};
     color: ${get('theme.textColor')};
+    scroll-behavior: smooth;
   }
   
   a {
