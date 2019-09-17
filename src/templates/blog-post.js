@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import Layout from '../components/Layout/Layout'
 import BlogTitle from '../components/BlogTitle/BlogTitle'
 import BlogContent from '../components/BlogContent/BlogContent'
-import './prism-xonokai.css'
+import './prism-atom-dark.css'
 
 const BlogPostTemplate = props => {
   const {
