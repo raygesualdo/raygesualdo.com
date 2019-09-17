@@ -90,7 +90,7 @@ app.prepare().then(() => {
 
 Lastly, I edited `dev` and `start` scripts in `package.json` to the new configuration:
 
-```javascript
+```json
 {
   "dev": "node server.js",
   "start": "NODE_ENV=production node server.js"
