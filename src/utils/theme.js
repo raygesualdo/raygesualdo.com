@@ -11,6 +11,7 @@ const colors = {
   blueLight: 'hsla(206, 86%, 47%, 1)',
   blue: '#062f4f',
   blueDark: 'hsla(206, 86%, 5%, 1)',
+  black: '#111',
 }
 
 export const lightTheme = {
@@ -25,6 +26,7 @@ export const lightTheme = {
   footerColor: colors.blueGray,
   blockquoteBgColor: 'hsla(0,0%,0%,0.03)',
   blockquoteBorderColor: colors.blue,
+  codeTagBgColor: colors.gray,
 }
 
 export const darkTheme = {
@@ -39,6 +41,7 @@ export const darkTheme = {
   footerColor: colors.blueGray,
   blockquoteBgColor: 'hsla(0, 0%, 100%, 0.2)',
   blockquoteBorderColor: colors.blueLight,
+  codeTagBgColor: colors.gray,
 }
 
 export const theme = lightTheme

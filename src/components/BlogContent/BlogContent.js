@@ -4,7 +4,23 @@ import { rhythm, scale, options } from '../../utils/typography'
 
 const BlogContent = styled.div`
   .gatsby-highlight {
+    position: relative;
     margin: 0 0 ${rhythm(1)};
+
+    &:after {
+      content: attr(data-language);
+      position: absolute;
+      top: 1px;
+      right: ${rhythm(3 / 5)};
+      display: block;
+      padding: ${rhythm(3 / 20)};
+      background: ${get('theme.codeTagBgColor')};
+      font-size: ${rhythm(1 / 3)};
+      line-height: 1;
+      font-family: ${options.monospaceFontFamily.join(',')};
+      text-transform: uppercase;
+      border-radius: 0 0px 2px 2px;
+    }
   }
 
   .gatsby-resp-image-figcaption {
@@ -22,6 +38,7 @@ const BlogContent = styled.div`
     box-shadow: none;
     background-color: ${get('theme.codeBgColor')};
     color: ${get('theme.codeColor')};
+    text-shadow: none;
   }
 
   blockquote {

@@ -18,6 +18,14 @@ const typography = new Typography({
     },
     blockquote: null,
   }),
+  monospaceFontFamily: [
+    'Inconsolata',
+    'Monaco',
+    'Consolas',
+    'Courier New',
+    'Courier',
+    'monospace',
+  ],
 })
 
 // Hot reload typography in development.
