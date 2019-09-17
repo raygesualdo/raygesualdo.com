@@ -27,6 +27,7 @@ export const lightTheme = {
   blockquoteBgColor: 'hsla(0,0%,0%,0.03)',
   blockquoteBorderColor: colors.blue,
   codeTagBgColor: colors.gray,
+  codeTagColor: colors.black,
 }
 
 export const darkTheme = {
@@ -42,6 +43,7 @@ export const darkTheme = {
   blockquoteBgColor: 'hsla(0, 0%, 100%, 0.2)',
   blockquoteBorderColor: colors.blueLight,
   codeTagBgColor: colors.gray,
+  codeTagColor: colors.black,
 }
 
 export const theme = lightTheme

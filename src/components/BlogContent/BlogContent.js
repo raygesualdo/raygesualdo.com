@@ -14,6 +14,7 @@ const BlogContent = styled.div`
       right: ${rhythm(3 / 5)};
       display: block;
       padding: ${rhythm(3 / 20)};
+      color: ${get('theme.codeTagColor')};
       background: ${get('theme.codeTagBgColor')};
       font-size: ${rhythm(1 / 3)};
       line-height: 1;
