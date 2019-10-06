@@ -40,6 +40,7 @@ const BlogContent = styled.div`
     background-color: ${get('theme.codeBgColor')};
     color: ${get('theme.codeColor')};
     text-shadow: none;
+    font-style: normal;
   }
 
   blockquote {
