@@ -1,5 +1,5 @@
 ---
-title: 'Building a Lockscreen Notifier in Swift'
+title: 'Building a macOS Locked Status Notifier in Swift'
 date: 2019-10-06
 category: code
 ---
