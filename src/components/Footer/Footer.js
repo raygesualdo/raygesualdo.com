@@ -1,9 +1,9 @@
 import React from 'react'
 import { FooterLayout, LinkButton } from './styles'
-import { useThemeToggle } from '../ThemeProvider/ThemeProvider'
+import { useThemeMode } from '../useThemeMode'
 
 const Footer = () => {
-  const [, toggleMode] = useThemeToggle()
+  const [, toggleMode] = useThemeMode()
   return (
     <FooterLayout>
       Copyright © Ray Gesualdo {new Date().getFullYear()} |{' '}
