@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
 import { Layout, Title, Date } from './styles'
 
-const BlogTitle = props => (
+const BlogTitle = (props) => (
   <Layout>
     <Title>{props.title}</Title>
     <Date>

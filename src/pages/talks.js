@@ -5,7 +5,7 @@ import Layout from '../components/Layout/Layout'
 import Talk from '../components/Talk/Talk'
 import PageLayout from '../components/PageLayout/PageLayout'
 
-const Talks = props => (
+const Talks = (props) => (
   <Layout>
     <Helmet>
       <title>Talks</title>

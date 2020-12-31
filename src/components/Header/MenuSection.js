@@ -24,7 +24,7 @@ export const MenuSection = () => {
   } = useStaticQuery(query)
   return (
     <Menu role="navigation">
-      {menus.header.map(item => (
+      {menus.header.map((item) => (
         <MenuItem key={item.url}>
           <MenuLink to={item.url} title={item.title} {...item.props}>
             {item.title}

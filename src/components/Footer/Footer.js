@@ -12,7 +12,7 @@ const Footer = () => {
       </a>{' '}
       |{' '}
       <LinkButton
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault()
           toggleMode()
         }}

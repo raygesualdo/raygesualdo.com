@@ -9,7 +9,7 @@ import {
   TalkAbstract,
 } from './styles'
 
-const ResourceLink = props => {
+const ResourceLink = (props) => {
   if (!props.link) return null
   if (!props.link.startsWith('http') && !props.link.startsWith('/')) {
     return `${props.type}: ${props.link}`
@@ -21,7 +21,7 @@ const ResourceLink = props => {
   )
 }
 
-const Talk = talk => (
+const Talk = (talk) => (
   <Article>
     <TalkTitle id={slug(talk.title)}>
       <TalkTitleAnchor href={'#' + slug(talk.title)}>#</TalkTitleAnchor>

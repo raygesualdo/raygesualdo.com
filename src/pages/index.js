@@ -6,7 +6,7 @@ import Layout from '../components/Layout/Layout'
 import PageLayout from '../components/PageLayout/PageLayout'
 import ArticleBlock from '../components/ArticleBlock/ArticleBlock'
 
-const BlogIndex = props => {
+const BlogIndex = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title')
   const posts = get(props, 'data.allMarkdownRemark.edges')
   return (

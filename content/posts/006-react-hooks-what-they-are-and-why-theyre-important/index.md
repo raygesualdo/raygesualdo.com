@@ -39,7 +39,7 @@ class MyClassComponent extends Component {
   }
 
   incrementCount() {
-    this.setState(state => {
+    this.setState((state) => {
       count: state.count + 1
     })
   }
@@ -64,7 +64,7 @@ import React, { useState } from 'react'
 
 function MyFunctionComponent() {
   const [count, setCount] = useState(0)
-  const incrementCount = () => setCount(countState => countState + 1)
+  const incrementCount = () => setCount((countState) => countState + 1)
 
   return (
     <div>

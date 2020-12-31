@@ -491,7 +491,7 @@ Most of what's in the `<head>` tag is the default, minus a dynamically provided 
 Let's talk about those dynamically provided values. We're using two here: `title` and `kvdbUrl`. Like most templating engines, nunjucks allows us to inject values into our templates, but we must tell nunjucks what those values should be. The [nunjucks plugin](https://www.npmjs.com/package/parcel-plugin-nunjucks) for Parcel will automatically read a `nunjucks.config.js` file if it exists adjacent to our `package.json`. I created the file and added a minimal configuration.
 
 ```javascript
-;['TITLE', 'KVDB_URL'].forEach(key => {
+;['TITLE', 'KVDB_URL'].forEach((key) => {
   if (!process.env[key]) {
     throw new Error(`Environment variable "${key}" is required.`)
   }

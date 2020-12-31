@@ -6,7 +6,7 @@ import BlogTitle from '../components/BlogTitle/BlogTitle'
 import BlogContent from '../components/BlogContent/BlogContent'
 import './prism-atom-dark.css'
 
-const BlogPostTemplate = props => {
+const BlogPostTemplate = (props) => {
   const {
     post,
     settings,

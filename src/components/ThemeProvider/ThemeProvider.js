@@ -16,7 +16,7 @@ export const ThemeModeProvider = ({ children }) => {
   const [mode, setMode] = useLocalStorage('themeMode', 'light')
 
   const toggleMode = () =>
-    setMode(mode => (mode === 'light' ? 'dark' : 'light'))
+    setMode((mode) => (mode === 'light' ? 'dark' : 'light'))
   const theme = mode === 'light' ? lightTheme : darkTheme
 
   return (
