@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import Layout from '../components/Layout/Layout'
 import PageTitle from '../components/PageTitle/PageTitle'
 
-const PageTemplate = props => {
+const PageTemplate = (props) => {
   const {
     page,
     settings,

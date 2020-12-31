@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { Article, TilTitle, TilPermalink } from './styles'
 import { IconPaperclip } from '../Icons/Icons'
 
-const Til = til => (
+const Til = (til) => (
   <Article>
     <TilTitle>
       {til.fields.date}

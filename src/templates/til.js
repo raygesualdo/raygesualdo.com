@@ -6,7 +6,7 @@ import PageTitle from '../components/PageTitle/PageTitle'
 import PageLayout from '../components/PageLayout/PageLayout'
 import BlogContent from '../components/BlogContent/BlogContent'
 
-const TilTemplate = props => (
+const TilTemplate = (props) => (
   <Layout>
     <Helmet>
       <title>{`Today I Learned: ${props.data.til.fields.date}`}</title>

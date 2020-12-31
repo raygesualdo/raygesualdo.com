@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
-import { get } from 'lodash/fp'
+import get from 'lodash/fp/get'
 import {
   MIN_TABLET_MEDIA_QUERY,
   TABLET_MEDIA_QUERY,
@@ -19,7 +19,7 @@ export const HeaderBackground = styled.div`
 `
 
 export const HeaderLayout = styled.div`
-  max-width: ${rhythm(25)};
+  /* max-width: ${rhythm(25)}; */
   margin: 0 auto;
   padding: ${rhythm(0.75)};
   display: grid;

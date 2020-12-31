@@ -12,7 +12,7 @@ const CategoryTemplate = ({ data: { category } }) => {
       <Helmet title={`Category: ${category.name}`} />
       <PageTitle title={`Category: ${category.name}`} />
       <PageLayout>
-        {category.posts.nodes.map(post => (
+        {category.posts.nodes.map((post) => (
           <ArticleBlock
             key={post.fields.slug}
             post={post}

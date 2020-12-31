@@ -6,7 +6,7 @@ import PageLayout from '../components/PageLayout/PageLayout'
 import BlogContent from '../components/BlogContent/BlogContent'
 import Til from '../components/Til/Til'
 
-const TilPage = props => (
+const TilPage = (props) => (
   <Layout>
     <Helmet>
       <title>Today I Learned</title>

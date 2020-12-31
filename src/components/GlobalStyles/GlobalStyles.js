@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { get } from 'lodash/fp'
+import get from 'lodash/fp/get'
 
 export const GlobalStyles = createGlobalStyle`
   body {

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { get } from 'lodash/fp'
+import get from 'lodash/fp/get'
 import { rhythm, scale } from '../../utils/typography'
 
 export const FooterLayout = styled.footer`
