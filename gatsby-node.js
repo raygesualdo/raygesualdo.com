@@ -1,7 +1,7 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-const pageTemplate = path.resolve('./src/templates/page.js')
+const pageTemplate = path.resolve('./src/templates/page.tsx')
 const pagesQuery = /* GraphQL */ `
   {
     collection: allMarkdownRemark(
@@ -33,7 +33,7 @@ const blogPostsQuery = /* GraphQL */ `
     }
   }
 `
-const tilTemplate = path.resolve('./src/templates/til.js')
+const tilTemplate = path.resolve('./src/templates/til.tsx')
 const tilQuery = /* GraphQL */ `
   {
     collection: allMarkdownRemark(
@@ -61,8 +61,8 @@ const categoriesQuery = /* GraphQL */ `
     }
   }
 `
-const categoriesGetPath = node => `category/${node.slug}`
-const categoriesGetContextSlug = node => node.slug
+const categoriesGetPath = (node) => `category/${node.slug}`
+const categoriesGetContextSlug = (node) => node.slug
 const pageSets = [
   { query: pagesQuery, component: pageTemplate },
   { query: blogPostsQuery, component: blogPostTemplate },
@@ -74,12 +74,12 @@ const pageSets = [
     getContextSlug: categoriesGetContextSlug,
   },
 ]
-const createTimestampedPath = node => {
+const createTimestampedPath = (node) => {
   const datePath = node.frontmatter.date.split('T')[0].replace(/-/g, '/')
   return `/posts/${datePath}`
 }
 
-const getSlug = node => node.fields.slug
+const getSlug = (node) => node.fields.slug
 
 exports.createPages = ({ graphql, actions: { createPage } }) =>
   Promise.all(

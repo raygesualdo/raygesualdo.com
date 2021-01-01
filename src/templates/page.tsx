@@ -4,7 +4,34 @@ import Helmet from 'react-helmet'
 import Layout from '../components/Layout/Layout'
 import PageTitle from '../components/PageTitle/PageTitle'
 
-const PageTemplate = (props) => {
+interface PageTemplateProps {
+  data: {
+    site: {
+      meta: {
+        siteTitle: string
+        siteUrl: string
+      }
+    }
+    settings: {
+      social: {
+        twitter: string
+      }
+    }
+    page: {
+      id: string
+      html: string
+      fields: {
+        slug: string
+      }
+      frontmatter: {
+        title: string
+      }
+      excerpt: string
+    }
+  }
+}
+
+const PageTemplate = (props: PageTemplateProps) => {
   const {
     page,
     settings,
@@ -20,7 +47,7 @@ const PageTemplate = (props) => {
         <meta property="og:title" content={page.frontmatter.title} />
         <meta
           property="og:url"
-          content={`${siteUrl}/pages/${page.frontmatter.slug}`}
+          content={`${siteUrl}/pages${page.fields.slug}`}
         />
         <meta property="og:description" content={page.excerpt} />
         <meta name="twitter:card" content="summary" />
@@ -55,6 +82,9 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+      }
+      fields {
+        slug
       }
       excerpt
     }
