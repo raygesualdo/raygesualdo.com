@@ -1,7 +1,14 @@
 import React, { createContext, useContext } from 'react'
 import { useLocalStorage, useMedia } from 'react-use'
 
-const ThemeToggleContext = createContext({})
+export type ThemeMode = 'light' | 'dark'
+
+const ThemeToggleContext = createContext<{
+  mode: ThemeMode
+  toggleMode: () => void
+}>(null)
+
+const { Provider } = ThemeToggleContext
 
 export const useThemeMode = () => {
   const context = useContext(ThemeToggleContext)
@@ -12,17 +19,12 @@ export const useThemeMode = () => {
 
 export const ThemeModeProvider = ({ children }) => {
   const isBrowserDarkMode = useMedia('(prefers-color-scheme: dark)')
-  const [mode, setMode] = useLocalStorage(
+  const [mode, setMode] = useLocalStorage<ThemeMode>(
     'themeMode',
     isBrowserDarkMode ? 'dark' : 'light'
   )
 
-  const toggleMode = () =>
-    setMode(mode === 'light' ? 'dark' : 'light')
-  
-  return (
-    <ThemeToggleContext.Provider value={{ mode, toggleMode }}>
-      {children}
-    </ThemeToggleContext.Provider>
-  )
+  const toggleMode = () => setMode(mode === 'light' ? 'dark' : 'light')
+
+  return <Provider value={{ mode, toggleMode }}>{children}</Provider>
 }

@@ -3,7 +3,15 @@ import { Link } from 'gatsby'
 import { Article, TilTitle, TilPermalink } from './Til.styles'
 import { IconPaperclip } from '../Icons/Icons'
 
-const Til = (til) => (
+export interface TilProps {
+  html: string
+  fields: {
+    date: string
+    slug: string
+  }
+}
+
+const Til = (til: TilProps) => (
   <Article>
     <TilTitle>
       {til.fields.date}
