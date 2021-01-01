@@ -1,3 +1,19 @@
+export interface Theme {
+  bodyBgColor: string
+  textColor: string
+  linkColor: string
+  headerColor: string
+  topBarBgColor: string
+  topBarColor: string
+  codeBgColor: string
+  codeColor: string
+  footerColor: string
+  blockquoteBgColor: string
+  blockquoteBorderColor: string
+  codeTagBgColor: string
+  codeTagColor: string
+}
+
 const colors = {
   white: '#fff',
   grayDarkest: '#b2b2b2',
@@ -14,7 +30,7 @@ const colors = {
   black: '#111',
 }
 
-export const lightTheme = {
+export const lightTheme: Theme = {
   bodyBgColor: colors.white,
   textColor: colors.black,
   linkColor: colors.blueLight,
@@ -30,7 +46,7 @@ export const lightTheme = {
   codeTagColor: colors.black,
 }
 
-export const darkTheme = {
+export const darkTheme: Theme = {
   bodyBgColor: colors.blueDark,
   textColor: colors.gray,
   linkColor: colors.blueLighter,

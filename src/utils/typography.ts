@@ -2,6 +2,12 @@ import Typography from 'typography'
 import SternGrove from 'typography-theme-stern-grove'
 import { theme } from './theme'
 
+declare module 'typography' {
+  interface TypographyOptions {
+    monospaceFontFamily: string[]
+  }
+}
+
 const typography = new Typography({
   ...SternGrove,
   headerColor: theme.headerColor,
