@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Article, TilTitle, TilPermalink } from './styles'
+import { Article, TilTitle, TilPermalink } from './Til.styles'
 import { IconPaperclip } from '../Icons/Icons'
 
 const Til = (til) => (

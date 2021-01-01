@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderBackground, HeaderLayout } from './styles'
+import { HeaderBackground, HeaderLayout } from './Header.styles'
 import { MenuSection } from './MenuSection'
 import { IconSection } from './IconSection'
 import { SiteTitleSection } from './SiteTitleSection'

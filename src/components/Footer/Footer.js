@@ -1,5 +1,5 @@
 import React from 'react'
-import { FooterLayout, LinkButton } from './styles'
+import { FooterLayout, LinkButton } from './Footer.styles'
 import { useThemeMode } from '../useThemeMode'
 
 const Footer = () => {

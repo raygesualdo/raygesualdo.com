@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
-import { Layout, Title, Date } from './styles'
+import { Layout, Title, Date } from './BlogTitle.styles'
 
 const BlogTitle = (props) => (
   <Layout>

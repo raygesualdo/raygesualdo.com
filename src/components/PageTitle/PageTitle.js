@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout, Title, Subtitle } from './styles'
+import { Layout, Title, Subtitle } from './PageTitle.styles'
 
 const PageTitle = (props) => (
   <Layout>

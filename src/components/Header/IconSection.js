@@ -5,7 +5,7 @@ import {
   IconLink,
   HeaderIconGitHub,
   HeaderIconTwitter,
-} from './styles'
+} from './Header.styles'
 
 const query = graphql`
   {

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
-import { Article, Title, TitleLink, Metadata } from './styles'
+import { Article, Title, TitleLink, Metadata } from './ArticleBlock.styles'
 
 const ArticleBlock = ({ post, showCategory }) => (
   <Article>

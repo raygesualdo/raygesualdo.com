@@ -8,7 +8,7 @@ import {
   TalkEventsList,
   TalkEventsListItem,
   TalkAbstract,
-} from './styles'
+} from './Talk.styles'
 
 const intersperse = (array, separator) =>
   array.flatMap((e) => [separator, e]).slice(1)

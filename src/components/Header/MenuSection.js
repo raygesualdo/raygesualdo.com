@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Menu, MenuItem, MenuLink } from './styles'
+import { Menu, MenuItem, MenuLink } from './Header.styles'
 
 const query = graphql`
   {
