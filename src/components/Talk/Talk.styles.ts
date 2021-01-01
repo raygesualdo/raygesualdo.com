@@ -27,7 +27,7 @@ export const TalkTitle = styled.h1`
 export const TalkEventsList = styled.ul`
   list-style: circle;
   margin: 0 ${rhythm(1)} ${rhythm(2 / 3)};
-  font-family: ${options.headerFontFamily.join(',')};
+  font-family: ${options.headerFontFamily?.join(',')};
 `
 export const TalkEventsListItem = styled.li`
   margin-bottom: 0;

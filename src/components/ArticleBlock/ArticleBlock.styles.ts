@@ -18,5 +18,5 @@ export const TitleLink = styled(Link)`
 export const Metadata = styled.div`
   margin-bottom: ${rhythm(1 / 4)};
   ${{ ...scale(-1 / 5) }};
-  font-family: ${options.headerFontFamily.join(',')};
+  font-family: ${options.headerFontFamily?.join(',')};
 `

@@ -1,8 +1,18 @@
 import styled from 'styled-components'
-import get from 'lodash/fp/get'
+import { get } from '../../utils/theme'
 import { rhythm, scale, options } from '../../utils/typography'
 
 const BlogContent = styled.div`
+  .gatsby-highlight-code-line {
+    background-color: ${get('preHighlightBgColor')};
+    display: block;
+    margin-right: -1em;
+    margin-left: -1em;
+    padding-right: 1em;
+    padding-left: 0.75em;
+    border-left: 0.25em solid ${get('preHighlightBorderColor')};
+  }
+
   .gatsby-highlight {
     position: relative;
     margin: 0 0 ${rhythm(1)};
@@ -14,8 +24,8 @@ const BlogContent = styled.div`
       right: ${rhythm(3 / 5)};
       display: block;
       padding: ${rhythm(3 / 20)};
-      color: ${get('theme.codeTagColor')};
-      background: ${get('theme.codeTagBgColor')};
+      color: ${get('codeTagColor')};
+      background: ${get('codeTagBgColor')};
       font-size: ${rhythm(1 / 3)};
       line-height: 1;
       font-family: ${options.monospaceFontFamily.join(',')};
@@ -28,7 +38,7 @@ const BlogContent = styled.div`
     margin: 0.25rem;
     text-align: center;
     ${{ ...scale(-3 / 10) }};
-    font-family: ${options.headerFontFamily.join(',')};
+    font-family: ${options.headerFontFamily?.join(',')};
     font-style: italic;
   }
 
@@ -37,8 +47,8 @@ const BlogContent = styled.div`
     border: none;
     border-radius: 2px;
     box-shadow: none;
-    background-color: ${get('theme.codeBgColor')};
-    color: ${get('theme.codeColor')};
+    background-color: ${get('codeBgColor')};
+    color: ${get('codeColor')};
     text-shadow: none;
     font-style: normal;
   }
@@ -53,8 +63,8 @@ const BlogContent = styled.div`
     padding-top: ${rhythm(2 / 3)};
     padding-bottom: ${rhythm(2 / 3)};
     line-height: ${rhythm(1)};
-    background-color: ${get('theme.blockquoteBgColor')};
-    border-left: ${rhythm(3 / 16)} solid ${get('theme.blockquoteBorderColor')};
+    background-color: ${get('blockquoteBgColor')};
+    border-left: ${rhythm(3 / 16)} solid ${get('blockquoteBorderColor')};
     font-style: italic;
   }
 `

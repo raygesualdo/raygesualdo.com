@@ -18,13 +18,19 @@ const query = graphql`
   }
 `
 
+interface MenuItem {
+  props?: Record<string, any>
+  title: string
+  url: string
+}
+
 export const MenuSection = () => {
   const {
     settings: { menus },
   } = useStaticQuery(query)
   return (
     <Menu role="navigation">
-      {menus.header.map((item) => (
+      {menus.header.map((item: MenuItem) => (
         <MenuItem key={item.url}>
           <MenuLink to={item.url} title={item.title} {...item.props}>
             {item.title}

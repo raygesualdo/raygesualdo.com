@@ -10,12 +10,21 @@ import {
   TalkAbstract,
 } from './Talk.styles'
 
-const intersperse = (array, separator) =>
+const intersperse = (array: any[], separator: any) =>
   array.flatMap((e) => [separator, e]).slice(1)
 
-const ResourceLink = (props) => {
+interface ResourceLinkProps {
+  link: string
+  type: string
+}
+
+const ResourceLink = (props: ResourceLinkProps) => {
   if (!props.link.startsWith('http') && !props.link.startsWith('/')) {
-    return `${props.type}: ${props.link}`
+    return (
+      <span>
+        {props.type}: {props.link}
+      </span>
+    )
   }
   return (
     <a href={props.link} title={props.type}>
@@ -24,9 +33,17 @@ const ResourceLink = (props) => {
   )
 }
 
-const ResourceArray = (props) => {
+interface ResourceArrayProps {
+  code?: string
+  slides?: string
+  video?: string
+}
+
+const ResourceArray = (props: ResourceArrayProps) => {
   const keys = ['video', 'slides', 'code']
-  const populatedKeys = keys.filter((key) => !!props[key])
+  const populatedKeys = keys.filter(
+    (key) => !!props[key as keyof ResourceArrayProps]
+  )
 
   if (!populatedKeys.length) {
     return null
@@ -37,7 +54,10 @@ const ResourceArray = (props) => {
       (
       {intersperse(
         populatedKeys.map((key) => (
-          <ResourceLink type={capitalize(key)} link={props[key]} />
+          <ResourceLink
+            type={capitalize(key)}
+            link={props[key as keyof ResourceArrayProps]!}
+          />
         )),
         ' | '
       )}
@@ -46,7 +66,18 @@ const ResourceArray = (props) => {
   )
 }
 
-const Talk = (talk) => (
+interface TalkProps {
+  abstract: string
+  title: string
+  events: {
+    title: string
+    code?: string
+    slides?: string
+    video?: string
+  }[]
+}
+
+const Talk = (talk: TalkProps) => (
   <Article>
     <TalkTitle id={slug(talk.title)}>
       <TalkTitleAnchor href={'#' + slug(talk.title)}>#</TalkTitleAnchor>

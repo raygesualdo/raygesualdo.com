@@ -2,7 +2,28 @@ import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
 import { Article, Title, TitleLink, Metadata } from './ArticleBlock.styles'
 
-const ArticleBlock = ({ post, showCategory }) => (
+type Post = {
+  excerpt: string
+  fields: {
+    slug: string
+  }
+  frontmatter: {
+    category: {
+      name: string
+      slug: string
+    }
+    date: string
+    title: string
+  }
+  timeToRead: string
+}
+
+interface ArticleBlockProps {
+  post: Post
+  showCategory: boolean
+}
+
+const ArticleBlock = ({ post, showCategory }: ArticleBlockProps) => (
   <Article>
     <Title>
       <TitleLink to={post.fields.slug}>{post.frontmatter.title}</TitleLink>

@@ -1,6 +1,10 @@
 import React from 'react'
 
-export const IconGitHub = (props: React.SVGProps<SVGSVGElement>) => (
+interface SvgProps extends React.SVGProps<SVGSVGElement> {
+  title?: string
+}
+
+export const IconGitHub = (props: SvgProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -12,7 +16,7 @@ export const IconGitHub = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
-export const IconTwitter = (props: React.SVGProps<SVGSVGElement>) => (
+export const IconTwitter = (props: SvgProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -24,7 +28,7 @@ export const IconTwitter = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
-export const IconPaperclip = (props: React.SVGProps<SVGSVGElement>) => (
+export const IconPaperclip = (props: SvgProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"

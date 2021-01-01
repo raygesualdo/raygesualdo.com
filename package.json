@@ -52,6 +52,7 @@
     "typography-theme-stern-grove": "^0.16.19"
   },
   "devDependencies": {
+    "@types/slug": "^0.9.1",
     "prettier": "^2.2.1"
   },
   "scripts": {

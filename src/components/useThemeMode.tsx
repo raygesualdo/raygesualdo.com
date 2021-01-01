@@ -18,7 +18,7 @@ export const useThemeMode = () => {
   const context = useContext(ThemeToggleContext)
   if (!context?.mode)
     throw new Error('useThemeMode must be used with a ThemeModeProvider')
-  return [context.mode, context.toggleMode]
+  return [context.mode, context.toggleMode] as const
 }
 
 export const ThemeModeProvider: React.FunctionComponent = ({ children }) => {

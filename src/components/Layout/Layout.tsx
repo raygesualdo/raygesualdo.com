@@ -14,7 +14,7 @@ const Content = styled.div`
   padding: ${rhythm(0.5)};
 `
 
-const Layout = ({ children }) => (
+const Layout: React.FunctionComponent = ({ children }) => (
   <ThemeModeProvider>
     <ThemeProvider>
       <Fragment>

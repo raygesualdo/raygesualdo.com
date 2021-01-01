@@ -6,6 +6,8 @@ export interface Theme {
   topBarBgColor: string
   topBarColor: string
   codeBgColor: string
+  preHighlightBgColor: string
+  preHighlightBorderColor: string
   codeColor: string
   footerColor: string
   blockquoteBgColor: string
@@ -23,6 +25,7 @@ const colors = {
   grayLightest: '#f5f5f5',
   red: 'hsl(5, 86%, 53%)',
   blueGray: 'hsl(206, 15%, 43%)',
+  blueGrayDarker: 'hsl(206, 12%, 30%)',
   blueLighter: 'hsla(206, 86%, 67%, 1)',
   blueLight: 'hsla(206, 86%, 47%, 1)',
   blue: '#062f4f',
@@ -38,6 +41,8 @@ export const lightTheme: Theme = {
   topBarBgColor: colors.blue,
   topBarColor: colors.white,
   codeBgColor: colors.grayLight,
+  preHighlightBgColor: colors.blueGrayDarker,
+  preHighlightBorderColor: colors.blueLighter,
   codeColor: colors.blue,
   footerColor: colors.blueGray,
   blockquoteBgColor: 'hsla(0,0%,0%,0.03)',
@@ -54,6 +59,8 @@ export const darkTheme: Theme = {
   topBarBgColor: colors.blue,
   topBarColor: colors.white,
   codeBgColor: colors.grayLight,
+  preHighlightBgColor: colors.blueGrayDarker,
+  preHighlightBorderColor: colors.blueLighter,
   codeColor: colors.blue,
   footerColor: colors.blueGray,
   blockquoteBgColor: 'hsla(0, 0%, 100%, 0.2)',
@@ -63,3 +70,6 @@ export const darkTheme: Theme = {
 }
 
 export const theme = lightTheme
+
+export const get = (key: keyof Theme) => (props: { theme: Theme }) =>
+  props.theme[key]

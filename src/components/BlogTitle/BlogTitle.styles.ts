@@ -14,5 +14,5 @@ export const Title = styled.h1`
 
 export const Date = styled.div`
   ${{ ...scale(-1 / 5) }};
-  font-family: ${options.headerFontFamily.join(',')};
+  font-family: ${options.headerFontFamily?.join(',')};
 `

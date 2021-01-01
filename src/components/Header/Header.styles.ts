@@ -1,21 +1,21 @@
 import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
-import get from 'lodash/fp/get'
 import {
   MIN_TABLET_MEDIA_QUERY,
   TABLET_MEDIA_QUERY,
 } from 'typography-breakpoint-constants'
 import { rhythm, scale, options } from '../../utils/typography'
 import { IconGitHub, IconTwitter } from '../Icons/Icons'
+import { get } from '../../utils/theme'
 
 const undecoratedStyles = css`
   text-decoration: none;
 `
 
 export const HeaderBackground = styled.div`
-  background-color: ${get('theme.topBarBgColor')};
-  color: ${get('theme.topBarColor')};
-  font-family: ${options.headerFontFamily.join(',')};
+  background-color: ${get('topBarBgColor')};
+  color: ${get('topBarColor')};
+  font-family: ${options.headerFontFamily?.join(',')};
 `
 
 export const HeaderLayout = styled.div`

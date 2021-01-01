@@ -2,7 +2,17 @@ import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
 import { Layout, Title, Date } from './BlogTitle.styles'
 
-const BlogTitle = (props) => (
+interface BlogTitleProps {
+  title: string
+  date: string
+  timeToRead: string
+  category: {
+    name: string
+    slug: string
+  }
+}
+
+const BlogTitle = (props: BlogTitleProps) => (
   <Layout>
     <Title>{props.title}</Title>
     <Date>

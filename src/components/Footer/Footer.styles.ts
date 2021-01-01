@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import get from 'lodash/fp/get'
+import { get } from '../../utils/theme'
 import { rhythm, scale } from '../../utils/typography'
 
 export const FooterLayout = styled.footer`
   ${{ ...scale(-1 / 3) }};
   padding: ${rhythm(1)};
   text-align: center;
-  color: ${get('theme.footerColor')};
+  color: ${get('footerColor')};
 `
 
 export const LinkButton = styled.button`
@@ -21,8 +21,8 @@ export const LinkButton = styled.button`
 
   text-decoration: underline;
   cursor: pointer;
-  color: ${get('theme.linkColor')};
+  color: ${get('linkColor')};
   &:hover {
-    color: ${get('theme.codeColor')};
+    color: ${get('codeColor')};
   }
 `

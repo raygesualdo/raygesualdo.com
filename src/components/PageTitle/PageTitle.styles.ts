@@ -13,6 +13,6 @@ export const Title = styled.h1`
 `
 
 export const Subtitle = styled.div`
-  font-family: ${options.headerFontFamily.join(',')};
+  font-family: ${options.headerFontFamily?.join(',')};
   color: ${options.headerColor};
 `
