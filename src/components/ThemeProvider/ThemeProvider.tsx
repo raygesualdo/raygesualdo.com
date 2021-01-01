@@ -3,7 +3,7 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { useThemeMode } from '../useThemeMode'
 import { lightTheme, darkTheme } from '../../utils/theme'
 
-export const ThemeProvider = ({ children }) => {
+export const ThemeProvider: React.FunctionComponent = ({ children }) => {
   const [mode] = useThemeMode()
   const theme = mode === 'light' ? lightTheme : darkTheme
 
