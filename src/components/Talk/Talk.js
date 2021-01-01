@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import slug from 'slug'
+import capitalize from 'lodash/capitalize'
 import {
   Article,
   TalkTitle,
   TalkTitleAnchor,
-  TalkResourceList,
-  TalkResourceListItem,
+  TalkEventsList,
+  TalkEventsListItem,
   TalkAbstract,
 } from './styles'
 
+const intersperse = (array, separator) =>
+  array.flatMap((e) => [separator, e]).slice(1)
+
 const ResourceLink = (props) => {
-  if (!props.link) return null
   if (!props.link.startsWith('http') && !props.link.startsWith('/')) {
     return `${props.type}: ${props.link}`
   }
@@ -21,23 +24,41 @@ const ResourceLink = (props) => {
   )
 }
 
+const ResourceArray = (props) => {
+  const keys = ['video', 'slides', 'code']
+  const populatedKeys = keys.filter((key) => !!props[key])
+
+  if (!populatedKeys.length) {
+    return null
+  }
+
+  return (
+    <Fragment>
+      (
+      {intersperse(
+        populatedKeys.map((key) => (
+          <ResourceLink type={capitalize(key)} link={props[key]} />
+        )),
+        ' | '
+      )}
+      )
+    </Fragment>
+  )
+}
+
 const Talk = (talk) => (
   <Article>
     <TalkTitle id={slug(talk.title)}>
       <TalkTitleAnchor href={'#' + slug(talk.title)}>#</TalkTitleAnchor>
       {talk.title}
     </TalkTitle>
-    <TalkResourceList>
-      <TalkResourceListItem>
-        <ResourceLink type="Video" link={talk.video} />
-      </TalkResourceListItem>
-      <TalkResourceListItem>
-        <ResourceLink type="Slides" link={talk.slides} />
-      </TalkResourceListItem>
-      <TalkResourceListItem>
-        <ResourceLink type="Code" link={talk.code} />
-      </TalkResourceListItem>
-    </TalkResourceList>
+    <TalkEventsList>
+      {talk.events.map((event) => (
+        <TalkEventsListItem>
+          {event.title} <ResourceArray {...event} />
+        </TalkEventsListItem>
+      ))}
+    </TalkEventsList>
     <TalkAbstract>{talk.abstract}</TalkAbstract>
   </Article>
 )

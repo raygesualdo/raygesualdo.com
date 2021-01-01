@@ -24,12 +24,12 @@ export const TalkTitle = styled.h1`
     text-decoration: underline;
   }
 `
-export const TalkResourceList = styled.ul`
+export const TalkEventsList = styled.ul`
   list-style: circle;
   margin: 0 ${rhythm(1)} ${rhythm(2 / 3)};
   font-family: ${options.headerFontFamily.join(',')};
 `
-export const TalkResourceListItem = styled.li`
+export const TalkEventsListItem = styled.li`
   margin-bottom: 0;
   &:empty {
     display: none;

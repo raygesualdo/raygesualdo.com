@@ -1,24 +1,65 @@
-- title: 'GraphQL in a Serverless World'
-  slides: 'https://rayg.me/connecttech2018-graphql'
-  code: 'https://github.com/raygesualdo/serverless-graphql-demo'
+- title: 'Rebuilding the Plane Mid-flight: Lessons Learned Refactoring'
+  events:
+    - title: ConnectTech 2020
+      slides: https://rayg.me/connecttech2020-refactoring
+      video: https://www.youtube.com/watch?v=XghiJu01HjE
+  abstract: >
+    The moment we ship software, we need to maintain it. Eventually, that maintenance will require some or all of the code to be refactored. What happens when that refactor covers large parts of your code? How do we approach such a project? What do we have to take into account? How do we set ourselves up for success? Join me as I walk through the lessons we’ve learned at SalesLoft refactoring our primary web application across UI frameworks. Together, we’ll cover practical principles you can use to plan, execute, and finish well when refactoring.
+
+- title: GraphQL in a Serverless World
+  events:
+    - title: ConnectTech 2019
+      slides: https://rayg.me/connecttech2019-graphql
+      code: https://github.com/raygesualdo/serverless-graphql-demo
+    - title: Music City Code 2019
+      slides: https://rayg.me/musiccitycode2019-graphql
+    - title: ConnectTech 2018
+      slides: https://rayg.me/connecttech2018-graphql
   abstract: >
     "GraphQL" and "Serverless" generate a lot of industry buzz separately. Combining slick serverless paradigms with the statically-typed goodness of GraphQL may just break the internet...but that's what we're going to do. Together, we'll briefly cover what "serverless" means and how GraphQL works. Then, we'll construct a simple GraphQL API from scratch using open-source tools and deploy the API to multiple serverless environments. Finally, we'll discuss the benefits and tradeoffs of deploying a GraphQL API in a serverless fashion.
-- title: 'Using Gatsby to Supercharge Your Static Sites'
-  slides: 'http://rayg.me/opensource1012019-gatsby'
-  abstract: "Static site generators have been around for the better part of a decade, but they've seen a resurgence in popularity recently and for good reason. Static sites provide significant benefits - performance, security, durability, ease of deployment - to developers, content creators, and consumers alike. Not all static site generators are created equal, however. Gatsby supercharges the process and brings many unique strengths to the table, including a strong plugin ecosystem, a data fetching layer based on GraphQL, the ability to collate data from multiple sources, and Progressive Web App functionality infused into the static sites it generates. Together, we'll explore these strengths and more as we delve into why Gatsby is one of the top static site generators in the industry."
+
+- title: Reconfiguring Our Mindset from "Self-taught" to "Community-taught"
+  events:
+    - title: Refactr 2019
+      video: https://www.youtube.com/watch?v=9d1DsnZYlQM
+      slides: https://rayg.me/refactr2019-community-mindset
+  abstract: >
+    We learn from those around us, whether it be through articles, walkthroughs, well-written code, videos, meetup and conference talks, Twitter, StackOverflow, etc. No matter our educational background, we have all benefited greatly from the vast number of resources available in the community. Together, we’ll see how shifting our mindset from "self-taught" to "community-taught" recognizes these resources as well as the responsibility we all have as members of the community to be responsible in and with it, to help sustain it, and to make it available to others who are in different stages of their educational journey.
+
+- title: Using Gatsby to Supercharge Your Static Sites
+  events:
+    - title: OpenSource 101 2019
+      slides: http://rayg.me/opensource1012019-gatsby
+    - title: WeRISE 2018
+    - title: ConnectTech 2018
+  abstract: >
+    Static site generators have been around for the better part of a decade, but they've seen a resurgence in popularity recently and for good reason. Static sites provide significant benefits - performance, security, durability, ease of deployment - to developers, content creators, and consumers alike. Not all static site generators are created equal, however. Gatsby supercharges the process and brings many unique strengths to the table, including a strong plugin ecosystem, a data fetching layer based on GraphQL, the ability to collate data from multiple sources, and Progressive Web App functionality infused into the static sites it generates. Together, we'll explore these strengths and more as we delve into why Gatsby is one of the top static site generators in the industry.
+
 # -
 #   title: "Rockin' the JAMstack with Gatsby"
 #   slides: "/slides/jazzcon2018-gatsby/"
 #   code: "https://github.com/raygesualdo/gatsby-multiple-sources-demo"
 #   abstract: "Static site generators are one of the hottest trends right now in front-end development and for good reason. In a world of CMSes, databases, templating engines, and application servers, static sites provide significant benefits to developers, content creators, and consumers alike. Together, we'll explore these benefits while creating a static site using the popular Gatsby static site generator."
-- title: 'Tame the Async Redux Beast with redux-logic'
-  video: 'https://www.recallact.com/presentation/tame-async-redux-beast-redux-logic'
-  slides: '/slides/jazzcon2018-redux-logic/'
-  abstract: 'Keeping our Redux applications tidy can be difficult once we start adding business logic, especially asynchronous code. Where do we write it? How do we write it? And how does our code interact with Redux? Together, we''ll answer these questions and more by exploring how redux-logic lets us "bring our own code" and integrate it in a structured, declarative way with Redux.'
-- title: 'CSS-in-React with styled-components'
-  slides: '/slides/ct2017-styled-components/'
-  abstract: "CSS in production applications is hard and our industry has worked to mitigate this in multiple ways. Pre/post-processors brought code organization and logic. Class naming conventions helped with specificity. CSS Modules took a big leap forward by providing a certain level of modularity. But CSS never truly matched the level of componentization in its web counterpart, JavaScript...until now. Learn how styled-components leverages React's component paradigm to provide completely modularized and declarative styling in your React applications."
-- title: 'Exploring Modularized and Componentized CSS'
-  code: 'https://github.com/raygesualdo/mcc-demos'
-  slides: 'https://docs.google.com/presentation/d/1Ypgy6-f9p-Hkci_H3DRrZnYmia0T1n9bEhhr0B3egAw/pub?start=false&loop=false&delayms=3000'
-  abstract: 'CSS. Some of us love it. Others...not so much. However, we can all agree that maintaining CSS in production applications is difficult. It doesn''t have to be. Together, we will explore the paradigms of "modular" and "componentized" CSS and the benefits they bring. We will look at methods and libraries available today that enable us to write scalable CSS in our React applications. And we will walk through multiple practical examples of CSS refactoring using CSS Modules, Aphrodite and styled-components showcasing how you can implement "modular" and "componentized" CSS.'
+
+- title: Tame the Async Redux Beast with redux-logic
+  events:
+    - title: ConnectTech 2018
+      video: https://www.recallact.com/presentation/tame-async-redux-beast-redux-logic
+      slides: /slides/jazzcon2018-redux-logic/
+  abstract: >
+    Keeping our Redux applications tidy can be difficult once we start adding business logic, especially asynchronous code. Where do we write it? How do we write it? And how does our code interact with Redux? Together, we'll answer these questions and more by exploring how redux-logic lets us "bring our own code" and integrate it in a structured, declarative way with Redux.
+
+- title: CSS-in-React with styled-components
+  events:
+    - title: ConnectTech 2017
+      slides: /slides/ct2017-styled-components/
+  abstract: >
+    CSS in production applications is hard and our industry has worked to mitigate this in multiple ways. Pre/post-processors brought code organization and logic. Class naming conventions helped with specificity. CSS Modules took a big leap forward by providing a certain level of modularity. But CSS never truly matched the level of componentization in its web counterpart, JavaScript...until now. Learn how styled-components leverages React's component paradigm to provide completely modularized and declarative styling in your React applications.
+
+- title: Exploring Modularized and Componentized CSS
+  events:
+    - title: ReactAtl Meetup, February 2017
+      code: https://github.com/raygesualdo/mcc-demos
+      slides: https://docs.google.com/presentation/d/1Ypgy6-f9p-Hkci_H3DRrZnYmia0T1n9bEhhr0B3egAw/pub?start=false&loop=false&delayms=3000
+  abstract: >
+    CSS. Some of us love it. Others...not so much. However, we can all agree that maintaining CSS in production applications is difficult. It doesn''t have to be. Together, we will explore the paradigms of "modular" and "componentized" CSS and the benefits they bring. We will look at methods and libraries available today that enable us to write scalable CSS in our React applications. And we will walk through multiple practical examples of CSS refactoring using CSS Modules, Aphrodite and styled-components showcasing how you can implement "modular" and "componentized" CSS.
