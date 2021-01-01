@@ -10,7 +10,7 @@ const CategoryTemplate = ({ data: { category } }) => {
   return (
     <Layout>
       <Helmet title={`Category: ${category.name}`} />
-      <PageTitle title={`Category: ${category.name}`} />
+      <PageTitle title={category.name} subtitle="Category" />
       <PageLayout>
         {category.posts.nodes.map((post) => (
           <ArticleBlock

@@ -1,8 +1,9 @@
 import React from 'react'
-import { Layout, Title } from './styles'
+import { Layout, Title, Subtitle } from './styles'
 
 const PageTitle = (props) => (
   <Layout>
+    {props.subtitle && <Subtitle>— {props.subtitle} —</Subtitle>}
     <Title>{props.title}</Title>
   </Layout>
 )
