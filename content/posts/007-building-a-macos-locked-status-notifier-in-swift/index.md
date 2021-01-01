@@ -510,7 +510,7 @@ First, we check that both the `TITLE` and `KVDB_URL` environment variables are s
 
 To make sure our build process doesn't error out, we need to provide `TITLE` and `KVDB_URL` environment variables. The title can be whatever you want it to be. The URL should be the URL we generated in the [KVdb](#kvdb) section. We can do this using a `.env` file.
 
-```
+```shell
 TITLE=Title of my website
 KVDB_URL=https://kvdb.io/<bucket>/<key>
 ```
