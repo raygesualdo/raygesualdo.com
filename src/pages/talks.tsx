@@ -6,7 +6,27 @@ import Talk from '../components/Talk/Talk'
 import PageLayout from '../components/PageLayout/PageLayout'
 import PageTitle from '../components/PageTitle/PageTitle'
 
-const Talks = (props) => (
+interface TalkProps {
+  data: {
+    talks: {
+      edges: {
+        node: {
+          abstract: string
+          events: {
+            code?: string
+            slides?: string
+            title: string
+            video?: string
+          }[]
+          id: string
+          title: string
+        }
+      }[]
+    }
+  }
+}
+
+const Talks = (props: TalkProps) => (
   <Layout>
     <Helmet>
       <title>Talks</title>

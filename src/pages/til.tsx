@@ -6,7 +6,24 @@ import PageLayout from '../components/PageLayout/PageLayout'
 import BlogContent from '../components/BlogContent/BlogContent'
 import Til from '../components/Til/Til'
 
-const TilPage = (props) => (
+interface TilPageProps {
+  data: {
+    til: {
+      edges: {
+        node: {
+          html: string
+          fields: {
+            date: string
+            rawDate: string
+            slug: string
+          }
+        }
+      }[]
+    }
+  }
+}
+
+const TilPage = (props: TilPageProps) => (
   <Layout>
     <Helmet>
       <title>Today I Learned</title>

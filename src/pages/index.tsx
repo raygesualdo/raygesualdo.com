@@ -1,14 +1,42 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout/Layout'
 import PageLayout from '../components/PageLayout/PageLayout'
 import ArticleBlock from '../components/ArticleBlock/ArticleBlock'
 
-const BlogIndex = (props) => {
-  const siteTitle = get(props, 'data.site.siteMetadata.title')
-  const posts = get(props, 'data.allMarkdownRemark.edges')
+interface BlogIndexProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+    allMarkdownRemark: {
+      edges: {
+        node: {
+          excerpt: string
+          frontmatter: {
+            date: string
+            title: string
+            category: {
+              name: string
+              slug: string
+            }
+          }
+          fields: {
+            slug: string
+          }
+          timeToRead: string
+        }
+      }[]
+    }
+  }
+}
+
+const BlogIndex = (props: BlogIndexProps) => {
+  const siteTitle = props.data.site.siteMetadata.title
+  const posts = props.data.allMarkdownRemark.edges
   return (
     <Layout>
       <Helmet title={siteTitle} />
