@@ -6,7 +6,38 @@ import PageTitle from '../components/PageTitle/PageTitle'
 import PageLayout from '../components/PageLayout/PageLayout'
 import ArticleBlock from '../components/ArticleBlock/ArticleBlock'
 
-const CategoryTemplate = ({ data: { category } }) => {
+interface CategoryTemplateProps {
+  data: {
+    category: {
+      slug: string
+      name: string
+      posts: {
+        nodes: {
+          frontmatter: {
+            title: string
+            date: string
+            category: {
+              name: string
+              slug: string
+            }
+          }
+          fields: {
+            slug: string
+          }
+          excerpt: string
+          timeToRead: string
+          wordCount: {
+            paragraphs: number
+            sentences: number
+            words: number
+          }
+        }[]
+      }
+    }
+  }
+}
+
+const CategoryTemplate = ({ data: { category } }: CategoryTemplateProps) => {
   return (
     <Layout>
       <Helmet title={`Category: ${category.name}`} />

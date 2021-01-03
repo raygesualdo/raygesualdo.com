@@ -6,7 +6,40 @@ import BlogTitle from '../components/BlogTitle/BlogTitle'
 import BlogContent from '../components/BlogContent/BlogContent'
 import './prism-atom-dark.css'
 
-const BlogPostTemplate = (props) => {
+interface BlogPostTemplateProps {
+  data: {
+    site: {
+      meta: {
+        siteTitle: string
+        siteUrl: string
+      }
+    }
+    settings: {
+      social: {
+        twitter: string
+      }
+    }
+    post: {
+      id: string
+      html: string
+      frontmatter: {
+        title: string
+        date: string
+        category: {
+          name: string
+          slug: string
+        }
+      }
+      fields: {
+        slug: string
+      }
+      excerpt: string
+      timeToRead: string
+    }
+  }
+}
+
+const BlogPostTemplate = (props: BlogPostTemplateProps) => {
   const {
     post,
     settings,
@@ -20,10 +53,7 @@ const BlogPostTemplate = (props) => {
         <title>{post.frontmatter.title}</title>
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.frontmatter.title} />
-        <meta
-          property="og:url"
-          content={`${siteUrl}/posts/${post.frontmatter.slug}`}
-        />
+        <meta property="og:url" content={`${siteUrl}${post.fields.slug}`} />
         <meta property="og:description" content={post.excerpt} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={post.frontmatter.title} />

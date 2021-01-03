@@ -17,7 +17,7 @@ const pagesQuery = /* GraphQL */ `
     }
   }
 `
-const blogPostTemplate = path.resolve('./src/templates/blog-post.js')
+const blogPostTemplate = path.resolve('./src/templates/blog-post.tsx')
 const blogPostsQuery = /* GraphQL */ `
   {
     collection: allMarkdownRemark(
@@ -49,7 +49,7 @@ const tilQuery = /* GraphQL */ `
     }
   }
 `
-const categoriesTemplate = path.resolve('./src/templates/category.js')
+const categoriesTemplate = path.resolve('./src/templates/category.tsx')
 const categoriesQuery = /* GraphQL */ `
   {
     collection: allCategoriesYaml {
