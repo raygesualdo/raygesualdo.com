@@ -1,5 +1,5 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { getPathIds, getPostData, PostData } from '../../lib/posts'
+import { getPathIds, getPostData, PostData } from '../../../../../lib/posts'
 
 type PostProps = {
   data: PostData
@@ -16,7 +16,7 @@ export default function Post({ data }: PostProps) {
 }
 
 export const getStaticProps: GetStaticProps<PostProps> = async (context) => {
-  const data = await getPostData(context.params?.id as string)
+  const data = await getPostData(context.params?.slug as string)
   return {
     props: {
       data,

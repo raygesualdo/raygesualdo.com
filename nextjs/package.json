@@ -17,6 +17,7 @@
     "remark-html": "^13.0.1"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.2",
     "@types/react": "17.0.14",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
