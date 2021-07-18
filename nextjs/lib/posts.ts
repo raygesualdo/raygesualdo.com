@@ -4,6 +4,15 @@ import matter from 'gray-matter'
 import remark from 'remark'
 import html from 'remark-html'
 import yaml from 'js-yaml'
+import readingTime from 'reading-time'
+import { getExcerpt } from './getExcerpt'
+import { getCategoryBySlug } from './categories'
+
+const POSTS_CONTENT_DIRECTORY = path.join(process.cwd(), 'content/posts')
+export const CATEGORIES_YAML_PATH = path.join(
+  process.cwd(),
+  'content/categories.yml'
+)
 
 const betterMatter = (input: string) => {
   return matter(input, {
@@ -13,9 +22,14 @@ const betterMatter = (input: string) => {
   })
 }
 
-const POSTS_CONTENT_DIRECTORY = path.join(process.cwd(), 'content/posts')
-
-export type PostData = PostFrontmatter & { slug: string; contentHtml: string }
+export type PostData = Omit<PostFrontmatter, 'category'> &
+  ReturnType<typeof parsePostDate> & {
+    slug: string
+    contentHtml: string
+    excerpt: string
+    readingTime: ReturnType<typeof readingTime>
+    category: { slug: string; name: string } | null
+  }
 
 export type PostFrontmatter = {
   title: string
@@ -42,6 +56,10 @@ export async function getPostData(slug: string): Promise<PostData> {
     slug,
     contentHtml,
     ...(matterResult.data as PostFrontmatter),
+    ...parsePostDate(matterResult.data.date as string),
+    excerpt: await getExcerpt(matterResult.content),
+    readingTime: readingTime(matterResult.content),
+    category: getCategoryBySlug(matterResult.data.category) || null,
   }
 }
 
@@ -55,18 +73,23 @@ export function getPathIds() {
 
     // Directories are prepended with `###-` where `#` is an integer
     const slug = directory.slice(4)
-    const match = (matterResult.data.date as string).match(
-      /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/
-    )
 
     const params = {
-      year: match?.groups?.year ?? '',
-      month: match?.groups?.month ?? '',
-      day: match?.groups?.day ?? '',
+      ...parsePostDate(matterResult.data.date as string),
       slug,
     }
     return {
       params,
     }
   })
+}
+
+function parsePostDate(date: string) {
+  const match = date.match(/(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/)
+
+  return {
+    year: match?.groups?.year ?? '',
+    month: match?.groups?.month ?? '',
+    day: match?.groups?.day ?? '',
+  }
 }
