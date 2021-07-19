@@ -9,7 +9,6 @@ type HomeProps = {
 }
 
 export default function Home({ data }: HomeProps) {
-  console.log('🚀 ~ file: talks.tsx ~ line 10 ~ Home ~ data', data)
   return (
     <div>
       <Head>

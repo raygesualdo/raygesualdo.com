@@ -7,6 +7,7 @@ import yaml from 'js-yaml'
 import readingTime from 'reading-time'
 import { getExcerpt } from './getExcerpt'
 import { Category, getCategoryBySlug } from './categories'
+import { COMMON_PLUGINS } from './remark'
 
 const POSTS_CONTENT_DIRECTORY = path.join(process.cwd(), 'content/posts')
 
@@ -44,6 +45,7 @@ export async function getPostData(slug: string): Promise<PostData> {
   )
   const matterResult = betterMatter(fileContents)
   const processedContent = await remark()
+    .use(COMMON_PLUGINS)
     .use(html)
     .process(matterResult.content)
   const contentHtml = processedContent.toString()
