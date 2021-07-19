@@ -9,10 +9,6 @@ import { getExcerpt } from './getExcerpt'
 import { Category, getCategoryBySlug } from './categories'
 
 const POSTS_CONTENT_DIRECTORY = path.join(process.cwd(), 'content/posts')
-export const CATEGORIES_YAML_PATH = path.join(
-  process.cwd(),
-  'content/categories.yml'
-)
 
 const betterMatter = (input: string) => {
   return matter(input, {
