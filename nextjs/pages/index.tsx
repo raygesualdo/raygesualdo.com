@@ -27,16 +27,17 @@ export default function Home({ data }: HomeProps) {
                 {post.title}
               </a>
             </h2>
-            <small>{post.date}</small> | {Math.ceil(post.readingTime?.minutes)}{' '}
-            Minute Read{' '}
-            {category && (
-              <span>
-                | Category:{' '}
-                <a href={`/category/${post.category!.slug}`}>
-                  {post.category!.name}
-                </a>
-              </span>
-            )}
+            <small>
+              {post.date} | {Math.ceil(post.readingTime?.minutes)} Minute Read{' '}
+              {category && (
+                <span>
+                  | Category:{' '}
+                  <a href={`/category/${post.category!.slug}`}>
+                    {post.category!.name}
+                  </a>
+                </span>
+              )}
+            </small>
             <p>{post.excerpt}</p>
           </div>
         )

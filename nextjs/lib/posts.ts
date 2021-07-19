@@ -6,7 +6,7 @@ import html from 'remark-html'
 import yaml from 'js-yaml'
 import readingTime from 'reading-time'
 import { getExcerpt } from './getExcerpt'
-import { getCategoryBySlug } from './categories'
+import { Category, getCategoryBySlug } from './categories'
 
 const POSTS_CONTENT_DIRECTORY = path.join(process.cwd(), 'content/posts')
 export const CATEGORIES_YAML_PATH = path.join(
@@ -28,7 +28,7 @@ export type PostData = Omit<PostFrontmatter, 'category'> &
     contentHtml: string
     excerpt: string
     readingTime: ReturnType<typeof readingTime>
-    category: { slug: string; name: string } | null
+    category: Category | null
   }
 
 export type PostFrontmatter = {
@@ -82,6 +82,14 @@ export function getPathIds() {
       params,
     }
   })
+}
+
+export async function getAllPosts() {
+  const paths = getPathIds()
+  const allPosts = await Promise.all(
+    paths.map(({ params: { slug } }) => getPostData(slug))
+  )
+  return allPosts
 }
 
 function parsePostDate(date: string) {
