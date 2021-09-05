@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import matter from 'gray-matter'
-import remark from 'remark'
+import { remark } from 'remark'
 import html from 'remark-html'
 import yaml from 'js-yaml'
 import readingTime from 'reading-time'

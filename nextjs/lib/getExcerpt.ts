@@ -1,6 +1,6 @@
 // Adapted from https://brunoscheufler.com/blog/2021-04-18-processing-markdown-with-remark-and-unified-plugins
 import unified from 'unified'
-import remark from 'remark'
+import { remark } from 'remark'
 import stripMarkdown from 'strip-markdown'
 import { Node, Parent } from 'unist'
 import { COMMON_PLUGINS } from './remark'
@@ -36,7 +36,7 @@ const stripTags: unified.Plugin<[{ tags: string[] }]> = ({ tags }) => {
 }
 
 export async function getExcerpt(content: string, trimLength = 140) {
-  const { contents: excerpt } = await remark()
+  const { value: excerpt } = await remark()
     .use(COMMON_PLUGINS)
     .use(stripTags, { tags: ['image', 'imageReference'] })
     .use(stripMarkdown)
