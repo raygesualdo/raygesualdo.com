@@ -7,6 +7,7 @@ import readingTime from 'reading-time'
 import { getExcerpt } from './getExcerpt'
 import { Category, getCategoryBySlug } from './categories'
 import { ALL_PLUGINS } from './remark'
+import { config } from './config'
 
 const POSTS_CONTENT_DIRECTORY = path.join(process.cwd(), 'content/posts')
 
@@ -21,6 +22,7 @@ const betterMatter = (input: string) => {
 export type PostData = Omit<PostFrontmatter, 'category'> &
   ReturnType<typeof parsePostDate> & {
     slug: string
+    permalink: string
     contentHtml: string
     excerpt: string
     readingTime: ReturnType<typeof readingTime>
@@ -54,14 +56,19 @@ export async function getPostData(slug: string): Promise<PostData> {
     .process(matterResult.content)
   const contentHtml = processedContent.toString()
 
+  const { year, month, day } = parsePostDate(matterResult.data.date as string)
+
   const data = {
     slug,
     contentHtml,
     ...(matterResult.data as PostFrontmatter),
-    ...parsePostDate(matterResult.data.date as string),
+    year,
+    month,
+    day,
     excerpt: await getExcerpt(matterResult.content),
     readingTime: readingTime(matterResult.content),
     category: getCategoryBySlug(matterResult.data.category) || null,
+    permalink: `${config.siteUrl}/${year}/${month}/${day}/${slug}`,
   }
 
   if (process.env.NODE_ENV === 'production') {
