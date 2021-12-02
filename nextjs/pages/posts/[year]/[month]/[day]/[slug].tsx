@@ -1,4 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
+import Head from 'next/head'
+import { ArticleMeta } from '../../../../../components/ArticleMeta'
+import { PageTitle } from '../../../../../components/PageTitle'
 import { getPathIds, getPostData, PostData } from '../../../../../lib/posts'
 
 type PostProps = {
@@ -7,11 +10,18 @@ type PostProps = {
 
 export default function Post({ data }: PostProps) {
   return (
-    <div>
-      <h1>{data.title}</h1>
-      <hr />
-      <div dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
-    </div>
+    <>
+      <Head>
+        <title>{data.title} | RayGesualdo.com</title>
+      </Head>
+
+      <PageTitle>{data.title}</PageTitle>
+      <ArticleMeta post={data} className="-mt-14 mb-14 text-center" />
+      <div
+        className="prose prose-lg prose-blue"
+        dangerouslySetInnerHTML={{ __html: data.contentHtml }}
+      />
+    </>
   )
 }
 

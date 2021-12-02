@@ -2,12 +2,11 @@ import * as fs from 'fs'
 import * as path from 'path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
-import html from 'remark-html'
 import yaml from 'js-yaml'
 import readingTime from 'reading-time'
 import { getExcerpt } from './getExcerpt'
 import { Category, getCategoryBySlug } from './categories'
-import { COMMON_PLUGINS } from './remark'
+import { ALL_PLUGINS } from './remark'
 
 const POSTS_CONTENT_DIRECTORY = path.join(process.cwd(), 'content/posts')
 
@@ -34,7 +33,13 @@ export type PostFrontmatter = {
   category?: string
 }
 
+const postDataCache = new Map<string, PostData>()
+
 export async function getPostData(slug: string): Promise<PostData> {
+  if (process.env.NODE_ENV === 'production' && postDataCache.has(slug)) {
+    return postDataCache.get(slug)!
+  }
+
   const current =
     fs
       .readdirSync(POSTS_CONTENT_DIRECTORY)
@@ -45,12 +50,11 @@ export async function getPostData(slug: string): Promise<PostData> {
   )
   const matterResult = betterMatter(fileContents)
   const processedContent = await remark()
-    .use(COMMON_PLUGINS)
-    .use(html)
+    .use(ALL_PLUGINS)
     .process(matterResult.content)
   const contentHtml = processedContent.toString()
 
-  return {
+  const data = {
     slug,
     contentHtml,
     ...(matterResult.data as PostFrontmatter),
@@ -59,6 +63,12 @@ export async function getPostData(slug: string): Promise<PostData> {
     readingTime: readingTime(matterResult.content),
     category: getCategoryBySlug(matterResult.data.category) || null,
   }
+
+  if (process.env.NODE_ENV === 'production') {
+    postDataCache.set(slug, data)!
+  }
+
+  return data
 }
 
 export function getPathIds() {

@@ -320,19 +320,19 @@ We still need a function that triggers a sync when the locked state of the compu
 The `initializeSync` function sets the class' `syncStatus` property to `pending` and provides what state should be sent to the server. It then calls the `handleSync` function. Let's write that one next.
 
 ```swift
-  private func handleSync() {
-    if task != nil { task!.cancel() }
+private func handleSync() {
+  if task != nil { task!.cancel() }
 
-    switch syncStatus {
-    case let .pending(nextState):
-      sendRequest(state: nextState)
-    case .success:
-      break
-    case let .failure(retryState):
-      syncStatus = .pending(nextState: retryState)
-      sendRequest(state: retryState)
-    }
+  switch syncStatus {
+  case let .pending(nextState):
+    sendRequest(state: nextState)
+  case .success:
+    break
+  case let .failure(retryState):
+    syncStatus = .pending(nextState: retryState)
+    sendRequest(state: retryState)
   }
+}
 ```
 
 Now we're getting somewhere. The first thing we do is cancel the class' `task` if it's present. We'll look at what that is in a moment. Then we use a simple switch on `syncStatus`. If the status is `pending`, we'll send a request using the `sendRequest` function. If the status is `success`, we do nothing - our job is done. If the status is `failure`, we set the status to `pending` and try again. With this switch statement, `syncStatus` will always be `pending` when we call `sendRequest`. Let's continue and write `sendRequest`.
