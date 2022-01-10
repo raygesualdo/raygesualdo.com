@@ -3,7 +3,7 @@ import unified from 'unified'
 import { remark } from 'remark'
 import stripMarkdown from 'strip-markdown'
 import { Node, Parent } from 'unist'
-import { COMMON_PLUGINS } from './remark'
+import { REMARK_PLUGINS } from './remark'
 
 /**
  * Cleanup node to remove all matching tags down the tree
@@ -37,12 +37,12 @@ const stripTags: unified.Plugin<[{ tags: string[] }]> = ({ tags }) => {
 
 export async function getExcerpt(content: string, trimLength = 140) {
   const { value: excerpt } = await remark()
-    .use(COMMON_PLUGINS)
+    .use(REMARK_PLUGINS)
     .use(stripTags, { tags: ['image', 'imageReference'] })
     .use(stripMarkdown)
     .process(content)
 
-  const trimmedExcerpt = excerpt.toString().trim().substr(0, trimLength)
+  const trimmedExcerpt = excerpt.toString().trim().substring(0, trimLength)
 
   return `${trimmedExcerpt}...`
 }

@@ -20,6 +20,12 @@ module.exports = {
             blockquote: {
               paddingLeft: null,
             },
+            pre: {
+              paddingTop: null,
+              paddingBottom: null,
+              paddingLeft: null,
+              paddingRight: null,
+            },
           },
         },
         DEFAULT: {
@@ -28,6 +34,12 @@ module.exports = {
             'h1, h2, h3, h4, h5, h6': {
               color: theme('colors.red.500'),
               fontFamily: theme('fontFamily.display'),
+            },
+            pre: {
+              paddingTop: null,
+              paddingBottom: null,
+              paddingLeft: null,
+              paddingRight: null,
             },
             code: {
               fontStyle: 'normal',
@@ -42,6 +54,9 @@ module.exports = {
             blockquote: null,
             'blockquote p': {
               margin: '0 !important',
+            },
+            'figure figcaption': {
+              color: null,
             },
           },
         },

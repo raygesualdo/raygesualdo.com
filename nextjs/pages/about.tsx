@@ -1,12 +1,13 @@
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
+import { Markdown } from '../components/Markdown'
 import { PageTitle } from '../components/PageTitle'
 import { getPageData } from '../lib/pages'
 
 type AboutProps = {
   data: {
     title: string
-    content: string
+    markdown: string
   }
 }
 
@@ -18,11 +19,7 @@ export default function About({ data }: AboutProps) {
       </Head>
 
       <PageTitle>{data.title}</PageTitle>
-
-      <div
-        className="prose prose-lg"
-        dangerouslySetInnerHTML={{ __html: data.content }}
-      />
+      <Markdown markdown={data.markdown} />
     </>
   )
 }

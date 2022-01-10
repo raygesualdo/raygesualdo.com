@@ -1,12 +1,10 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
 import yaml from 'js-yaml'
 import readingTime from 'reading-time'
 import { getExcerpt } from './getExcerpt'
 import { Category, getCategoryBySlug } from './categories'
-import { ALL_PLUGINS } from './remark'
 import { config } from './config'
 
 const POSTS_CONTENT_DIRECTORY = path.join(process.cwd(), 'content/posts')
@@ -23,7 +21,7 @@ export type PostData = Omit<PostFrontmatter, 'category'> &
   ReturnType<typeof parsePostDate> & {
     slug: string
     permalink: string
-    contentHtml: string
+    markdown: string
     excerpt: string
     readingTime: ReturnType<typeof readingTime>
     category: Category | null
@@ -51,16 +49,11 @@ export async function getPostData(slug: string): Promise<PostData> {
     'utf-8'
   )
   const matterResult = betterMatter(fileContents)
-  const processedContent = await remark()
-    .use(ALL_PLUGINS)
-    .process(matterResult.content)
-  const contentHtml = processedContent.toString()
-
   const { year, month, day } = parsePostDate(matterResult.data.date as string)
 
   const data = {
     slug,
-    contentHtml,
+    markdown: matterResult.content,
     ...(matterResult.data as PostFrontmatter),
     year,
     month,
