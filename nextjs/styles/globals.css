@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
+
+body {
+  @apply font-body lg:text-lg;
+}
+
 @tailwind utilities;
