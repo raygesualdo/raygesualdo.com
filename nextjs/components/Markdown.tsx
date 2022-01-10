@@ -1,6 +1,8 @@
 import ReactMarkdown from 'react-markdown'
 import { ReactMarkdownOptions } from 'react-markdown/lib/react-markdown'
+import Image from 'next/image'
 import { REHYPE_PLUGINS, REMARK_PLUGINS } from '../lib/remark'
+import { exportMap } from '../lib/staticImages'
 
 const components: ReactMarkdownOptions['components'] = {
   blockquote: ({ node, ...props }) => {
@@ -19,10 +21,14 @@ const components: ReactMarkdownOptions['components'] = {
     }
     return <code {...props} />
   },
-  img: ({ node, title, ...props }) => {
+  img: ({ node, title, src, ...props }) => {
+    const imageSrc = src as keyof typeof exportMap
+    const staticImport = exportMap[imageSrc]
     return (
       <figure>
-        <img {...props} className="mx-auto" />
+        <div className="w-max max-w-full mx-auto">
+          <Image src={staticImport} alt={props.alt} placeholder="blur" />
+        </div>
         {title && (
           <figcaption className="text-center font-display italic">
             {title}
@@ -30,6 +36,13 @@ const components: ReactMarkdownOptions['components'] = {
         )}
       </figure>
     )
+  },
+  p: ({ node, ...props }) => {
+    if (node.children?.[0]?.tagName === 'img') {
+      return <>{props.children}</>
+    }
+
+    return <p {...props} />
   },
 }
 

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node lib/generateImageImports.js",
     "dev": "next dev",
+    "prebuild": "node lib/generateImageImports.js",
     "build": "next build",
     "export": "next export",
     "lint": "next lint"
