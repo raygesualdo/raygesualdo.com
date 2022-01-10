@@ -1,0 +1,16 @@
+# Slides
+/slides/ct2017-redux-logic/* https://raygesualdo-slides-connect-tech-2017-redux-logic.surge.sh/:splat 200
+/slides/ct2017-styled-components/* https://raygesualdo-slides-connect-tech-2017-styled-components.surge.sh/:splat 200
+/slides/jazzcon2018-redux-logic/* https://raygesualdo-slides-jazzcon-2018-redux-logic.surge.sh/:splat 200
+/slides/jazzcon2018-gatsby/ https://www.beautiful.ai/deck/-L89NFaU2gYV8uQLBFag/Rockin-the-JAMstack-with-Gatsby 200
+
+# Switch to date-segmented URLs
+/posts/301-redirects-with-nextjs/ /posts/2017/05/09/301-redirects-with-nextjs/
+/posts/lessons-learned-my-first-time-travelling-to-speak-at-a-conference/ /posts/2018/04/06/lessons-learned-my-first-time-travelling-to-speak-at-a-conference/
+/posts/getting-back-on-the-bandwagon/ /posts/2018/04/24/getting-back-on-the-bandwagon/
+/posts/six-reasons-i-chose-gatsby/ /posts/2018/05/10/six-reasons-i-chose-gatsby/
+/posts/simulating-texas-holdem-in-elixir/ /posts/2018/08/28/simulating-texas-holdem-in-elixir/
+/posts/react-hooks-what-they-are-and-why-theyre-important/ /posts/2018/11/05/react-hooks-what-they-are-and-why-theyre-important/
+
+# Post renames
+/posts/2019/10/06/building-a-lockscreen-notifier-in-swift/ /posts/2019/10/06/building-a-macos-locked-status-notifier-in-swift/
