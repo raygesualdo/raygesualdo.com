@@ -2,7 +2,7 @@
 @tailwind components;
 
 body {
-  @apply font-body lg:text-lg;
+  @apply font-body lg:text-lg dark:bg-black dark:text-slate-200;
 }
 
 @tailwind utilities;

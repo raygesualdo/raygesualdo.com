@@ -6,7 +6,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
     './lib/remark.ts',
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     fontFamily: {
       display: 'Montserrat, sans-serif',
@@ -29,7 +29,7 @@ module.exports = {
         },
         DEFAULT: {
           css: {
-            color: theme('colors.gray.900'),
+            color: null,
             'h1, h2, h3, h4, h5, h6': {
               color: theme('colors.red.500'),
               fontFamily: theme('fontFamily.display'),

@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-css-tags */
 import React from 'react'
 import Link from 'next/link'
+import Head from 'next/head'
+import { useTheme } from 'next-themes'
 import { IconGitHub, IconTwitter } from './Icons'
 import { A } from './Link'
-import Head from 'next/head'
 
 export function Layout({ children }: { children: JSX.Element }) {
+  const { setTheme, resolvedTheme } = useTheme()
   return (
     <>
       <Head>
@@ -75,7 +77,13 @@ export function Layout({ children }: { children: JSX.Element }) {
         >
           View source code
         </A>{' '}
-        | Toggle theme
+        |{' '}
+        <button
+          className="text-sky-600 underline"
+          onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
+        >
+          Toggle theme
+        </button>
       </footer>
     </>
   )
