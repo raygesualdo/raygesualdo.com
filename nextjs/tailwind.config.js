@@ -1,8 +1,7 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  mode: 'jit',
-  purge: [
+  content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './lib/remark.ts',
@@ -61,14 +60,7 @@ module.exports = {
           },
         },
       }),
-      colors: {
-        blueGray: colors.blueGray,
-        blue: colors.sky,
-      },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [require('@tailwindcss/typography')],
 }

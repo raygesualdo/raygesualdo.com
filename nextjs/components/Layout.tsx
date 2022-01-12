@@ -18,7 +18,7 @@ export function Layout({ children }: { children: JSX.Element }) {
         />
       </Head>
       <SkipToMainContentLink />
-      <header className="h-32 py-2 md:py-0 md:h-24 bg-blueGray-800 text-white font-display">
+      <header className="h-32 py-2 md:py-0 md:h-24 bg-slate-800 text-white font-display">
         <div className="h-full grid md:gap-x-2 justify-between items-center text-center md:text-left grid-cols-1 md:grid-cols-[1fr,max-content,max-content] Xmax-w-5xl mx-auto px-8">
           <div>
             <Link href="/">
@@ -71,7 +71,7 @@ export function Layout({ children }: { children: JSX.Element }) {
         Copyright © Ray Gesualdo {new Date().getFullYear()} |{' '}
         <A
           href="https://github.com/raygesualdo/raygesualdo.com"
-          className="text-blue-600 underline"
+          className="text-sky-600 underline"
         >
           View source code
         </A>{' '}

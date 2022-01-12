@@ -9,7 +9,7 @@ const components: ReactMarkdownOptions['components'] = {
     return (
       <blockquote
         {...props}
-        className="bg-blueGray-100 border-l-4 border-blueGray-800 p-6 italic"
+        className="bg-slate-100 border-l-4 border-slate-800 p-6 italic"
       />
     )
   },
@@ -52,7 +52,7 @@ interface MarkdownProps {
 
 export const Markdown = ({ markdown }: MarkdownProps) => {
   return (
-    <div className="prose prose-lg prose-blue">
+    <div className="prose prose-lg prose-sky">
       <ReactMarkdown
         remarkPlugins={REMARK_PLUGINS}
         rehypePlugins={REHYPE_PLUGINS}

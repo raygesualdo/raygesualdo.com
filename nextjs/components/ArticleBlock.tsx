@@ -16,7 +16,7 @@ export const ArticleBlock = ({
 
   return (
     <article className="mb-12">
-      <h1 className="text-3xl mb-1.5 text-blue-600 font-display">
+      <h1 className="text-3xl mb-1.5 text-sky-600 font-display">
         <Link href={`/posts/${year}/${month}/${day}/${slug}`}>
           <a>{post.title}</a>
         </Link>
