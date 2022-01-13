@@ -1,11 +1,11 @@
-import React from 'react'
-import { PluggableList } from 'unified'
+import { PluggableList, unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
+import remarkRehype from 'remark-rehype'
 import rehypeHighlight from 'rehype-highlight'
-import rehypeReact from 'rehype-react'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeStringify from 'rehype-stringify'
 import highlightElixir from 'highlight.js/lib/languages/elixir'
 
 const headerLinkContent = {
@@ -50,6 +50,19 @@ export const REHYPE_PLUGINS: PluggableList = [
       },
     },
   ],
-  // @ts-expect-error 🤷‍♂️
-  [rehypeReact, { createElement: React.createElement }],
 ]
+
+export const toHtml = async (markdown: string) => {
+  try {
+    const result = await unified()
+      .use(REMARK_PLUGINS)
+      .use(remarkRehype)
+      .use(REHYPE_PLUGINS)
+      .use(rehypeStringify)
+      .process(markdown)
+    return result.toString()
+  } catch (error) {
+    console.error(error)
+    return ''
+  }
+}

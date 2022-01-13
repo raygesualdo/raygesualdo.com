@@ -59,6 +59,7 @@ const components: ReactMarkdownOptions['components'] = {
     )
   },
   p: ({ node, ...props }) => {
+    // @ts-expect-error 🤷‍♂️
     if (node.children?.[0]?.tagName === 'img') {
       return <>{props.children}</>
     }

@@ -3,8 +3,9 @@ import * as path from 'path'
 import { Feed } from 'feed'
 import { config } from './config'
 import { PostData } from './posts'
+import { toHtml } from './remark'
 
-export function generateRssFeed(posts: PostData[]) {
+export async function generateRssFeed(posts: PostData[]) {
   const baseUrl = config.siteUrl
   const author = {
     name: 'Ray Gesualdo',
@@ -14,7 +15,7 @@ export function generateRssFeed(posts: PostData[]) {
   const feed = new Feed({
     title: 'RayGesualdo.com',
     description: 'The personal site of Ray Gesualdo.',
-    copyright: `Copyright  Ray Gesualdo ${new Date().getFullYear()}`,
+    copyright: `Copyright © Ray Gesualdo ${new Date().getFullYear()}`,
     id: baseUrl,
     link: baseUrl,
     language: 'en',
@@ -23,17 +24,20 @@ export function generateRssFeed(posts: PostData[]) {
     author,
   })
 
-  posts.forEach((post) => {
-    feed.addItem({
-      title: post.title,
-      id: post.permalink,
-      date: new Date(post.date),
-      link: post.permalink,
-      author: [author],
-      content: post.contentHtml,
-      description: post.excerpt,
+  await Promise.all(
+    posts.map(async (post) => {
+      const contentHtml = await toHtml(post.markdown)
+      feed.addItem({
+        title: post.title,
+        id: post.permalink,
+        date: new Date(post.date),
+        link: post.permalink,
+        author: [author],
+        content: contentHtml,
+        description: post.excerpt,
+      })
     })
-  })
+  )
 
   fs.writeFileSync(path.resolve(process.cwd(), 'public/rss.xml'), feed.rss2())
 }
