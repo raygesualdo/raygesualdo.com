@@ -24,6 +24,24 @@ const components: ReactMarkdownOptions['components'] = {
     }
     return <code {...props} />
   },
+  h1: ({ node, level, ...props }) => (
+    <h1 {...props} className="relative group" />
+  ),
+  h2: ({ node, level, ...props }) => (
+    <h2 {...props} className="relative group" />
+  ),
+  h3: ({ node, level, ...props }) => (
+    <h3 {...props} className="relative group" />
+  ),
+  h4: ({ node, level, ...props }) => (
+    <h4 {...props} className="relative group" />
+  ),
+  h5: ({ node, level, ...props }) => (
+    <h5 {...props} className="relative group" />
+  ),
+  h6: ({ node, level, ...props }) => (
+    <h6 {...props} className="relative group" />
+  ),
   img: ({ node, title, src, ...props }) => {
     const imageSrc = src as keyof typeof exportMap
     const staticImport = exportMap[imageSrc]
