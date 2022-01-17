@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { ArticleBlock } from '../components/ArticleBlock'
-import { getPathIds, getPostData, PostData } from '../lib/posts'
+import { getAllPosts, PostData } from '../lib/posts'
 import { generateRssFeed } from '../lib/rss'
 
 type HomeProps = {
@@ -25,10 +25,7 @@ export default function Home({ data }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async (context) => {
-  const paths = getPathIds().reverse()
-  const data = await Promise.all(
-    paths.map((path) => getPostData(path.params.slug))
-  )
+  const data = await getAllPosts()
 
   generateRssFeed(data)
 

@@ -39,12 +39,8 @@ export async function getPostData(slug: string): Promise<PostData> {
     return postDataCache.get(slug)!
   }
 
-  const current =
-    fs
-      .readdirSync(POSTS_CONTENT_DIRECTORY)
-      .find((file) => file.includes(slug)) ?? ''
   const fileContents = fs.readFileSync(
-    path.join(POSTS_CONTENT_DIRECTORY, current),
+    path.join(POSTS_CONTENT_DIRECTORY, `${slug}.md`),
     'utf-8'
   )
   const matterResult = betterMatter(fileContents)
@@ -68,9 +64,7 @@ export async function getPostData(slug: string): Promise<PostData> {
 
 export function getPathIds() {
   return fs.readdirSync(POSTS_CONTENT_DIRECTORY).map((file) => {
-    // Files are prepended with `###-` where `#` is an integer
-    // Also remove `.md` from the end
-    const slug = file.slice(4).replace('.md', '')
+    const slug = file.replace('.md', '')
 
     return {
       params: {
@@ -80,10 +74,17 @@ export function getPathIds() {
   })
 }
 
+/** Get all posts, sorted by newest to oldest publish date */
 export async function getAllPosts() {
   const paths = getPathIds()
   const allPosts = await Promise.all(
     paths.map(({ params: { slug } }) => getPostData(slug))
   )
-  return allPosts
+  return allPosts.sort(sortByPublishDate)
+}
+
+function sortByPublishDate(a: PostData, b: PostData) {
+  if (a.date < b.date) return 1
+  if (a.date > b.date) return -1
+  return 0
 }

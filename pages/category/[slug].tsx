@@ -39,9 +39,7 @@ export const getStaticProps: GetStaticProps<CategoryProps> = async (
 ) => {
   const category = getCategoryBySlug((context.params?.slug as string) ?? '')!
   const allPosts = await getAllPosts()
-  const data = allPosts
-    .filter((post) => post.category?.slug === category.slug)
-    .reverse()
+  const data = allPosts.filter((post) => post.category?.slug === category.slug)
   return {
     props: {
       category,
