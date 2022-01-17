@@ -1,4 +1,0 @@
-header:
-  - { url: '/about', title: 'About' }
-  - { url: '/talks', title: 'Talks' }
-  - { url: '/feed.xml', title: 'Feed', props: { target: '_blank' } }

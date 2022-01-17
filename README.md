@@ -2,6 +2,17 @@
 
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-This repo contains the content and structure to generate my website using [Gastby](https://www.gatsbyjs.org/).
+This repo contains the content and structure to generate my website using [Next.js](https://nextjs.org/).
 
 If you find any problems with the site, please [file an issue](https://github.com/raygesualdo/raygesualdo.com/issues/new)!
+
+## Getting Started
+
+Install dependencies and run the dev server.
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
