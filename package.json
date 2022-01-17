@@ -28,6 +28,7 @@
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
+    "slugify": "^1.6.5",
     "strip-markdown": "^5.0.0",
     "unified": "^10.1.1"
   },

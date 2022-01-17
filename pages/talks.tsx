@@ -1,6 +1,7 @@
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import capitalize from 'lodash/capitalize'
+import slugify from 'slugify'
 import { getTalks, Talk } from '../lib/talks'
 import { intersperse } from '../lib/utils'
 import { PageTitle } from '../components/PageTitle'
@@ -21,10 +22,22 @@ export default function Home({ data }: HomeProps) {
 
       {data.map((talk) => {
         const { title, abstract, events } = talk
+        const slug = slugify(title, { lower: true, strict: true })
 
         return (
           <div key={title} className="mb-24">
-            <h2 className="text-2xl font-display text-red-500">{title}</h2>
+            <h2
+              className="text-2xl font-display text-red-500 relative group"
+              id={slug}
+            >
+              <a
+                href={`#${slug}`}
+                className="invisible group-hover:visible absolute right-full p-1 -mt-1 text-current no-underline"
+              >
+                #
+              </a>
+              {title}
+            </h2>
             {events.length && (
               <ul className="my-4 list-[circle] list-inside">
                 {events.map(({ title, ...links }) => (
