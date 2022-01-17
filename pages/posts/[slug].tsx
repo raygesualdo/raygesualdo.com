@@ -1,9 +1,9 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
-import { ArticleMeta } from '../../../../../components/ArticleMeta'
-import { Markdown } from '../../../../../components/Markdown'
-import { PageTitle } from '../../../../../components/PageTitle'
-import { getPathIds, getPostData, PostData } from '../../../../../lib/posts'
+import { ArticleMeta } from '../../components/ArticleMeta'
+import { Markdown } from '../../components/Markdown'
+import { PageTitle } from '../../components/PageTitle'
+import { getPathIds, getPostData, PostData } from '../../lib/posts'
 
 type PostProps = {
   data: PostData

@@ -12,12 +12,12 @@ export const ArticleBlock = ({
   post,
   showCategory = true,
 }: ArticleBlockProps) => {
-  const { year, month, day, slug } = post
+  const { slug } = post
 
   return (
     <article className="mb-12">
       <h1 className="text-3xl mb-1.5 text-sky-600 font-display">
-        <Link href={`/posts/${year}/${month}/${day}/${slug}`}>
+        <Link href={`/posts/${slug}`}>
           <a>{post.title}</a>
         </Link>
       </h1>

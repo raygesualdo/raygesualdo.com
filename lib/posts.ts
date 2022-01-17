@@ -17,15 +17,14 @@ const betterMatter = (input: string) => {
   })
 }
 
-export type PostData = Omit<PostFrontmatter, 'category'> &
-  ReturnType<typeof parsePostDate> & {
-    slug: string
-    permalink: string
-    markdown: string
-    excerpt: string
-    readingTime: ReturnType<typeof readingTime>
-    category: Category | null
-  }
+export type PostData = Omit<PostFrontmatter, 'category'> & {
+  slug: string
+  permalink: string
+  markdown: string
+  excerpt: string
+  readingTime: ReturnType<typeof readingTime>
+  category: Category | null
+}
 
 export type PostFrontmatter = {
   title: string
@@ -43,25 +42,21 @@ export async function getPostData(slug: string): Promise<PostData> {
   const current =
     fs
       .readdirSync(POSTS_CONTENT_DIRECTORY)
-      .find((directory) => directory.includes(slug)) ?? ''
+      .find((file) => file.includes(slug)) ?? ''
   const fileContents = fs.readFileSync(
-    path.join(POSTS_CONTENT_DIRECTORY, current, 'index.md'),
+    path.join(POSTS_CONTENT_DIRECTORY, current),
     'utf-8'
   )
   const matterResult = betterMatter(fileContents)
-  const { year, month, day } = parsePostDate(matterResult.data.date as string)
 
   const data = {
     slug,
     markdown: matterResult.content,
     ...(matterResult.data as PostFrontmatter),
-    year,
-    month,
-    day,
     excerpt: await getExcerpt(matterResult.content),
     readingTime: readingTime(matterResult.content),
     category: getCategoryBySlug(matterResult.data.category) || null,
-    permalink: `${config.siteUrl}/${year}/${month}/${day}/${slug}`,
+    permalink: `${config.siteUrl}/${slug}`,
   }
 
   if (process.env.NODE_ENV === 'production') {
@@ -72,22 +67,15 @@ export async function getPostData(slug: string): Promise<PostData> {
 }
 
 export function getPathIds() {
-  return fs.readdirSync(POSTS_CONTENT_DIRECTORY).map((directory) => {
-    const fileContents = fs.readFileSync(
-      path.join(POSTS_CONTENT_DIRECTORY, directory, 'index.md'),
-      'utf-8'
-    )
-    const matterResult = betterMatter(fileContents)
+  return fs.readdirSync(POSTS_CONTENT_DIRECTORY).map((file) => {
+    // Files are prepended with `###-` where `#` is an integer
+    // Also remove `.md` from the end
+    const slug = file.slice(4).replace('.md', '')
 
-    // Directories are prepended with `###-` where `#` is an integer
-    const slug = directory.slice(4)
-
-    const params = {
-      ...parsePostDate(matterResult.data.date as string),
-      slug,
-    }
     return {
-      params,
+      params: {
+        slug,
+      },
     }
   })
 }
@@ -98,14 +86,4 @@ export async function getAllPosts() {
     paths.map(({ params: { slug } }) => getPostData(slug))
   )
   return allPosts
-}
-
-function parsePostDate(date: string) {
-  const match = date.match(/(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/)
-
-  return {
-    year: match?.groups?.year ?? '',
-    month: match?.groups?.month ?? '',
-    day: match?.groups?.day ?? '',
-  }
 }
