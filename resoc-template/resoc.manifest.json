@@ -1,0 +1,13 @@
+{
+  "partials": {
+    "content": "./content2.html.mustache",
+    "styles": "./theme.css.mustache"
+  },
+  "parameters": [
+    {
+      "name": "title",
+      "type": "text",
+      "demoValue": "Building a macOS Locked Status Notifier in Swift"
+    }
+  ]
+}
