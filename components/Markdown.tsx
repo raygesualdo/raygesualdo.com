@@ -47,8 +47,13 @@ const components: ReactMarkdownOptions['components'] = {
     const staticImport = exportMap[imageSrc]
     return (
       <figure>
-        <div className="w-max max-w-full mx-auto">
-          <Image src={staticImport} alt={props.alt} placeholder="blur" />
+        <div className="max-w-full mx-auto">
+          <Image
+            src={staticImport}
+            alt={props.alt}
+            placeholder="blur"
+            layout="responsive"
+          />
         </div>
         {title && (
           <figcaption className="text-center font-display italic">
