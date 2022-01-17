@@ -1,6 +1,6 @@
 {
   "partials": {
-    "content": "./content2.html.mustache",
+    "content": "./content1.html.mustache",
     "styles": "./theme.css.mustache"
   },
   "parameters": [
