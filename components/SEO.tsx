@@ -16,7 +16,7 @@ export const SEO = ({
   return (
     <Head>
       <meta name="description" content={post.excerpt} />
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@raygesualdo" />
       <meta name="twitter:title" content={post.title} />
       <meta name="twitter:description" content={post.excerpt} />
