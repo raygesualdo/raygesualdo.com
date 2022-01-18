@@ -8,7 +8,8 @@
     "prebuild": "node lib/generateImageImports.js",
     "build": "next build",
     "export": "next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "socialimages:view": "npx itdk view resoc-template/resoc.manifest.json"
   },
   "dependencies": {
     "feed": "^4.2.2",
@@ -33,6 +34,8 @@
     "unified": "^10.1.1"
   },
   "devDependencies": {
+    "@resoc/core": "^0.9.1",
+    "@resoc/create-img": "^0.9.1",
     "@tailwindcss/typography": "^0.5.0",
     "@types/js-yaml": "^4.0.5",
     "@types/lodash": "^4.14.178",
