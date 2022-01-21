@@ -14,7 +14,7 @@ module.exports = {
 
 function getCurrentDomain() {
   if (process.env.NETLIFY) {
-    if (process.env.BRANCH !== 'master') {
+    if (process.env.BRANCH !== 'main') {
       return process.env.DEPLOY_PRIME_URL
     }
     return process.env.URL
