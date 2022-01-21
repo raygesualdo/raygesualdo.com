@@ -2,5 +2,10 @@
   publish = ".next/"
   command = "npm run build"
 
+[context.production.environment]
+  NEXT_PUBLIC_GA_ID = "UA-22333936-5"
+  NEXT_PUBLIC_PLAUSIBLE_ID = "raygesualdo.com"
+
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"

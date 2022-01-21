@@ -2,6 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
+import Script from 'next/script'
 import { useTheme } from 'next-themes'
 import { IconGitHub, IconTwitter } from './Icons'
 import { A } from './Link'
@@ -19,6 +20,30 @@ export function Layout({ children }: { children: JSX.Element }) {
           rel="stylesheet"
         />
       </Head>
+      {process.env.NEXT_PUBLIC_GA_ID && (
+        <>
+          <Script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+          ></Script>
+          <Script id="google-analytics">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+            `}
+          </Script>
+        </>
+      )}
+      {process.env.NEXT_PUBLIC_PLAUSIBLE_ID && (
+        <Script
+          defer
+          data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_ID}
+          src="https://plausible.io/js/plausible.js"
+        ></Script>
+      )}
       <SkipToMainContentLink />
       <header className="h-32 py-2 md:py-0 md:h-24 bg-slate-800 text-white font-display">
         <div className="h-full grid md:gap-x-2 justify-between items-center text-center md:text-left grid-cols-1 md:grid-cols-[1fr,max-content,max-content] Xmax-w-5xl mx-auto px-8">
