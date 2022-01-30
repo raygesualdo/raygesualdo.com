@@ -1,0 +1,28 @@
+name: Nightly build
+
+on:
+  schedule:
+    - cron: '15 7 * * *'
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Conditionally deploy
+        run: npx tsm scripts/triggerNightlyDeploy.ts
+        env:
+          NETLIFY_BUILD_HOOK_URL: ${{ secrets.NETLIFY_BUILD_HOOK_URL }}
