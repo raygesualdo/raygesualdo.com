@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<PostProps> = async (context) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getPathIds()
+  const paths = await getPathIds()
   return {
     paths,
     fallback: false,

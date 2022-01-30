@@ -28,7 +28,7 @@ export type PostData = Omit<PostFrontmatter, 'category'> & {
 
 export type PostFrontmatter = {
   title: string
-  date: string
+  date?: string
   category?: string
 }
 
@@ -62,10 +62,16 @@ export async function getPostData(slug: string): Promise<PostData> {
   return data
 }
 
-export function getPathIds() {
+function getAllPaths() {
   return fs.readdirSync(POSTS_CONTENT_DIRECTORY).map((file) => {
     const slug = file.replace('.md', '')
+    return slug
+  })
+}
 
+export async function getPathIds({ includeDrafts = false } = {}) {
+  const posts = await getAllPosts({ includeDrafts })
+  return posts.map(({ slug }) => {
     return {
       params: {
         slug,
@@ -74,17 +80,23 @@ export function getPathIds() {
   })
 }
 
+const includeDraftsFilter = () => true
+const excludeDraftsFilter = (post: PostData) => {
+  const today = new Date().toISOString().slice(0, 10)
+  return post.date && post.date <= today
+}
+
 /** Get all posts, sorted by newest to oldest publish date */
-export async function getAllPosts() {
-  const paths = getPathIds()
-  const allPosts = await Promise.all(
-    paths.map(({ params: { slug } }) => getPostData(slug))
-  )
-  return allPosts.sort(sortByPublishDate)
+export async function getAllPosts({ includeDrafts = false } = {}) {
+  const paths = getAllPaths()
+  const allPosts = await Promise.all(paths.map((slug) => getPostData(slug)))
+  return allPosts
+    .filter(includeDrafts ? includeDraftsFilter : excludeDraftsFilter)
+    .sort(sortByPublishDate)
 }
 
 function sortByPublishDate(a: PostData, b: PostData) {
-  if (a.date < b.date) return 1
-  if (a.date > b.date) return -1
+  if (a.date! < b.date!) return 1
+  if (a.date! > b.date!) return -1
   return 0
 }
