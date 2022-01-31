@@ -25,7 +25,8 @@ export default function Home({ data }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async (context) => {
-  const data = await getAllPosts()
+  const includeDrafts = process.env.NODE_ENV === 'development' ? true : false
+  const data = await getAllPosts({ includeDrafts })
 
   generateRssFeed(data)
 

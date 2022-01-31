@@ -39,7 +39,8 @@ export const getStaticProps: GetStaticProps<PostProps> = async (context) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getPathIds()
+  const includeDrafts = process.env.NODE_ENV === 'development' ? true : false
+  const paths = await getPathIds({ includeDrafts })
   return {
     paths,
     fallback: false,

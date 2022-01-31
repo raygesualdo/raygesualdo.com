@@ -96,7 +96,9 @@ export async function getAllPosts({ includeDrafts = false } = {}) {
 }
 
 function sortByPublishDate(a: PostData, b: PostData) {
-  if (a.date! < b.date!) return 1
-  if (a.date! > b.date!) return -1
+  if (!a.date) return -1
+  if (!b.date) return 1
+  if (a.date < b.date) return 1
+  if (a.date > b.date) return -1
   return 0
 }
