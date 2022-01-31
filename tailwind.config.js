@@ -57,6 +57,9 @@ module.exports = {
             'figure figcaption': {
               color: null,
             },
+            summary: {
+              cursor: 'pointer',
+            },
           },
         },
       }),
