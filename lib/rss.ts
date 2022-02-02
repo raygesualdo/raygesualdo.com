@@ -30,7 +30,8 @@ export async function generateRssFeed(posts: PostData[]) {
       feed.addItem({
         title: post.title,
         id: post.permalink,
-        date: new Date(post.date),
+        // @ts-expect-error Date can actually take `null`
+        date: new Date(post.date ?? null),
         link: post.permalink,
         author: [author],
         content: contentHtml,

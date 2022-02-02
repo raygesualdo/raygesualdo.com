@@ -1,3 +1,4 @@
+// @ts-expect-error
 import fetch from 'node-fetch'
 import { getAllPosts } from '../lib/posts'
 
