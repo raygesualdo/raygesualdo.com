@@ -1,6 +1,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
-import memo from 'lodash/memoize'
+// Included the file extension here to fix weird bug with `tsm`
+import memo from 'lodash/memoize.js'
 import yaml from 'js-yaml'
 
 export type Category = {
