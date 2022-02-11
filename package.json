@@ -9,7 +9,8 @@
     "build": "next build",
     "export": "next export",
     "lint": "next lint",
-    "socialimages:view": "npx itdk view resoc-template/resoc.manifest.json"
+    "socialimages": "npx itdk view resoc-template/resoc.manifest.json",
+    "slug": "tsm scripts/slugify.ts"
   },
   "dependencies": {
     "feed": "^4.2.2",
