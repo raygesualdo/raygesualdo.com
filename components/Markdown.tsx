@@ -79,7 +79,7 @@ interface MarkdownProps {
 
 export const Markdown = ({ markdown }: MarkdownProps) => {
   return (
-    <div className="prose prose-lg prose-sky dark:prose-invert">
+    <div className="prose prose-lg prose-sky dark:prose-invert prose-pre:rounded-none prose-pre:md:rounded-md prose-pre:-mx-4 prose-pre:px-4 prose-pre:py-2 prose-pre:md:mx-0 prose-pre:md:p-0">
       <ReactMarkdown
         remarkPlugins={REMARK_PLUGINS}
         rehypePlugins={REHYPE_PLUGINS}

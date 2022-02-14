@@ -34,12 +34,6 @@ module.exports = {
               color: theme('colors.red.500'),
               fontFamily: theme('fontFamily.display'),
             },
-            pre: {
-              paddingTop: null,
-              paddingBottom: null,
-              paddingLeft: null,
-              paddingRight: null,
-            },
             code: {
               fontStyle: 'normal',
               fontWeight: 'normal',
