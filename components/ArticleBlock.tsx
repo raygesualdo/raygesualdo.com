@@ -18,7 +18,10 @@ export const ArticleBlock = ({
     <article className="mb-12">
       <h1 className="text-3xl mb-1.5 text-sky-600 font-display">
         <Link href={`/posts/${slug}`}>
-          <a>{post.title}</a>
+          <a>
+            {post.isDraft ? '(Draft) ' : ''}
+            {post.title}
+          </a>
         </Link>
       </h1>
       <ArticleMeta post={post} showCategory={showCategory} className="mb-3" />

@@ -24,6 +24,7 @@ export type PostData = Omit<PostFrontmatter, 'category'> & {
   excerpt: string
   readingTime: ReturnType<typeof readingTime>
   category: Category | null
+  isDraft?: boolean
 }
 
 export type PostFrontmatter = {
@@ -81,9 +82,9 @@ export async function getPathIds({ includeDrafts = false } = {}) {
 }
 
 const includeDraftsFilter = () => true
-const excludeDraftsFilter = (post: PostData) => {
+const isPublishedPost = (post: PostData) => {
   const today = new Date().toISOString().slice(0, 10)
-  return post.date && post.date <= today
+  return !!post.date && post.date <= today
 }
 
 /** Get all posts, sorted by newest to oldest publish date */
@@ -91,7 +92,11 @@ export async function getAllPosts({ includeDrafts = false } = {}) {
   const paths = getAllPaths()
   const allPosts = await Promise.all(paths.map((slug) => getPostData(slug)))
   return allPosts
-    .filter(includeDrafts ? includeDraftsFilter : excludeDraftsFilter)
+    .filter(includeDrafts ? () => true : isPublishedPost)
+    .map((post) => {
+      post.isDraft = !isPublishedPost(post)
+      return post
+    })
     .sort(sortByPublishDate)
 }
 
