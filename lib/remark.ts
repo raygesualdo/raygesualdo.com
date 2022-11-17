@@ -3,6 +3,7 @@ import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import rehypeRaw from 'rehype-raw'
+import rehypeAttrs from 'rehype-attr'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -18,6 +19,7 @@ export const REMARK_PLUGINS: PluggableList = [remarkParse, remarkGfm]
 
 export const REHYPE_PLUGINS: PluggableList = [
   rehypeRaw,
+  [rehypeAttrs, { properties: 'attr' }],
   [rehypeHighlight, { languages: { elixir: highlightElixir } }],
   rehypeSlug,
   [

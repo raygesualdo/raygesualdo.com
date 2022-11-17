@@ -42,15 +42,18 @@ const components: ReactMarkdownOptions['components'] = {
   h6: ({ node, level, ...props }) => (
     <h6 {...props} className="relative group" />
   ),
-  img: ({ node, title, src, ...props }) => {
+  img: ({ node, title, src, alt, ...props }) => {
     const imageSrc = src as keyof typeof exportMap
     const staticImport = exportMap[imageSrc]
     return (
       <figure>
-        <div className="max-w-full mx-auto">
+        <div
+          {...props}
+          className="max-w-full mx-auto shadow-xl dark:border dark:border-white/20 rounded overflow-hidden"
+        >
           <Image
             src={staticImport}
-            alt={props.alt}
+            alt={alt}
             placeholder="blur"
             layout="responsive"
           />
