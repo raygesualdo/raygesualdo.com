@@ -19,6 +19,12 @@ export function Layout({ children }: { children: JSX.Element }) {
           href="//fonts.googleapis.com/css?family=Montserrat:400"
           rel="stylesheet"
         />
+        <link
+          rel="alternate"
+          href="/rss.xml"
+          type="application/rss+xml"
+          title="RSS"
+        />
       </Head>
       {process.env.NEXT_PUBLIC_GA_ID && (
         <>
