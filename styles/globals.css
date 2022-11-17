@@ -2,7 +2,7 @@
 @tailwind components;
 
 body {
-  @apply font-body lg:text-lg dark:bg-black dark:text-slate-200;
+  @apply font-body lg:text-lg dark:bg-[#070a13] dark:text-slate-200;
 }
 
 @tailwind utilities;
