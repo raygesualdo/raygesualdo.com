@@ -18,7 +18,7 @@ export function ArticleMeta({
   const { category, date, readingTime } = post
   return (
     <div className={`text-md font-display ${className}`}>
-      {formatDate(date)} | {Math.round(readingTime?.minutes ?? 0)} Minute Read
+      {formatDate(date)} | {Math.ceil(readingTime?.minutes ?? 0)} Minute Read
       {category && showCategory && (
         <Fragment>
           {' '}
