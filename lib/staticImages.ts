@@ -4,6 +4,7 @@ import postsArchitectureDiagramBeforePng from '../public/posts/architecture-diag
 import postsGandalfJpg from '../public/posts/gandalf.jpg'
 import postsSamuelTan401825UnsplashJpg from '../public/posts/samuel-tan-401825-unsplash.jpg'
 import postsSyncStatusStateMachinePng from '../public/posts/sync-status-state-machine.png'
+import postsTookDownProductionTweetPng from '../public/posts/took-down-production-tweet.png'
   
 export const exportMap = {
   '/posts/architecture-diagram-after.png': postsArchitectureDiagramAfterPng,
@@ -11,5 +12,6 @@ export const exportMap = {
   '/posts/gandalf.jpg': postsGandalfJpg,
   '/posts/samuel-tan-401825-unsplash.jpg': postsSamuelTan401825UnsplashJpg,
   '/posts/sync-status-state-machine.png': postsSyncStatusStateMachinePng,
+  '/posts/took-down-production-tweet.png': postsTookDownProductionTweetPng,
 }
   
