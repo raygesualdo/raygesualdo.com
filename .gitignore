@@ -38,3 +38,6 @@ yarn-error.log*
 
 # Social images
 /public/social-images
+
+# TypeScript
+*.tsbuildinfo
