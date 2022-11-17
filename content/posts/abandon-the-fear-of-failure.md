@@ -1,7 +1,7 @@
 ---
 title: Abandon the Fear of Failure
 date: 2022-11-16
-category:
+category: learning
 ---
 
 Well, it was bound to happen sooner or later. Over the summer, I took down production. I didn't want to. I didn't mean to. But it happened anyway. As the adrenaline rush of diagnosing and fixing the problem slowly wore off, I did as any responsible member of society does and tweeted about my experience.
