@@ -15,3 +15,7 @@
 
 # Post renames
 /posts/2019/10/06/building-a-lockscreen-notifier-in-swift/ /posts/building-a-macos-locked-status-notifier-in-swift/
+
+# Plausible
+/proxy/js/script.js https://plausible.io/js/script.js 200
+/proxy/api/event https://plausible.io/api/event 200

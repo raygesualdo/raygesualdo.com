@@ -26,28 +26,12 @@ export function Layout({ children }: { children: JSX.Element }) {
           title="RSS"
         />
       </Head>
-      {process.env.NEXT_PUBLIC_GA_ID && (
-        <>
-          <Script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-          ></Script>
-          <Script id="google-analytics">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-            
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
-            `}
-          </Script>
-        </>
-      )}
       {process.env.NEXT_PUBLIC_PLAUSIBLE_ID && (
         <Script
           defer
           data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_ID}
-          src="https://plausible.io/js/plausible.js"
+          data-api="/proxy/api/event"
+          src="/proxy/js/script.js"
         ></Script>
       )}
       <SkipToMainContentLink />
