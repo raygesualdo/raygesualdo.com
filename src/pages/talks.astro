@@ -1,0 +1,60 @@
+---
+import { getEntry } from 'astro:content'
+import slugify from 'slugify'
+import Layout from '../layouts/Layout.astro'
+import PageTitle from '../components/PageTitle.astro'
+import Link from '../components/Link.astro'
+
+function capitalize(str: string) {
+  return str.at(0)?.toUpperCase() + str.slice(1)
+}
+
+// function getEventLinks
+
+const { data } = await getEntry('talks', 'talks')
+---
+
+<Layout title="Talks">
+  <PageTitle>Talks</PageTitle>
+
+  {
+    data.map((talk) => {
+      const { title, abstract, events } = talk
+      const slug = slugify(title, { lower: true, strict: true })
+
+      return (
+        <div class="mb-24">
+          <h2 class="text-2xl font-display text-red-500 relative group" id={slug}>
+            <a
+              href={`#${slug}`}
+              class="invisible group-hover:visible absolute right-full p-1 -mt-1 text-current no-underline"
+            >
+              #
+            </a>
+            {title}
+          </h2>
+          {events.length && (
+            <ul class="my-4 list-[circle] list-inside">
+              {events.map(({ title, ...linksObject }) => {
+                const links = Object.entries(linksObject)
+                  .map(([key, url]) => {
+                    return <Link href={url}>{capitalize(key)}</Link>
+                  })
+                  .flatMap((link, index) => {
+                    if (index === 0) return [link]
+                    return [<span> | </span>, link]
+                  })
+                return (
+                  <li>
+                    {title} {links.length ? <span>({links})</span> : null}
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+          <p>{abstract}</p>
+        </div>
+      )
+    })
+  }
+</Layout>
