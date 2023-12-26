@@ -18,7 +18,7 @@ const { title } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.ico" />
     <link href="//fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet" />
-    <title>{title ?? 'RayGesualdo.com'}</title>
+    <title>{title ? `${title} | RayGesualdo.com` : 'RayGesualdo.com'}</title>
   </head>
   <body class="font-body lg:text-lg dark:bg-[#070a13] dark:text-slate-200">
     <a

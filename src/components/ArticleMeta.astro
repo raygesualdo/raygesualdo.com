@@ -1,0 +1,32 @@
+---
+import { type CollectionEntry, getEntry } from 'astro:content'
+import Link from './Link.astro'
+import { formatDate } from '../utils'
+
+interface Props {
+  postData: CollectionEntry<'posts'>['data']
+  readingTime?: number
+  showCategory?: boolean
+  class?: string
+}
+
+const { postData, showCategory = true, class: className = '', readingTime } = Astro.props
+const category =
+  postData.category && showCategory
+    ? await getEntry(postData.category.collection, postData.category.id)
+    : undefined
+---
+
+<div class={`text-md font-display ${className}`}>
+  {formatDate(postData.date)}
+  <span> |</span>
+  {Math.ceil(readingTime ?? 0)} Minute Read
+  {
+    category && (
+      <>
+        <span> | </span>
+        Category: <Link href={`/category/${category.id}`}>{category.data.name}</Link>
+      </>
+    )
+  }
+</div>

@@ -8,9 +8,18 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.0.4
     version: 5.0.4(astro@4.0.7)(tailwindcss@3.4.0)
+  '@igor.dvlpr/astro-post-excerpt':
+    specifier: ^2.1.0
+    version: 2.1.0(astro@4.0.7)
   astro:
     specifier: ^4.0.7
     version: 4.0.7
+  mdast-util-to-string:
+    specifier: ^4.0.0
+    version: 4.0.0
+  reading-time:
+    specifier: ^1.5.0
+    version: 1.5.0
   tailwindcss:
     specifier: ^3.4.0
     version: 3.4.0
@@ -529,6 +538,32 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@igor.dvlpr/astro-post-excerpt@2.1.0(astro@4.0.7):
+    resolution: {integrity: sha512-KCX5ohcRr4Mz43cBLGMYUx5DqB1yrpZMXx/y2QU5z58yAiqFcpv80a7J5g+7gM2IslrPjrIiWewxRAGUo3VJ9Q==}
+    peerDependencies:
+      astro: '>=1.0.0'
+    dependencies:
+      '@igor.dvlpr/strip-headings': 1.0.1
+      '@igor.dvlpr/strip-html': 1.0.1
+      '@igor.dvlpr/strip-html-headings': 1.0.0
+      astro: 4.0.7
+    dev: false
+
+  /@igor.dvlpr/strip-headings@1.0.1:
+    resolution: {integrity: sha512-JSQhnsBHG6t7sc1LzhDqk6TLg/AoXACTe5Yf7c2AtbB1OsKl2NPNOQHYUr68THPUSn0JTQMLAYXxfVu3SixSbA==}
+    engines: {node: '>=16.0'}
+    dev: false
+
+  /@igor.dvlpr/strip-html-headings@1.0.0:
+    resolution: {integrity: sha512-mwkLmjzVJ5rUdPzIBc3GvVqhkJAtMpcuLZnBlOrhQMSYCzeMl8WTCPvExgb38aCH0/WAJyuQc7NgNnAQRwsXmw==}
+    engines: {node: '>=16.0'}
+    dev: false
+
+  /@igor.dvlpr/strip-html@1.0.1:
+    resolution: {integrity: sha512-7ngztsUqgrCzs2VBiMYl8LOORpNP1m7pVzzt932QVgxhU360LGwvEcEOnv9vEa223l6tc/1rSYR/g4aBH9ahVw==}
+    engines: {node: '>=16.0'}
+    dev: false
 
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -2894,6 +2929,10 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+    dev: false
+
+  /reading-time@1.5.0:
+    resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
     dev: false
 
   /rehype-parse@9.0.0:
