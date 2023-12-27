@@ -1,0 +1,9 @@
+[build]
+command = "pnpm build"
+publish = "dist"
+
+[build.environment]
+NODE_VERSION = "20.10.0"
+
+[context.production.environment]
+NEXT_PUBLIC_PLAUSIBLE_ID = "raygesualdo.com"
