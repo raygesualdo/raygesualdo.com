@@ -14,7 +14,7 @@ const isDraft = !isPublishedPost(post)
 ---
 
 <article class="mb-12">
-  <h1 class="text-3xl mb-1.5 text-sky-600 font-display">
+  <h1 class="text-3xl mb-1.5 text-sky-600 dark:text-sky-500 font-display">
     <a href={`/posts/${post.slug}`}>
       {isDraft ? '(Draft) ' : ''}
       {post.data.title}
