@@ -4,8 +4,7 @@ import rehypeTitleFigure from 'rehype-title-figure'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import rehypeAttrs from 'rehype-attr'
-import { remarkReadingTime } from './src/remark-reading-time.mjs'
-import { remarkExcerpt } from './src/remark-excerpt.mjs'
+import { remarkExcerpt, remarkReadingTime } from './src/remark.mjs'
 
 // https://astro.build/config
 export default defineConfig({
