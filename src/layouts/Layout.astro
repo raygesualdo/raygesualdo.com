@@ -2,6 +2,7 @@
 import Link from '../components/Link.astro'
 import IconGitHub from '../components/IconGitHub.astro'
 import IconTwitter from '../components/IconTwitter.astro'
+import ThemeToggle from '../components/ThemeToggle.astro'
 
 interface Props {
   title?: string
@@ -71,7 +72,7 @@ const { title } = Astro.props
         View source code
       </Link>{' '}
        |{' '}
-      <button class="text-sky-600 underline"> Toggle theme</button>
+      <ThemeToggle />
     </footer>
   </body>
 </html>
