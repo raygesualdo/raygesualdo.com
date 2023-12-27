@@ -5,24 +5,22 @@ import { FacebookOpenGraph, TwitterCard } from '@resoc/core'
 export type SocialImages = Awaited<ReturnType<typeof generateSocialImages>>
 
 export const generateSocialImages = async (title: string, slug: string) => {
-  const ogImage = await compileLocalTemplate(
-    'src/social-image-template/resoc.manifest.json',
-    {
-      title,
-    },
-    FacebookOpenGraph,
-    `public/social-images/og-${slug}-{{ hash }}.jpg`,
-    { cache: true }
-  )
-  const twitterImage = await compileLocalTemplate(
-    'src/social-image-template/resoc.manifest.json',
-    {
-      title,
-    },
-    TwitterCard,
-    `public/social-images/twitter-${slug}-{{ hash }}.jpg`,
-    { cache: true }
-  )
+  const [ogImage, twitterImage] = await Promise.all([
+    compileLocalTemplate(
+      'src/social-image-template/resoc.manifest.json',
+      { title },
+      FacebookOpenGraph,
+      `public/social-images/og-${slug}-{{ hash }}.jpg`,
+      { cache: true }
+    ),
+    compileLocalTemplate(
+      'src/social-image-template/resoc.manifest.json',
+      { title },
+      TwitterCard,
+      `public/social-images/twitter-${slug}-{{ hash }}.jpg`,
+      { cache: true }
+    ),
+  ])
 
   return {
     ogImage: ogImage.replace('public/', ''),
