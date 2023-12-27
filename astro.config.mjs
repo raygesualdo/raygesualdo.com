@@ -10,6 +10,9 @@ import { remarkExcerpt, remarkReadingTime } from './src/remark.mjs'
 export default defineConfig({
   site: getCurrentDomain(),
   integrations: [tailwind()],
+  prefetch: {
+    prefetchAll: true,
+  },
   markdown: {
     remarkPlugins: [remarkReadingTime, remarkExcerpt],
     rehypePlugins: [
