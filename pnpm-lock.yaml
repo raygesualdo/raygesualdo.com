@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@resoc/create-img@0.9.1':
+    hash: xyoqmbkyzrkaqit6o64ld53yre
+    path: patches/@resoc__create-img@0.9.1.patch
+
 dependencies:
   '@astrojs/rss':
     specifier: ^4.0.1
@@ -16,7 +21,7 @@ dependencies:
     version: 0.9.1(isomorphic-fetch@3.0.0)(mustache@4.2.0)
   '@resoc/create-img':
     specifier: ^0.9.1
-    version: 0.9.1(isomorphic-fetch@3.0.0)
+    version: 0.9.1(patch_hash=xyoqmbkyzrkaqit6o64ld53yre)(isomorphic-fetch@3.0.0)
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.4.0)
@@ -667,7 +672,7 @@ packages:
       - supports-color
     dev: false
 
-  /@resoc/create-img@0.9.1(isomorphic-fetch@3.0.0):
+  /@resoc/create-img@0.9.1(patch_hash=xyoqmbkyzrkaqit6o64ld53yre)(isomorphic-fetch@3.0.0):
     resolution: {integrity: sha512-e05crv8v2s4bOOGg/1ho8t8ibBY7nPumBxiHaFlu0LbNWccimsd7P5VuVi+beIUDeQm59UaZ7+cmC+SKA5tWhw==}
     dependencies:
       '@resoc/create-img-core': 0.9.1(isomorphic-fetch@3.0.0)
@@ -678,6 +683,7 @@ packages:
       - supports-color
       - utf-8-validate
     dev: false
+    patched: true
 
   /@rollup/rollup-android-arm-eabi@4.9.1:
     resolution: {integrity: sha512-6vMdBZqtq1dVQ4CWdhFwhKZL6E4L1dV6jUjuBvsavvNJSppzi6dLBbuV+3+IyUREaj9ZFvQefnQm28v4OCXlig==}
