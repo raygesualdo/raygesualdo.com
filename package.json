@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.1",
     "@astrojs/tailwind": "^5.0.4",
     "@resoc/core": "^0.9.1",
     "@resoc/create-img": "^0.9.1",
