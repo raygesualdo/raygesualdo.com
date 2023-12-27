@@ -1,0 +1,21 @@
+---
+import type { MarkdownLayoutProps } from 'astro'
+import PageTitle from '../components/PageTitle.astro'
+import Markdown from '../components/Markdown.astro'
+import Layout from './Layout.astro'
+
+type Props = MarkdownLayoutProps<{
+  title: string
+}>
+
+const {
+  frontmatter: { title },
+} = Astro.props
+---
+
+<Layout title={title}>
+  <PageTitle>{title}</PageTitle>
+  <Markdown>
+    <slot />
+  </Markdown>
+</Layout>
