@@ -1,16 +1,16 @@
 ---
-// import { FacebookOpenGraph as FOG } from '@resoc/core'
-// import { SocialImages } from '../lib/socialImages'
+import { FacebookOpenGraph as FOG } from '@resoc/core'
 import { getEntry, type CollectionEntry } from 'astro:content'
+import type { SocialImages } from '../utils'
 
 interface Props {
   post: CollectionEntry<'posts'>
-  // socialImages: SocialImages
+  socialImages: SocialImages
 }
 
 const abs = (path: string) => `${Astro.site}${path}`
 
-const { post } = Astro.props
+const { post, socialImages } = Astro.props
 const { remarkPluginFrontmatter } = await post.render()
 
 const permalink = Astro.url.href
@@ -31,8 +31,8 @@ const formattedReadingTime =
 <meta name="twitter:title" content={post.data.title} />
 <meta name="twitter:description" content={remarkPluginFrontmatter.excerpt} />
 <meta name="twitter:url" content={permalink} />
-<!-- <meta name="twitter:image" content={abs(socialImages.twitterImage)} />
-  <meta name="twitter:image:src" content={abs(socialImages.twitterImage)} /> -->
+<meta name="twitter:image" content={abs(socialImages.twitterImage)} />
+<meta name="twitter:image:src" content={abs(socialImages.twitterImage)} />
 <meta name="twitter:label1" content="Est. reading time" />
 <meta name="twitter:data1" content={formattedReadingTime} />
 {
@@ -47,6 +47,6 @@ const formattedReadingTime =
 <meta property="og:type" content="article" />
 <meta property="og:title" content={post.data.title} />
 <meta property="og:description" content={remarkPluginFrontmatter.excerpt} />
-<!-- <meta property="og:image" content={abs(socialImages.ogImage)} />
-  <meta property="og:image:width" content={String(FOG.width)} />
-  <meta property="og:image:height" content={String(FOG.height)} /> -->
+<meta property="og:image" content={abs(socialImages.ogImage)} />
+<meta property="og:image:width" content={String(FOG.width)} />
+<meta property="og:image:height" content={String(FOG.height)} />

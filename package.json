@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.0.4",
+    "@resoc/core": "^0.9.1",
+    "@resoc/create-img": "^0.9.1",
     "@tailwindcss/typography": "^0.5.10",
     "astro": "^4.0.7",
     "mdast-util-to-string": "^4.0.0",
