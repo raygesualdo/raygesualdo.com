@@ -1,0 +1,88 @@
+---
+import Link from '../components/Link.astro'
+import IconGitHub from '../components/IconGitHub.astro'
+import IconTwitter from '../components/IconTwitter.astro'
+import ThemeToggle from '../components/ThemeToggle.astro'
+
+interface Props {
+  title?: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="The personal site of Ray Gesualdo" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.ico" />
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet" />
+    <title>{title ? `${title} | RayGesualdo.com` : 'RayGesualdo.com'}</title>
+    {
+      import.meta.env.PLAUSIBLE_ID && (
+        <script
+          defer
+          data-domain={import.meta.env.PLAUSIBLE_ID}
+          data-api="/proxy/api/event"
+          src="/proxy/js/script.js"
+        />
+      )
+    }
+    <slot name="head" />
+  </head>
+  <body class="font-body lg:text-lg dark:bg-[#070a13] dark:text-slate-200">
+    <a
+      href="#main"
+      class="absolute left-[50%] -translate-x-1/2 bg-indigo-700 font-semibold text-white py-1 px-3 rounded-b -translate-y-full focus:translate-y-0"
+    >
+      Skip to content
+    </a>
+    <header class="h-32 py-2 md:py-0 md:h-24 bg-slate-800 text-white font-display">
+      <div
+        class="h-full grid md:gap-x-2 justify-between items-center text-center md:text-left grid-cols-1 md:grid-cols-[1fr,max-content,max-content] Xmax-w-5xl mx-auto px-8"
+      >
+        <div>
+          <a href="/" class="text-xl py-1 uppercase">Ray Gesualdo</a>
+        </div>
+        <nav class="space-x-4 md:space-x-2 flex justify-center items-center">
+          <a href="/about" class="block p-1.5 md:p-2 rounded hover:bg-white/10"> About</a>
+          <a href="/talks" class="block p-1.5 md:p-2 rounded hover:bg-white/10"> Talks</a>
+          <a href="/rss.xml" class="block p-1.5 md:p-2 rounded hover:bg-white/10"> Feed</a>
+        </nav>
+        <div class="space-x-3 md:space-x-1 flex justify-center items-center">
+          <a
+            class="block px-1.5 md:px-2.5 py-1.5 md:py-3 rounded hover:bg-white/10"
+            href="https://twitter.com/RayGesualdo"
+          >
+            <span class="sr-only">My Twitter profile</span>
+            <IconTwitter class="inline text-inherit -mt-1" />
+          </a>
+          <a
+            class="block px-1.5 md:px-2.5 py-1.5 md:py-3 rounded hover:bg-white/10"
+            href="http://github.com/raygesualdo"
+          >
+            <span class="sr-only">My GitHub profile</span>
+            <IconGitHub class="inline text-inherit -mt-1" />
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="grid grid-cols-[0fr,100%,0fr] md:grid-cols-[1fr,67ch,1fr]">
+      <div></div>
+      <main id="main" class="mt-4 md:mt-12 p-4">
+        <slot />
+      </main>
+      <div></div>
+    </div>
+    <footer class="p-8 text-center text-gray-500 text-sm">
+      Copyright © Ray Gesualdo {new Date().getFullYear()} |{' '}
+      <Link href="https://github.com/raygesualdo/raygesualdo.com" class="text-sky-600 underline">
+        View source code
+      </Link>{' '}
+       |{' '}
+      <ThemeToggle />
+    </footer>
+  </body>
+</html>

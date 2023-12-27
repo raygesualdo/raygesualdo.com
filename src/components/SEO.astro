@@ -1,0 +1,52 @@
+---
+import { FacebookOpenGraph as FOG } from '@resoc/core'
+import { getEntry, type CollectionEntry } from 'astro:content'
+import type { SocialImages } from '../utils'
+
+interface Props {
+  post: CollectionEntry<'posts'>
+  socialImages: SocialImages
+}
+
+const abs = (path: string) => `${Astro.site}${path}`
+
+const { post, socialImages } = Astro.props
+const { remarkPluginFrontmatter } = await post.render()
+
+const permalink = Astro.url.href
+const category = post.data.category
+  ? await getEntry(post.data.category.collection, post.data.category.id)
+  : undefined
+const formattedReadingTime =
+  remarkPluginFrontmatter.readingTime > 1
+    ? `${Math.ceil(remarkPluginFrontmatter.readingTime)} minutes`
+    : `${Math.ceil(remarkPluginFrontmatter.readingTime)} minute`
+---
+
+<link rel="canonical" href={permalink} />
+<meta name="description" content={remarkPluginFrontmatter.excerpt} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@raygesualdo" />
+<meta name="twitter:site" content="@raygesualdo" />
+<meta name="twitter:title" content={post.data.title} />
+<meta name="twitter:description" content={remarkPluginFrontmatter.excerpt} />
+<meta name="twitter:url" content={permalink} />
+<meta name="twitter:image" content={abs(socialImages.twitterImage)} />
+<meta name="twitter:image:src" content={abs(socialImages.twitterImage)} />
+<meta name="twitter:label1" content="Est. reading time" />
+<meta name="twitter:data1" content={formattedReadingTime} />
+{
+  category && (
+    <>
+      <meta name="twitter:label2" content="Filed under" />
+      <meta name="twitter:data2" content={category.data.name} />
+    </>
+  )
+}
+<meta property="og:site_name" content="RayGesualdo.com" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content={post.data.title} />
+<meta property="og:description" content={remarkPluginFrontmatter.excerpt} />
+<meta property="og:image" content={abs(socialImages.ogImage)} />
+<meta property="og:image:width" content={String(FOG.width)} />
+<meta property="og:image:height" content={String(FOG.height)} />

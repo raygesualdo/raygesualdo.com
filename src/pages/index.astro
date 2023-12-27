@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../layouts/Layout.astro'
+import ArticleBlock from '../components/ArticleBlock.astro'
+import { filterPostCollection, sortPostsByPublishDate } from '../utils'
+
+// generateRssFeed(data)
+
+const posts = (await getCollection('posts', filterPostCollection)).toSorted(sortPostsByPublishDate)
+---
+
+<Layout title="Home">
+  <h1 class="sr-only">Home</h1>
+  {
+    posts.map((post) => {
+      return <ArticleBlock post={post} />
+    })
+  }
+</Layout>

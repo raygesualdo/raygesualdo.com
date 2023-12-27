@@ -1,0 +1,11 @@
+diff --git a/build/index.es.js b/build/index.es.js
+index e94b67e69b51941483f3d490c6df8818460bee41..7b49adf29c023caa108e68dc48e6e237fe3e7cec 100644
+--- a/build/index.es.js
++++ b/build/index.es.js
+@@ -1,5 +1,5 @@
+ import puppeteer from 'puppeteer';
+-import createImgCore from '@resoc/create-img-core';
++import * as createImgCore from '@resoc/create-img-core';
+ export { cachedImageName, fileExists, loadLocalTemplate, parseParameters, renderLocalTemplate } from '@resoc/create-img-core';
+ 
+ /*! *****************************************************************************
