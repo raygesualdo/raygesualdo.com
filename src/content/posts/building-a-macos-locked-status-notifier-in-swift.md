@@ -14,7 +14,7 @@ Again, my goal was to check my laptop's locked or unlocked status from my phone.
 
 To start, I knew what I couldn't do: I couldn't rely on communicating with the laptop directly. Having a server on the laptop set up with tunneling would have been overly complex and difficult to maintain, and it wouldn't have worked when my laptop was asleep. An optimal solution would require a cloud-based persistence layer to store the un/locked status accessible from anywhere. The architecture would need to look something like this:
 
-![Flow diagram showing a local process writing to a cloud key/value store that is read from a website](/posts/architecture-diagram-before.png 'Project architecture')
+![Flow diagram showing a local process writing to a cloud key/value store that is read from a website](../../assets/architecture-diagram-before.png 'Project architecture')
 
 Working counter-clockwise in the diagram, I knew the website would be a simple HTML & JS website. I didn't want to over-engineer it. For the key/value store, I started googling for "free redis hosting" and "free key value stores". I happened across a seemingly new service called [KVdb.io](https://kvdb.io) that allows you to create "buckets" (think Redis databases) and read from/write to keys over HTTP. The final part, the local process, took longer to figure out.
 
@@ -24,7 +24,7 @@ I was left with two options: Objective C or Swift. I knew I didn't want to write
 
 The diagram now looked like this:
 
-![Flow diagram showing a local process using Swift writing to the KVdb cloud key/value store that is read from an HTML & JS website](/posts/architecture-diagram-after.png 'Project architecture with specific implementations')
+![Flow diagram showing a local process using Swift writing to the KVdb cloud key/value store that is read from an HTML & JS website](../../assets/architecture-diagram-after.png 'Project architecture with specific implementations')
 
 With the system architecture sketched out, we can start building.
 
@@ -284,7 +284,7 @@ private func getISOTimestamp() -> String {
 
 Now it's time to tackle handling retries. Things get a little more complicated here because we can't simply make HTTP requests and forget about them. We need a way to track if a request needs to be retried. I was kicking this around at the office and my co-worker Ben suggested using a state machine. While the following solution isn't strictly a state machine, it follows some of the same characteristics. The idea is that any time a network request needs to be made, this is called a "sync". A sync can be in a pending state, success state, or failure state. How these flow is outlined in the diagram below.
 
-![State machine diagram showing failure and success states flowing through pending state](/posts/sync-status-state-machine.png 'Sync status state machine')
+![State machine diagram showing failure and success states flowing through pending state](../../assets/sync-status-state-machine.png 'Sync status state machine')
 
 Let's start writing some code.
 

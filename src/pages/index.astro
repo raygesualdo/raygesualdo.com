@@ -2,22 +2,17 @@
 import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 import ArticleBlock from '../components/ArticleBlock.astro'
-import { isPublishedPost, sortPostsByPublishDate } from '../utils'
+import { filterPostCollection, sortPostsByPublishDate } from '../utils'
 
 // generateRssFeed(data)
 
-const data = (
-  await getCollection('posts', (post) => {
-    if (import.meta.env.NODE_ENV === 'development') return true
-    return isPublishedPost(post)
-  })
-).toSorted(sortPostsByPublishDate)
+const posts = (await getCollection('posts', filterPostCollection)).toSorted(sortPostsByPublishDate)
 ---
 
 <Layout title="Home">
   <h1 class="sr-only">Home</h1>
   {
-    data.map((post) => {
+    posts.map((post) => {
       return <ArticleBlock post={post} />
     })
   }

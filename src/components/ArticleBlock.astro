@@ -1,5 +1,4 @@
 ---
-import PostExcerpt from '@igor.dvlpr/astro-post-excerpt'
 import type { CollectionEntry } from 'astro:content'
 import ArticleMeta from './ArticleMeta.astro'
 import { isPublishedPost } from '../utils'
@@ -21,13 +20,12 @@ const isDraft = !isPublishedPost(post)
       {post.data.title}
     </a>
   </h1>
+  <!-- @ts-expect-error -->
   <ArticleMeta
     postData={post.data}
     readingTime={remarkPluginFrontmatter.readingTime}
     showCategory={showCategory}
     class="mb-3"
   />
-  <p>
-    <PostExcerpt post={post} />
-  </p>
+  <p>{remarkPluginFrontmatter.excerpt}</p>
 </article>

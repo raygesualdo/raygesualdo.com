@@ -19,3 +19,8 @@ export function isPublishedPost(post: CollectionEntry<'posts'>) {
   const today = new Date().toISOString().slice(0, 10)
   return !!post.data.date && post.data.date.toISOString().slice(0, 10) <= today
 }
+
+export function filterPostCollection(post: CollectionEntry<'posts'>) {
+  if (import.meta.env.NODE_ENV === 'development') return true
+  return isPublishedPost(post)
+}

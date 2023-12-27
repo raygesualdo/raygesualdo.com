@@ -3,3 +3,22 @@
 >
   <slot />
 </div>
+<style is:global>
+  .prose pre {
+    @apply overflow-x-auto py-3 px-4 leading-relaxed;
+  }
+  .prose code:not(pre *) {
+    @apply bg-gray-100 rounded-sm px-1.5 py-0.5 dark:bg-gray-700;
+  }
+  .prose blockquote {
+    @apply bg-slate-100 border-l-4 border-slate-800 p-6 italic dark:bg-slate-800 dark:border-slate-400;
+  }
+
+  .prose figure > img {
+    @apply max-w-full mx-auto shadow-xl dark:border dark:border-white/20 rounded overflow-hidden;
+  }
+
+  .prose figure figcaption {
+    @apply text-center font-display italic;
+  }
+</style>

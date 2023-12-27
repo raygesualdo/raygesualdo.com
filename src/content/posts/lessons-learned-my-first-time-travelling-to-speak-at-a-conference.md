@@ -4,7 +4,7 @@ date: 2018-04-06
 category: speaking
 ---
 
-![Plane wing over clouds](/posts/samuel-tan-401825-unsplash.jpg 'What I wished my view was like.')
+![Plane wing over clouds](../../assets/samuel-tan-401825-unsplash.jpg 'What I wished my view was like.')
 
 At the end of March, I had the opportunity to speak at [JazzCon](https://jazzcon.tech/) in New Orleans. It was an incredible conference. I'm fairly new to conference speaking (this was only my second time) and JazzCon was the first time I'd had to travel to speak. There were quite a few things I learned so I collected them here. I hope you find them helpful. Here we go.
 

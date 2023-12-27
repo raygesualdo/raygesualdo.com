@@ -19,6 +19,7 @@ const { title } = Astro.props
     <link rel="icon" href="/favicon.ico" />
     <link href="//fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet" />
     <title>{title ? `${title} | RayGesualdo.com` : 'RayGesualdo.com'}</title>
+    <slot name="head" />
   </head>
   <body class="font-body lg:text-lg dark:bg-[#070a13] dark:text-slate-200">
     <a

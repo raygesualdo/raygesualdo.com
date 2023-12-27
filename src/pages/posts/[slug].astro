@@ -1,0 +1,34 @@
+---
+import { getCollection, getEntry } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import PageTitle from '../../components/PageTitle.astro'
+import { filterPostCollection } from '../../utils'
+import ArticleMeta from '../../components/ArticleMeta.astro'
+import Markdown from '../../components/Markdown.astro'
+import SEO from '../../components/SEO.astro'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', filterPostCollection)
+
+  return posts.map((post) => {
+    return { params: { slug: post.slug } }
+  })
+}
+
+const { slug } = Astro.params
+const post = await getEntry('posts', slug)
+const { Content, remarkPluginFrontmatter } = await post.render()
+---
+
+<Layout title={post.data.title}>
+  <SEO slot="head" post={post} />
+  <PageTitle>{post.data.title}</PageTitle>
+  <ArticleMeta
+    postData={post.data}
+    readingTime={remarkPluginFrontmatter.readingTime}
+    class="-mt-14 mb-14 text-center"
+  />
+  <Markdown>
+    <Content />
+  </Markdown>
+</Layout>

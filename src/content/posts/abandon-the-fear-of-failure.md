@@ -6,7 +6,7 @@ category: learning
 
 Well, it was bound to happen sooner or later. Over the summer, I took down production. I didn't want to. I didn't mean to. But it happened anyway. As the adrenaline rush of diagnosing and fixing the problem slowly wore off, I did as any responsible member of society does and tweeted about my experience.
 
-![Tweet reading "Hi, I'm a staff-level engineer and I just took down prod with a duplicated file extension 🤦‍♂️🤦‍♂️🤦‍♂️"](/posts/took-down-production-tweet.png 'Oops')<!--rehype:style=width:500px;-->
+![Tweet reading "Hi, I'm a staff-level engineer and I just took down prod with a duplicated file extension 🤦‍♂️🤦‍♂️🤦‍♂️"](../../assets/took-down-production-tweet.png 'Oops')<!--rehype:style=width:500px;-->
 
 Turns out, this resonated with a lot of people. As of this writing it has 2,848 likes (which is about 2,845 more than my tweets typically get 😂). The responses varied widely. Some questioned whether I still had my job (of course I do). Others had opinions about my competency or the processes we have in place to prevent such things from happening. But most simply commiserated. Turns out, making mistakes is a common human experience! And sometimes those mistakes take down prod. We'll come back to this in a little bit.
 
