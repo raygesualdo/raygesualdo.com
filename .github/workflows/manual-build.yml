@@ -1,0 +1,26 @@
+name: Manual build
+
+on:
+  schedule:
+    - cron: '15 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  echo-input:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        env:
+          NETLIFY_BUILD_HOOK_URL: ${{ secrets.NETLIFY_BUILD_HOOK_URL }}
+        with:
+          script: |
+            const CURRENT_DATE = new Date().toISOString().slice(0, 10)
+            const response = await fetch('https://www.raygesualdo.com/publish-dates.json')
+            const dates = await response.json()
+
+            if (dates.includes(CURRENT_DATE) && process.env.NETLIFY_BUILD_HOOK_URL) {
+              console.log(
+                'A post scheduled for today was found. Triggering a Netlify build.'
+              )
+              await fetch(process.env.NETLIFY_BUILD_HOOK_URL, { method: 'POST' })
+            }
