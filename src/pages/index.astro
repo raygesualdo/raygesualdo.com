@@ -4,8 +4,6 @@ import Layout from '../layouts/Layout.astro'
 import ArticleBlock from '../components/ArticleBlock.astro'
 import { filterPostCollection, sortPostsByPublishDate } from '../utils'
 
-// generateRssFeed(data)
-
 const posts = (await getCollection('posts', filterPostCollection)).toSorted(sortPostsByPublishDate)
 ---
 
