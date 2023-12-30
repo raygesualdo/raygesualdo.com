@@ -21,8 +21,8 @@ jobs:
             const dates = await response.json()
 
             core.startGroup('Data')
-            core.info('CURRENT_DATE:', CURRENT_DATE)
-            core.info('dates:', dates)
+            core.info(`CURRENT_DATE: ${CURRENT_DATE}`)
+            core.info(`dates:\n${JSON.stringify(dates, null, 2)}`)
             core.endGroup()
 
             if (dates.includes(CURRENT_DATE) && process.env.NETLIFY_BUILD_HOOK_URL) {
