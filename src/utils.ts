@@ -43,12 +43,12 @@ export function sortPostsByPublishDate(a: CollectionEntry<'posts'>, b: Collectio
   return b.data.date.getTime() - a.data.date.getTime()
 }
 
-export function isPublishedPost(post: CollectionEntry<'posts'>) {
+export function isDraft(date?: Date) {
   const today = new Date().toISOString().slice(0, 10)
-  return !!post.data.date && post.data.date.toISOString().slice(0, 10) <= today
+  return !date || date.toISOString().slice(0, 10) > today
 }
 
 export function filterPostCollection(post: CollectionEntry<'posts'>) {
   if (import.meta.env.NODE_ENV === 'development') return true
-  return isPublishedPost(post)
+  return !post.data.isDraft
 }

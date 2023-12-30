@@ -1,13 +1,15 @@
 import { z, defineCollection, reference } from 'astro:content'
+import { isDraft } from '../utils'
 
 const postsCollection = defineCollection({
   type: 'content',
-  schema: z.object({
-    title: z.string(),
-    date: z.date().optional(),
-    category: reference('categories').optional(),
-    // readingTime: ,
-  }),
+  schema: z
+    .object({
+      title: z.string(),
+      date: z.date().optional(),
+      category: reference('categories').optional(),
+    })
+    .transform((value) => Object.assign(value, { isDraft: isDraft(value.date) })),
 })
 
 const categoriesCollection = defineCollection({
