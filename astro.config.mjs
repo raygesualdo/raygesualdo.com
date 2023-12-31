@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
+import sitemap from '@astrojs/sitemap'
 import rehypeTitleFigure from 'rehype-title-figure'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
@@ -9,7 +10,7 @@ import { remarkExcerpt, remarkReadingTime } from './src/remark.mjs'
 // https://astro.build/config
 export default defineConfig({
   site: getCurrentDomain(),
-  integrations: [tailwind()],
+  integrations: [tailwind(), sitemap()],
   prefetch: {
     prefetchAll: true,
   },
