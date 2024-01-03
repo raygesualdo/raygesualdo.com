@@ -1,5 +1,6 @@
-import { type AstroIntegration } from 'astro'
+import { cp } from 'node:fs/promises'
 import { performance } from 'node:perf_hooks'
+import { type AstroIntegration } from 'astro'
 
 export function generateSocialImages(): AstroIntegration {
   return {
@@ -10,6 +11,7 @@ export function generateSocialImages(): AstroIntegration {
         performance.mark('start')
         await Promise.all(globalThis.socialImagePromises)
         const duration = displayDuration(performance.measure('generate', 'start').duration)
+        await cp('public/social-images', 'dist/social-images', { recursive: true })
         logger.info(`${numOfImages} social images generated in ${duration}`)
       },
     },
