@@ -11,8 +11,8 @@ export const generateSocialImages = async (title: string, slug: string) => {
   globalThis.socialImagePromises.push(generateTwitterImage(title, slug))
 
   return {
-    ogImage: `/social-images/og-${slug}.jpg`,
-    twitterImage: `/social-images/twitter-${slug}.jpg`,
+    ogImage: `social-images/og-${slug}.jpg`,
+    twitterImage: `social-images/twitter-${slug}.jpg`,
   }
 }
 
