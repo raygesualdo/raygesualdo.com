@@ -6,11 +6,12 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import rehypeAttrs from 'rehype-attr'
 import { remarkExcerpt, remarkReadingTime } from './src/remark.mjs'
+import { generateSocialImages } from './src/plugins.ts'
 
 // https://astro.build/config
 export default defineConfig({
   site: getCurrentDomain(),
-  integrations: [tailwind(), sitemap()],
+  integrations: [tailwind(), sitemap(), generateSocialImages()],
   prefetch: {
     prefetchAll: true,
   },

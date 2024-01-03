@@ -4,29 +4,35 @@ import { FacebookOpenGraph, TwitterCard } from '@resoc/core'
 
 export type SocialImages = Awaited<ReturnType<typeof generateSocialImages>>
 
+globalThis.socialImagePromises ??= []
+
 export const generateSocialImages = async (title: string, slug: string) => {
-  const [ogImage, twitterImage] = await Promise.all([
-    compileLocalTemplate(
-      'src/social-image-template/resoc.manifest.json',
-      { title },
-      FacebookOpenGraph,
-      `public/social-images/og-${slug}-{{ hash }}.jpg`,
-      { cache: true }
-    ),
-    compileLocalTemplate(
-      'src/social-image-template/resoc.manifest.json',
-      { title },
-      TwitterCard,
-      `public/social-images/twitter-${slug}-{{ hash }}.jpg`,
-      { cache: true }
-    ),
-  ])
+  globalThis.socialImagePromises.push(generateOGImage(title, slug))
+  globalThis.socialImagePromises.push(generateTwitterImage(title, slug))
 
   return {
-    ogImage: ogImage.replace('public/', ''),
-    twitterImage: twitterImage.replace('public/', ''),
+    ogImage: `/social-images/og-${slug}.jpg`,
+    twitterImage: `/social-images/twitter-${slug}.jpg`,
   }
 }
+
+const generateOGImage = (title: string, slug: string) =>
+  compileLocalTemplate(
+    'src/social-image-template/resoc.manifest.json',
+    { title },
+    FacebookOpenGraph,
+    `public/social-images/og-${slug}.jpg`,
+    { cache: true }
+  )
+
+const generateTwitterImage = (title: string, slug: string) =>
+  compileLocalTemplate(
+    'src/social-image-template/resoc.manifest.json',
+    { title },
+    TwitterCard,
+    `public/social-images/twitter-${slug}.jpg`,
+    { cache: true }
+  )
 
 export function formatDate(date = new Date()) {
   return date.toLocaleString('en-US', {

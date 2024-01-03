@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "astro dev --open",
+    "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview"
   },
@@ -32,6 +32,9 @@
   "pnpm": {
     "patchedDependencies": {
       "@resoc/create-img@0.9.1": "patches/@resoc__create-img@0.9.1.patch"
+    },
+    "overrides": {
+      "@types/node": "20.10.5"
     }
   }
 }
