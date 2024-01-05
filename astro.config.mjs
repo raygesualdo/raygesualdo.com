@@ -50,5 +50,3 @@ function getCurrentDomain() {
   }
   return 'http://localhost:4321'
 }
-
-console.log(process.env.TZ)
