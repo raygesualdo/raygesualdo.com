@@ -1,32 +1,5 @@
 <button data-theme-toggler class="text-sky-700 dark:text-sky-400 underline">Toggle theme</button>
 
 <script is:inline>
-  const htmlEl = document.querySelector('html')
-  const theme = (() => {
-    if (localStorage?.getItem('theme')) {
-      return localStorage.getItem('theme')
-    }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark'
-    }
-    return 'light'
-  })()
-
-  if (theme === 'light') {
-    htmlEl.classList.remove('dark')
-  } else {
-    htmlEl.classList.add('dark')
-  }
-
-  localStorage?.setItem('theme', theme)
-
-  const handleToggleClick = () => {
-    const element = htmlEl
-    element.classList.toggle('dark')
-
-    const isDark = element.classList.contains('dark')
-    localStorage?.setItem('theme', isDark ? 'dark' : 'light')
-  }
-
-  document.querySelector('[data-theme-toggler]').addEventListener('click', handleToggleClick)
+  document.querySelector('[data-theme-toggler]').addEventListener('click', window.handleToggleClick)
 </script>

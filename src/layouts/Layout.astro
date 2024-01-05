@@ -5,6 +5,7 @@ import IconTwitter from '../components/IconTwitter.astro'
 import ThemeToggle from '../components/ThemeToggle.astro'
 import Fonts from '../components/Fonts.astro'
 import ToTop from '../components/ToTop.astro'
+import ThemeToggleScript from '../components/ThemeToggleScript.astro'
 
 interface Props {
   title?: string
@@ -23,6 +24,7 @@ const { title } = Astro.props
     <title>{title ? `${title} | RayGesualdo.com` : 'RayGesualdo.com'}</title>
     <link rel="sitemap" href="/sitemap-index.xml" />
     <Fonts />
+    <ThemeToggleScript />
     {
       import.meta.env.PLAUSIBLE_ID && (
         <script

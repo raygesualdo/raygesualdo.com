@@ -1,0 +1,30 @@
+<script is:inline>
+  function getThemeValue() {
+    if (localStorage?.getItem('theme')) {
+      return localStorage.getItem('theme')
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  }
+
+  function applyTheme(element, theme) {
+    if (theme === 'light') {
+      element.classList.remove('dark')
+    } else {
+      element.classList.add('dark')
+    }
+  }
+
+  const theme = getThemeValue()
+  applyTheme(document.documentElement, theme)
+  localStorage?.setItem('theme', theme)
+
+  window.handleToggleClick = () => {
+    const previousTheme = getThemeValue()
+    const newTheme = previousTheme === 'light' ? 'dark' : 'light'
+    applyTheme(document.documentElement, newTheme)
+    localStorage?.setItem('theme', newTheme)
+  }
+</script>
