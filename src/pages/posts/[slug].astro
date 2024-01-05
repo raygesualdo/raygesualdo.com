@@ -9,8 +9,6 @@ import SEO from '../../components/SEO.astro'
 import SeriesInfo from '../../components/SeriesInfo.astro'
 
 export async function getStaticPaths() {
-  console.log(new Date().toLocaleDateString('sv'))
-  console.log('TZ:', import.meta.env.TZ)
   const posts = await getCollection('posts', filterPostCollection)
 
   return posts.map((post) => {

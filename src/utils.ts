@@ -51,7 +51,7 @@ export function sortPostsByPublishDate(a: CollectionEntry<'posts'>, b: Collectio
 
 export function isDraft(date?: Date) {
   const today = new Date().toLocaleDateString('sv')
-  return !date || date.toLocaleDateString('sv') > today
+  return !date || date?.toISOString().slice(0, 10) > today
 }
 
 export function filterPostCollection(post: CollectionEntry<'posts'>) {
