@@ -1,0 +1,37 @@
+<a
+  href="#top"
+  class="fixed bottom-4 right-4 size-12 sm:size-10 flex justify-center items-center bg-sky-600 dark:bg-sky-500 text-white rounded-full leading-none transform translate-y-16 transition-all ease-out duration-200 scale-75"
+  title="Go to top"
+>
+  <span class="sr-only"> Go to top</span><svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    class="w-6 h-6"
+  >
+    <path
+      fill-rule="evenodd"
+      d="M11.47 7.72a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 0 1-1.06-1.06l7.5-7.5Z"
+      clip-rule="evenodd"></path>
+  </svg>
+</a>
+
+<script>
+  const $header = document.querySelector('header')
+  const $link = document.querySelector('a[href="#top"]')
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry) return
+      if (entry.isIntersecting) {
+        $link?.classList.add('translate-y-16', 'scale-75')
+        $link?.classList.remove('translate-y-0', 'scale-100')
+      } else {
+        $link?.classList.remove('translate-y-16', 'scale-75')
+        $link?.classList.add('translate-y-0', 'scale-100')
+      }
+    },
+    { threshold: 0 },
+  )
+  if ($header) observer.observe($header)
+</script>
