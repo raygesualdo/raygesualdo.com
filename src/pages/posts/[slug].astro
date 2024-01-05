@@ -1,9 +1,9 @@
 ---
-import { Image } from 'astro:assets'
 import { getCollection, getEntry } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import PageTitle from '../../components/PageTitle.astro'
 import { filterPostCollection, generateSocialImages, getPostTitle } from '../../utils'
+import Image from '../../components/Image.astro'
 import ArticleMeta from '../../components/ArticleMeta.astro'
 import Markdown from '../../components/Markdown.astro'
 import SEO from '../../components/SEO.astro'
@@ -36,9 +36,12 @@ const socialImages = await generateSocialImages(title, post.slug)
           src={post.data.hero.image}
           alt={post.data.hero.alt}
           width={post.data.hero.image.width / 2}
+          loading="eager"
+          placeholder="blur"
           densities={[1, 2]}
           quality="max"
           class="max-w-full min-w-[100vw]"
+          style={{ aspectRatio: post.data.hero.image.width / post.data.hero.image.height}}
         />
         <div class="hidden md:block absolute left-0 right-0 bottom-0 h-[10%] bg-gradient-to-t from-white dark:from-surface-dark to-transparent" />
       </div>
