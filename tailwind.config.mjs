@@ -22,6 +22,12 @@ export default {
               paddingLeft: null,
               paddingRight: null,
             },
+            '.footnotes h2': {
+              marginBlockStart: theme('space.4'),
+              marginBlockEnd: `-${theme('space.4')}`,
+              fontSize: theme('fontSize.2xl[0]'),
+              ...theme('fontSize.2xl[1]'),
+            },
           },
         },
         DEFAULT: {
@@ -30,6 +36,7 @@ export default {
             'h1, h2, h3, h4, h5, h6': {
               color: theme('colors.red.500'),
               fontFamily: theme('fontFamily.display'),
+              fontWeight: 'inherit',
             },
             code: {
               fontStyle: 'normal',

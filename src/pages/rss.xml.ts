@@ -1,7 +1,7 @@
 import type { APIContext } from 'astro'
 import rss, { type RSSFeedItem } from '@astrojs/rss'
 import { getCollection } from 'astro:content'
-import { filterPostCollection } from '../utils'
+import { filterPostCollection, getPostTitle } from '../utils'
 
 export async function GET(context: APIContext) {
   const posts = await getCollection('posts', filterPostCollection)
@@ -13,7 +13,7 @@ export async function GET(context: APIContext) {
       posts.map(async (post) => {
         const { remarkPluginFrontmatter } = await post.render()
         return {
-          title: post.data.title,
+          title: await getPostTitle(post),
           link: `/posts/${post.slug}`,
           pubDate: post.data.date ?? new Date(),
           description: remarkPluginFrontmatter.excerpt,

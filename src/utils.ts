@@ -1,4 +1,4 @@
-import type { CollectionEntry } from 'astro:content'
+import { getEntry, type CollectionEntry } from 'astro:content'
 import { compileLocalTemplate } from '@resoc/create-img'
 import { FacebookOpenGraph, TwitterCard } from '@resoc/core'
 
@@ -57,4 +57,11 @@ export function isDraft(date?: Date) {
 export function filterPostCollection(post: CollectionEntry<'posts'>) {
   if (import.meta.env.NODE_ENV === 'development') return true
   return !post.data.isDraft
+}
+
+export async function getPostTitle(post: CollectionEntry<'posts'>) {
+  if (!post.data.series) return post.data.title
+  if (!post.data.series.includeNameInPageTitle) return post.data.title
+  const series = await getEntry(post.data.series.id.collection, post.data.series.id.id)
+  return `${series.data.name}: ${post.data.title}`
 }

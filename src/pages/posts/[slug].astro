@@ -2,7 +2,7 @@
 import { getCollection, getEntry } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import PageTitle from '../../components/PageTitle.astro'
-import { filterPostCollection, generateSocialImages } from '../../utils'
+import { filterPostCollection, generateSocialImages, getPostTitle } from '../../utils'
 import ArticleMeta from '../../components/ArticleMeta.astro'
 import Markdown from '../../components/Markdown.astro'
 import SEO from '../../components/SEO.astro'
@@ -18,12 +18,13 @@ export async function getStaticPaths() {
 const { slug } = Astro.params
 const post = await getEntry('posts', slug)
 const { Content, remarkPluginFrontmatter } = await post.render()
-const socialImages = await generateSocialImages(post.data.title, post.slug)
+const title = await getPostTitle(post)
+const socialImages = await generateSocialImages(title, post.slug)
 ---
 
-<Layout title={post.data.title}>
+<Layout title={title}>
   <SEO slot="head" post={post} socialImages={socialImages} />
-  <PageTitle>{post.data.title}</PageTitle>
+  <PageTitle>{title}</PageTitle>
   <ArticleMeta
     postData={post.data}
     readingTime={remarkPluginFrontmatter.readingTime}
