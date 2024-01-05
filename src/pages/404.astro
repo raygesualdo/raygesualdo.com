@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets'
+import PageTitle from '../components/PageTitle.astro'
+import Layout from '../layouts/Layout.astro'
+import image404 from '../assets/404-fancy-pooh.jpg'
+import Link from '../components/Link.astro'
+---
+
+<Layout>
+  <div class="sr-only">404</div>
+  <p class="text-xl mb-12 text-center">
+    Looks like you might have lost your way. Why not <Link href="/">start over?</Link>
+  </p>
+  <Image
+    class="rounded-md shadow-md border border-gray-100 mx-auto mb-24"
+    src={image404}
+    alt="Meme of regular Winnie the Pooh and fancy Winnie the Pooh joking about having a fancy 404 page."
+  />
+</Layout>
