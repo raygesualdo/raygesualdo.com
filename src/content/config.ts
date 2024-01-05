@@ -8,6 +8,13 @@ const postsCollection = defineCollection({
       title: z.string(),
       date: z.date().optional(),
       category: reference('categories').optional(),
+      series: z
+        .object({
+          id: reference('series'),
+          order: z.number().int(),
+          includeNameInPageTitle: z.literal(true).optional(),
+        })
+        .optional(),
     })
     .transform((value) => Object.assign(value, { isDraft: isDraft(value.date) })),
 })
@@ -16,6 +23,15 @@ const categoriesCollection = defineCollection({
   type: 'data',
   schema: z.object({
     name: z.string(),
+  }),
+})
+
+const seriesCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    name: z.string(),
+    description: z.string().optional(),
+    complete: z.literal(true).optional(),
   }),
 })
 
@@ -38,7 +54,8 @@ const talksCollection = defineCollection({
 })
 
 export const collections = {
-  posts: postsCollection,
   categories: categoriesCollection,
+  posts: postsCollection,
+  series: seriesCollection,
   talks: talksCollection,
 }
