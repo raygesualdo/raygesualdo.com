@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 import ArticleMeta from './ArticleMeta.astro'
 import { getPostTitle } from '../utils'
@@ -13,19 +14,32 @@ const { remarkPluginFrontmatter } = await post.render()
 const title = await getPostTitle(post)
 ---
 
-<article class="mb-12">
-  <h1 class="text-3xl mb-1.5 text-sky-600 dark:text-sky-500 font-display">
-    <a href={`/posts/${post.slug}`}>
-      {post.data.isDraft ? '(Draft) ' : ''}
-      {title}
-    </a>
-  </h1>
-  <!-- @ts-expect-error -->
-  <ArticleMeta
-    postData={post.data}
-    readingTime={remarkPluginFrontmatter.readingTime}
-    showCategory={showCategory}
-    class="mb-3"
-  />
-  <p>{remarkPluginFrontmatter.excerpt}</p>
+<article class="mb-12 flex justify-stretch gap-4">
+  {
+    post.data.hero ? (
+      <div class="flex-[1_0_25%]">
+        <Image
+          src={post.data.hero.image}
+          alt={post.data.hero.alt}
+          class="max-w-full aspect-square w-full object-cover rounded"
+        />
+      </div>
+    ) : null
+  }
+  <div>
+    <h1 class="text-2xl mb-1.5 text-sky-600 dark:text-sky-500 font-display">
+      <a href={`/posts/${post.slug}`}>
+        {post.data.isDraft ? '(Draft) ' : ''}
+        {title}
+      </a>
+    </h1>
+    <!-- @ts-expect-error -->
+    <ArticleMeta
+      postData={post.data}
+      readingTime={remarkPluginFrontmatter.readingTime}
+      showCategory={showCategory}
+      class="mb-3 text-sm"
+    />
+    <p>{remarkPluginFrontmatter.excerpt}</p>
+  </div>
 </article>

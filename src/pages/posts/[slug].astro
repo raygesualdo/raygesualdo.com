@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets'
 import { getCollection, getEntry } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import PageTitle from '../../components/PageTitle.astro'
@@ -25,6 +26,17 @@ const socialImages = await generateSocialImages(title, post.slug)
 
 <Layout title={title}>
   <SEO slot="head" post={post} socialImages={socialImages} />
+  {
+    post.data.hero ? (
+      <div
+        class="peer hero -z-10 col-[1/4] relative md:absolute max-h-48 md:max-h-none"
+        slot="hero"
+      >
+        <Image src={post.data.hero.image} alt={post.data.hero.alt} class="max-w-full" />
+        <div class="hidden md:block absolute left-0 right-0 bottom-0 h-[10%] bg-gradient-to-t from-white dark:from-surface-dark to-transparent" />
+      </div>
+    ) : null
+  }
   <PageTitle>{title}</PageTitle>
   <ArticleMeta
     postData={post.data}

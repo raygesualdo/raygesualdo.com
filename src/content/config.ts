@@ -3,20 +3,27 @@ import { isDraft } from '../utils'
 
 const postsCollection = defineCollection({
   type: 'content',
-  schema: z
-    .object({
-      title: z.string(),
-      date: z.date().optional(),
-      category: reference('categories').optional(),
-      series: z
-        .object({
-          id: reference('series'),
-          order: z.number().int(),
-          includeNameInPageTitle: z.literal(true).optional(),
-        })
-        .optional(),
-    })
-    .transform((value) => Object.assign(value, { isDraft: isDraft(value.date) })),
+  schema: ({ image }) =>
+    z
+      .object({
+        title: z.string(),
+        date: z.date().optional(),
+        category: reference('categories').optional(),
+        hero: z
+          .object({
+            image: image(),
+            alt: z.string(),
+          })
+          .optional(),
+        series: z
+          .object({
+            id: reference('series'),
+            order: z.number().int(),
+            includeNameInPageTitle: z.literal(true).optional(),
+          })
+          .optional(),
+      })
+      .transform((value) => Object.assign(value, { isDraft: isDraft(value.date) })),
 })
 
 const categoriesCollection = defineCollection({

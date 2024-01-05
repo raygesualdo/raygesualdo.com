@@ -35,7 +35,7 @@ const { title } = Astro.props
     }
     <slot name="head" />
   </head>
-  <body class="font-body lg:text-lg dark:bg-[#070a13] dark:text-slate-200">
+  <body class="font-body lg:text-lg dark:bg-surface-dark dark:text-slate-200">
     <a name="top"></a>
     <a
       href="#main"
@@ -43,7 +43,7 @@ const { title } = Astro.props
     >
       Skip to content
     </a>
-    <header class="h-32 py-2 md:py-0 md:h-24 bg-slate-800 text-white font-display">
+    <header class="h-32 py-2 md:py-0 md:h-24 bg-slate-900 text-white font-display">
       <div
         class="h-full grid md:gap-x-2 justify-between items-center text-center md:text-left grid-cols-1 md:grid-cols-[1fr,max-content,max-content] Xmax-w-5xl mx-auto px-8"
       >
@@ -73,9 +73,13 @@ const { title } = Astro.props
         </div>
       </div>
     </header>
-    <div class="grid grid-cols-[0fr,100%,0fr] md:grid-cols-[1fr,67ch,1fr]">
+    <div class="grid grid-cols-[0fr,100%,0fr] md:grid-cols-[1fr,80ch,1fr]">
+      <slot name="hero" />
       <div></div>
-      <main id="main" class="mt-4 md:mt-12 p-4">
+      <main
+        id="main"
+        class="mt-4 md:mt-12 p-6 md:rounded-md bg-white bg-opacity-85 dark:bg-surface-dark dark:bg-opacity-70 backdrop-blur-lg peer-[.hero]:pt-8 peer-[.hero]:mt-0 peer-[.hero]:md:mt-48 peer-[.hero]:lg:mt-56 peer-[.hero]:xl:mt-64"
+      >
         <slot />
       </main>
       <div></div>

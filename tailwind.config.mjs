@@ -10,6 +10,9 @@ export default {
       body: 'Georgia, Cambria, serif',
     },
     extend: {
+      colors: {
+        'surface-dark': '#070a13',
+      },
       typography: (theme) => ({
         lg: {
           css: {
