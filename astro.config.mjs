@@ -31,6 +31,7 @@ export default defineConfig({
           headingProperties: { class: 'relative group' },
           properties: {
             ariaHidden: true,
+            ariaLabel: 'Header anchor',
             class:
               'invisible group-hover:visible absolute right-full p-1 -mt-1 text-current no-underline',
           },
@@ -49,3 +50,5 @@ function getCurrentDomain() {
   }
   return 'http://localhost:4321'
 }
+
+console.log(process.env.TZ)
