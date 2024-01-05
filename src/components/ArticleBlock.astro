@@ -22,6 +22,8 @@ const title = await getPostTitle(post)
           src={post.data.hero.image}
           alt={post.data.hero.alt}
           class="max-w-full aspect-square w-full object-cover rounded"
+          width={210}
+          densities={[1, 2]}
         />
       </div>
     ) : null
