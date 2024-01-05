@@ -7,6 +7,7 @@ series:
   order: 1
   includeNameInPageTitle: true
 hero:
+  # https://unsplash.com/photos/blue-and-black-galaxy-digital-wallpaper-qtRF_RxCAo0
   image: ../../assets/hero/astro-1.jpg
   alt: Oodles of space!
 ---
