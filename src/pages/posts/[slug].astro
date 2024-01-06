@@ -29,7 +29,7 @@ const socialImages = await generateSocialImages(title, post.slug)
   {
     post.data.hero ? (
       <div
-        class="peer hero -z-10 col-[1/4] relative md:absolute max-h-48 md:max-h-none"
+        class="peer hero -z-10 col-[1/4] relative md:absolute max-h-48 md:max-h-none w-full"
         slot="hero"
       >
         <Image
@@ -40,7 +40,7 @@ const socialImages = await generateSocialImages(title, post.slug)
           placeholder="blur"
           densities={[1, 2]}
           quality="max"
-          class="max-w-full"
+          class="max-w-full w-full"
           style={{ aspectRatio: post.data.hero.image.width / post.data.hero.image.height }}
         />
         <div class="hidden md:block absolute left-0 right-0 bottom-0 h-[10%] bg-gradient-to-t from-white dark:from-surface-dark to-transparent" />
