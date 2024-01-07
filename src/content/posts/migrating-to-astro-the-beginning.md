@@ -20,7 +20,7 @@ I'm wanting to get more of my thoughts down on (digital) paper in 2024. Naturall
 
 Astro has a project init script one can use with `npm create`[^2]. This makes spinning up a new project effortless. After [removing the old site's Next.js files](https://github.com/raygesualdo/raygesualdo.com/commit/9e1ba2c9ed63fdb37c876c5cf1fa4aaf84581d34), it was time to initialize my new Astro site.
 
-```
+```shell
 pnpm create astro@latest temp
 ```
 
@@ -44,7 +44,7 @@ temp
 
 My old site used Tailwind for styling and I liked my old site's design so I wasn't going to change much if anything from a styling perspective. Which brings me to one of my favorite parts of Astro: [integrations](https://astro.build/integrations/). Astro provides a structured way for first- or third-party code to be added to an Astro site. All I had to do was run the `astro add` command:
 
-```
+```shell
 pnpm astro add tailwind
 ```
 

@@ -5,13 +5,22 @@ import rehypeTitleFigure from 'rehype-title-figure'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import rehypeAttrs from 'rehype-attr'
+import expressiveCode from 'astro-expressive-code'
 import { remarkExcerpt, remarkReadingTime } from './src/remark.mjs'
 import { generateSocialImages } from './src/plugins.ts'
 
 // https://astro.build/config
 export default defineConfig({
   site: getCurrentDomain(),
-  integrations: [tailwind(), sitemap(), generateSocialImages()],
+  integrations: [
+    tailwind(),
+    sitemap(),
+    generateSocialImages(),
+    expressiveCode({
+      themes: ['dark-plus'],
+      useDarkModeMediaQuery: false,
+    }),
+  ],
   prefetch: {
     prefetchAll: true,
   },
