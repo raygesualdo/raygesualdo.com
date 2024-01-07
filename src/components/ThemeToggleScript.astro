@@ -17,14 +17,13 @@
     }
   }
 
-  const theme = getThemeValue()
-  applyTheme(document.documentElement, theme)
-  localStorage?.setItem('theme', theme)
+  window._theme = getThemeValue()
+  applyTheme(document.documentElement, window._theme)
+  localStorage?.setItem('theme', window._theme)
 
   window.handleToggleClick = () => {
-    const previousTheme = getThemeValue()
-    const newTheme = previousTheme === 'light' ? 'dark' : 'light'
-    applyTheme(document.documentElement, newTheme)
-    localStorage?.setItem('theme', newTheme)
+    window._theme = window._theme === 'light' ? 'dark' : 'light'
+    applyTheme(document.documentElement, window._theme)
+    localStorage?.setItem('theme', window._theme)
   }
 </script>
