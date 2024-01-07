@@ -14,17 +14,17 @@ const { remarkPluginFrontmatter } = await post.render()
 const title = await getPostTitle(post)
 ---
 
-<article class="mb-12 flex justify-stretch gap-4">
+<article class="mb-12 flex flex-col md:flex-row justify-stretch gap-4">
   {
     post.data.hero ? (
       <div class="flex-[1_0_25%]">
         <Image
           src={post.data.hero.image}
           alt={post.data.hero.alt}
-          class="max-w-full aspect-square w-full object-cover rounded"
+          class="max-w-full aspect-square w-full object-cover rounded [--aspectRatioOverride:21/9] md:[--aspectRatioOverride:1]"
           placeholder="blur"
-          style={{ aspectRatio: 1 }}
-          width={210}
+          style={{ aspectRatio: 'var(--aspectRatioOverride)' }}
+          width={720}
           densities={[1, 2]}
         />
       </div>
