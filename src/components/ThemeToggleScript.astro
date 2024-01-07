@@ -10,7 +10,13 @@
   }
 
   function applyTheme(element, theme) {
-    if (theme === 'light') {
+    if (theme === 'auto') {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        element.classList.add('dark')
+      } else {
+        element.classList.remove('dark')
+      }
+    } else if (theme === 'light') {
       element.classList.remove('dark')
     } else {
       element.classList.add('dark')
@@ -21,8 +27,18 @@
   applyTheme(document.documentElement, window._theme)
   localStorage?.setItem('theme', window._theme)
 
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+    applyTheme(document.documentElement, window._theme)
+  })
+
   window.handleToggleClick = () => {
-    window._theme = window._theme === 'light' ? 'dark' : 'light'
+    if (window._theme === 'light') {
+      window._theme = 'dark'
+    } else if (window._theme === 'dark') {
+      window._theme = 'auto'
+    } else {
+      window._theme = 'light'
+    }
     applyTheme(document.documentElement, window._theme)
     localStorage?.setItem('theme', window._theme)
   }
