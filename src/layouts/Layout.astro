@@ -1,6 +1,7 @@
 ---
 import Link from '../components/Link.astro'
 import IconGitHub from '../components/IconGitHub.astro'
+import IconLinkedIn from '../components/IconLinkedIn.astro'
 import IconTwitter from '../components/IconTwitter.astro'
 import ThemeToggle from '../components/ThemeToggle.astro'
 import Fonts from '../components/Fonts.astro'
@@ -60,14 +61,21 @@ const { title } = Astro.props
         </nav>
         <div class="space-x-3 md:space-x-1 flex justify-center items-center">
           <a
-            class="block px-1.5 md:px-2.5 py-1.5 md:py-3 rounded hover:bg-white/10"
+            class="block px-1.5 md:px-2.5 py-1.5 md:py-2.5 leading-6 rounded hover:bg-white/10"
             href="https://twitter.com/RayGesualdo"
           >
             <span class="sr-only">My Twitter profile</span>
             <IconTwitter class="inline text-inherit -mt-1" />
           </a>
           <a
-            class="block px-1.5 md:px-2.5 py-1.5 md:py-3 rounded hover:bg-white/10"
+            class="block px-1.5 md:px-2.5 py-1.5 md:py-2.5 leading-6 rounded hover:bg-white/10"
+            href="https://www.linkedin.com/in/raygesualdo"
+          >
+            <span class="sr-only">My LinkedIn profile</span>
+            <IconLinkedIn class="inline text-inherit -mt-1" />
+          </a>
+          <a
+            class="block px-1.5 md:px-2.5 py-1.5 md:py-2.5 leading-6 rounded hover:bg-white/10"
             href="http://github.com/raygesualdo"
           >
             <span class="sr-only">My GitHub profile</span>
