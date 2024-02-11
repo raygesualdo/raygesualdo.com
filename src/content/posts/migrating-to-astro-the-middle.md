@@ -206,7 +206,5 @@ One thing I did not do at this point was get my social images working, e.g. the 
 
 Alright, we can all take a breath now! We covered quite a bit but we now have the individual blog pages fully working. Next time, we'll add the remaining pages, get the RSS feed and social sharing images working, add the dark/light mode theme toggle, and put the final finishing touches on. See you then!
 
-<hr>
-
 [^1]: Remark and rehype are both parts of a larger project called [`unified`](https://unifiedjs.com/) which works to provide structure to content and allow converting it from one format into another. Remark plugins convert Markdown into the unified AST. Rehype plugins manipulate that AST and eventually render it to HTML.
 [^2]: I've since [updated the excerpt extraction code](https://github.com/raygesualdo/raygesualdo.com/commit/1c215340c10c315cd640754fa8995a95521b3bb4). Turns out that `stripMarkdown` already had the ability to strip tags so I was able to delete the `removeTags` function. And I optimized the ellipsis logic to never break in the middle of a word.

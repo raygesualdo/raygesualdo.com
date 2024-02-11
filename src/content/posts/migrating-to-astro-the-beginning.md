@@ -170,8 +170,6 @@ We've still got a ways to go but we'll stop here for now. I'll be walking throug
 
 There is still much more to share but we'll stop here for now. If you'd like to discuss anything I shared, chat with me about it on [Twitter](https://twitter.com/RayGesualdo). Next time we'll walk through generating individual blog post pages. See you then! 👋
 
-<hr>
-
 [^1]: If the Gatsby-to-Next.js process interests you, you can read the very unedited outline [here](https://github.com/raygesualdo/raygesualdo.com/blob/42eed64fd7e8244fac7a267379fc59b6f6f63a8e/src/content/posts/_nextjs-conversion.md).
 [^2]: The `create` command works with all the major package managers: npm, yarn, or (my personal favorite) pnpm. This functionality is an overload of the `npm init` command as documented [here](https://docs.npmjs.com/cli/v10/commands/npm-init).
 [^3]: If you're wondering why I created a directory `talks/` for the single file `talks.yml`, it's because Astro doesn't yet support single-file content collections. Effectively, it doesn't make a difference. I can call `getEntry('talks', 'talks')` to get the talks data which isn't any different from having built-in support for single-file collections.
