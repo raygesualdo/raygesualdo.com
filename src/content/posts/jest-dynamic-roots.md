@@ -2,6 +2,10 @@
 title: 'Optimizing Jest Runs with Dynamic Roots'
 date: 2024-02-10
 category: code
+hero:
+  # https://unsplash.com/photos/brown-tree-trunk-with-green-moss-MskbR8VLNrA
+  image: ../../assets/hero/jest-dynamic-roots.jpg
+  alt: Tree roots
 ---
 
 At Salesloft, our primary frontend application has nearly 3,000 test suites containing over 20,000 tests. That's a lot of time spent running tests in CI and the opportunity was ripe for optimization. We were already using Jest's `--shard` CLI argument to run tests across a number of runners in GitHub actions. Moving to multiple runners a few years ago sped things up significantly. In fact, we wrote own sharding script before it was built in to Jest. But given we were now in a monorepo setup using PNPM, we knew we could be more efficient with our CI runs.
