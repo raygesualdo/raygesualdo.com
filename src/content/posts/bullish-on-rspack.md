@@ -3,6 +3,7 @@ title: "Why I'm Bullish on Rspack"
 date: 2024-02-17
 category: code
 hero:
+  # https://unsplash.com/photos/red-crab-on-rock-b2iviaMJtoU
   image: ../../assets/hero/bullish-on-rspack.jpg
   alt: A crab
 ---
