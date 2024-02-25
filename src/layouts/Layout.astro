@@ -30,6 +30,7 @@ const { title } = Astro.props
     {
       import.meta.env.PLAUSIBLE_ID && (
         <script
+          is:inline
           defer
           data-domain={import.meta.env.PLAUSIBLE_ID}
           data-api="/proxy/api/event"
