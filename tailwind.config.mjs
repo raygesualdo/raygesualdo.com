@@ -55,6 +55,12 @@ export default {
             'blockquote p': {
               margin: '0 !important',
             },
+            'blockquote p::before': {
+              content: 'none',
+            },
+            'blockquote p::after': {
+              content: 'none',
+            },
             'figure figcaption': {
               color: null,
             },
