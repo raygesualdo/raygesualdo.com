@@ -15,11 +15,8 @@ const posts = (await getCollection('posts', (post) => post.data.series?.id.id ==
 const hasDraftPosts = posts.some((post) => isDraft(post.data.date))
 ---
 
-<ul
-  role="list"
-  class="divide-y divide-gray-100 dark:divide-gray-700 rounded-md border border-gray-200 dark:border-gray-600 -mt-8 mb-8 max-w-xl mx-auto bg-white bg-opacity-85 dark:bg-surface-dark dark:bg-opacity-70 backdrop-blur-lg"
->
-  <li class="py-2.5 px-4 leading-6 font-display bg-sky-50 dark:bg-sky-950 rounded-t-md">
+<ul role="list" class="-mt-8 mb-8 max-w-xl mx-auto">
+  <li class="py-2.5 px-4 leading-6 font-display bg-sky-50 dark:bg-sky-950 rounded-md">
     <p>{series.data.name} ({posts.length} Part Series)</p>
     {
       series.data.description ? (
@@ -33,7 +30,9 @@ const hasDraftPosts = posts.some((post) => isDraft(post.data.date))
     posts.map((post, index) => {
       const { isDraft } = post.data
       return (
-        <li class="py-4 px-6 leading-6 font-display">
+        <li
+          class={`py-4 px-6 leading-6 font-display ${index !== 0 ? 'border-t border-t-gray-200 dark:border-t-gray-700' : ''}`}
+        >
           <div class="flex items-center gap-3">
             <span
               class:list={[
@@ -57,7 +56,7 @@ const hasDraftPosts = posts.some((post) => isDraft(post.data.date))
   }
   {
     !hasDraftPosts && !series.data.complete ? (
-      <li class="py-2.5 px-4 leading-6 font-display">
+      <li class="py-2.5 px-4 leading-6 font-display border-t border-t-gray-200 dark:border-t-gray-700">
         <div class="flex items-center gap-3">
           <span class="italic text-slate-500">And more coming soon...</span>
         </div>
