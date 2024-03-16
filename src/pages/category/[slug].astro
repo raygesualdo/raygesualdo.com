@@ -1,7 +1,7 @@
 ---
 import { getCollection, getEntry } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
-import { filterPostCollection } from '../../utils'
+import { filterPostCollection, sortPostsByPublishDate } from '../../utils'
 import ArticleBlock from '../../components/ArticleBlock.astro'
 
 export async function getStaticPaths() {
@@ -14,9 +14,11 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params
 const category = await getEntry('categories', slug)
-const posts = await getCollection('posts', (post) => {
-  return filterPostCollection(post) && post.data.category?.id === category.id
-})
+const posts = (
+  await getCollection('posts', (post) => {
+    return filterPostCollection(post) && post.data.category?.id === category.id
+  })
+).toSorted(sortPostsByPublishDate)
 ---
 
 <Layout title={`Category: ${category.data.name}`}>
