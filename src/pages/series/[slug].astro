@@ -1,0 +1,31 @@
+---
+import { getCollection, getEntry } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import { filterPostCollection, sortPostsByPublishDate } from '../../utils'
+import ArticleBlock from '../../components/ArticleBlock.astro'
+
+export async function getStaticPaths() {
+  const series = await getCollection('series')
+
+  return series.map((series) => {
+    return { params: { slug: series.id } }
+  })
+}
+
+const { slug } = Astro.params
+const series = await getEntry('series', slug)
+const posts = (
+  await getCollection('posts', (post) => {
+    return filterPostCollection(post) && post.data.series?.id.id === series.id
+  })
+).toSorted(sortPostsByPublishDate)
+---
+
+<Layout title={`Series: ${series.data.name}`}>
+  <div class="text-lg text-center font-display text-red-500">— Series —</div>
+  <h1 class="text-5xl mb-4 text-center font-display text-red-500">
+    {series.data.name}
+  </h1>
+  <p class="text-center mb-16">{series.data.description}</p>
+  {posts.map((post) => <ArticleBlock post={post} showCategory={false} />)}
+</Layout>

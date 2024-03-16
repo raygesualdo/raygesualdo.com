@@ -17,7 +17,9 @@ const hasDraftPosts = posts.some((post) => isDraft(post.data.date))
 
 <ul role="list" class="-mt-8 mb-8 max-w-xl mx-auto">
   <li class="py-2.5 px-4 leading-6 font-display bg-sky-50 dark:bg-sky-950 rounded-md">
-    <p>{series.data.name} ({posts.length} Part Series)</p>
+    <a class="underline" style="text-underline-offset: 3px;" href={`/series/${series.id}`}
+      >{series.data.name} ({posts.length} Part Series)</a
+    >
     {
       series.data.description ? (
         <p class="text-sm text-slate-600 dark:text-slate-300 font-body my-0.5">
@@ -46,6 +48,8 @@ const hasDraftPosts = posts.some((post) => isDraft(post.data.date))
               <span class="italic text-slate-500 dark:text-slate-300">
                 {post.data.title} (Coming soon...)
               </span>
+            ) : post.slug === Astro.params?.slug ? (
+              <span>{post.data.title}</span>
             ) : (
               <Link href={`/posts/${post.slug}`}>{post.data.title}</Link>
             )}
