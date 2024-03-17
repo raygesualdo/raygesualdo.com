@@ -12,7 +12,7 @@ Well, it was bound to happen sooner or later. Over the summer, I took down produ
 
 ![Tweet reading "Hi, I'm a staff-level engineer and I just took down prod with a duplicated file extension 🤦‍♂️🤦‍♂️🤦‍♂️"](../../assets/took-down-production-tweet.png 'Oops')<!--rehype:style=width:500px;-->
 
-Turns out, this resonated with a lot of people. As of this writing it has 2,848 likes (which is about 2,845 more than my tweets typically get 😂). The responses varied widely. Some questioned whether I still had my job (of course I do). Others had opinions about my competency or the processes we have in place to prevent such things from happening. But most simply commiserated. Turns out, making mistakes is a common human experience! And sometimes those mistakes take down prod. We'll come back to this in a little bit.
+Turns out, this resonated with a lot of people. As of this writing it has 2,848 likes (which is about 2,845 more than my tweets typically get 😂). The responses varied widely. Some questioned whether I still had my job (of course I do). Others had opinions about my competency or the processes we have in place to prevent such things from happening. But most simply commiserated. Turns out, making mistakes is a common human experience! And sometimes those mistakes take down prod. We'll come back to that in a little bit.
 
 ## A related personal story
 
@@ -36,7 +36,7 @@ The pressures we feel (external or self-imposed) to limit our embarrassment actu
 
 We hold up these "competency façades" because we feel our expertise in one area of life should automatically translate over to another. It doesn't and that's okay. If anything, our lack of expertise in a new area is an opportunity to be genuinely curious, to explore something we haven't before with a beginner's mindset. Fear of embarrassment squelches this curiosity.
 
-Thinking back to my son learning to talk, he was never self-conscious about his speech patterns. He felt free to try, mess up, try again, get closer, try it differently, make some mistakes, step away, and keep trying. And in doing so, his ability to talk has exploded over the past year and a half. I have a personal aspiration to learn to speak another language. But when I think about how I'm going to do that, I know my first instinct won't be to learn as my son did, being comfortable mispronouncing words or messing up grammar. I'm tempted to wait until I'm confident my skill level won't embarrass me or make me look foolish. That won't help me grow.
+Thinking back to my son learning to talk, he was never self-conscious about his speech patterns. He felt free to try, mess up, try again, get closer, try it differently, make some mistakes, step away, and keep trying. And in doing so, his ability to talk has exploded over the past year and a half. I have a personal aspiration to learn to speak another language. But when I think about how I might do so, I know my first instinct won't be to learn as my son did, being comfortable mispronouncing words or messing up grammar. I will be tempted to wait until I'm confident my skill level won't embarrass me or make me look foolish. That won't help me grow.
 
 ## Take chances, get messy, make mistakes
 
