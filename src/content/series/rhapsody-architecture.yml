@@ -1,0 +1,3 @@
+name: Salesloft's Frontend Architecture
+description: |
+  This series chronicles Salesloft's 5-year journey transitioning from AngularJS to React, focusing particularly on the architectural decisions we made along the way.
