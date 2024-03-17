@@ -1,3 +1,10 @@
+- title: 'Sailing Uncharted Waters: Exploring the New Navigation API'
+  events:
+    - title: ConnectTech 2023
+      slides: https://rayg.me/connecttech2023
+  abstract: >
+    Navigation in a single page app has always been a little kludgy. The history object has a weird API. There’s no way to listen for all URL changes. But the Navigation API is here to solve these problems. It is a brand new way to handle client-side navigation and brings many new features like a cleaner JavaScript interface, navigation interception, and automatic scroll and focus handling. Together, we’ll walk through all the aspects of the new Navigation API that library authors and application developers alike can take advantage of.
+
 - title: 'Brick by Brick: What Lego Taught Me About Great APIs'
   events:
     - title: ConnectTech 2022
