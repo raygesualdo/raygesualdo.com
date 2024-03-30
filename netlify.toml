@@ -3,7 +3,7 @@ command = "pnpm build"
 publish = "dist"
 
 [build.environment]
-NODE_VERSION = "20.10.0"
+NODE_VERSION = "21.7.1"
 
 [context.production.environment]
 PLAUSIBLE_ID = "raygesualdo.com"
