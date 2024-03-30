@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import { filterPostCollection, sortPostsByPublishDate } from '../../utils'
+import PageTitle from '../../components/PageTitle.astro'
+import ArticleBlockSmall from '../../components/ArticleBlockSmall.astro'
+
+declare global {
+  interface ObjectConstructor {
+    groupBy<T, U extends string | number | symbol>(
+      items: Iterable<T>,
+      callbackfn: (value: T, index: number) => U
+    ): { [key in U]: Array<T> }
+  }
+}
+
+const posts = (
+  await getCollection('posts', (post) => {
+    return filterPostCollection(post) && !!post.data.series
+  })
+)
+  .toSorted(sortPostsByPublishDate)
+  .toReversed()
+const postsBySeries = Object.groupBy(posts, (post) => post.data.series!.id.id)
+const allSeries = await getCollection('series')
+const seriesIdByMostRecentPostDate = Array.from(
+  new Set(
+    posts
+      .toReversed()
+      .map((post) => post.data.series?.id.id)
+      .filter(Boolean)
+  )
+)
+---
+
+<Layout title="Series">
+  <PageTitle>Series</PageTitle>
+  {
+    seriesIdByMostRecentPostDate.map((id) => {
+      const series = allSeries.find((series) => series.id === id)!
+      return (
+        <div class="mb-24 max-w-[60ch] mx-auto">
+          <h2 class="text-2xl font-display text-sky-600 dark:text-sky-500 mb-2 text-center">
+            <a href={`/series/${series.id}`} class="no-underline">
+              {series.data.name}
+            </a>
+          </h2>
+          <p class="text-center">{series.data.description}</p>
+          {postsBySeries[series.id] && (
+            <ul class="my-4">
+              {postsBySeries[series.id].map((post) => {
+                return (
+                  <li>
+                    <ArticleBlockSmall post={post} />
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+        </div>
+      )
+    })
+  }</Layout
+>

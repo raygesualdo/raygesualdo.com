@@ -1,0 +1,45 @@
+---
+import Image from '../components/Image.astro'
+import type { CollectionEntry } from 'astro:content'
+import ArticleMeta from './ArticleMeta.astro'
+
+interface Props {
+  post: CollectionEntry<'posts'>
+}
+
+const { post } = Astro.props
+const { remarkPluginFrontmatter } = await post.render()
+---
+
+<article class="mb-4 flex justify-stretch gap-4">
+  {
+    post.data.hero ? (
+      <div class="w-16">
+        <Image
+          src={post.data.hero.image}
+          alt={post.data.hero.alt}
+          class="max-w-full aspect-square w-full object-cover rounded [--aspectRatioOverride:1]"
+          placeholder="blur"
+          style={{ aspectRatio: 'var(--aspectRatioOverride)' }}
+          width={720}
+          densities={[1, 2]}
+        />
+      </div>
+    ) : null
+  }
+  <div>
+    <h1 class="mt-1 text-xl text-sky-600 dark:text-sky-500 font-display">
+      <a href={`/posts/${post.slug}`}>
+        {post.data.isDraft ? '(Draft) ' : ''}
+        {post.data.title}
+      </a>
+    </h1>
+    <!-- @ts-expect-error -->
+    <ArticleMeta
+      postData={post.data}
+      readingTime={remarkPluginFrontmatter.readingTime}
+      showCategory={false}
+      class="text-sm"
+    />
+  </div>
+</article>
