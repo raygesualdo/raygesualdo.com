@@ -16,7 +16,7 @@
     "@resoc/create-img": "^0.9.1",
     "@tailwindcss/typography": "^0.5.10",
     "@types/lqip-modern": "^1.1.7",
-    "astro": "^4.4.4",
+    "astro": "^4.5.12",
     "astro-expressive-code": "^0.33.4",
     "lqip-modern": "^2.0.0",
     "mdast-util-to-string": "^4.0.0",
