@@ -26,7 +26,7 @@ const {
   loading = 'lazy',
   decoding = 'async',
   sizes,
-  deviceSizes = [320, 480, 640, 750, 828, 1200, 1920, 2048, 3840],
+  deviceSizes = [320, 640, 1280, 1440],
   placeholder: placeholderType,
   ...rest
 } = Astro.props
@@ -60,7 +60,6 @@ const srcsetPromises = validSizes.map(generateSrcSet)
 const srcsetResults = await Promise.all(srcsetPromises)
 
 const srcset = srcsetResults.join(', ')
-
 const sizesAttrMapped = validSizes.map((size) => `(max-width: ${size}px) ${size}px`).join(', ')
 
 const sizesAttr = `
