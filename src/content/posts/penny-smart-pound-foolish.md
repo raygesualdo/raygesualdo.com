@@ -3,7 +3,7 @@ title: Penny Smart, Pound Foolish
 date: 2024-02-03
 category: process
 hero:
-  # https://unsplash.com/photos/close-up-photo-of-assorted-coins-NeTPASr-bmQ
+  credit: https://unsplash.com/photos/close-up-photo-of-assorted-coins-NeTPASr-bmQ
   image: ../../assets/hero/penny-smart-pound-foolish.jpg
   alt: Loose change
 ---

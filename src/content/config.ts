@@ -11,6 +11,7 @@ const postsCollection = defineCollection({
         category: reference('categories').optional(),
         hero: z
           .object({
+            credit: z.string(),
             image: image(),
             alt: z.string(),
           })

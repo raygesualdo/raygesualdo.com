@@ -7,7 +7,7 @@ series:
   order: 3
   includeNameInPageTitle: true
 hero:
-  # https://unsplash.com/photos/a-starry-night-sky-over-a-mountain-range-Ie-4ZBfvI2U
+  credit: https://unsplash.com/photos/a-starry-night-sky-over-a-mountain-range-Ie-4ZBfvI2U
   image: ../../assets/hero/astro-3.jpg
   alt: Night with the sun on the horizon
 ---

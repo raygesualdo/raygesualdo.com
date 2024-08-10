@@ -7,7 +7,7 @@ series:
   order: 1
   includeNameInPageTitle: true
 hero:
-  # https://unsplash.com/photos/running-field-during-daytime-52p1K0d0euM
+  credit: https://unsplash.com/photos/running-field-during-daytime-52p1K0d0euM
   image: ../../assets/hero/salesloft-architecture-where-we-started.jpg
   alt: A starting line
 ---

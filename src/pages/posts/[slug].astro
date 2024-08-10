@@ -34,7 +34,7 @@ const socialImages = await generateSocialImages(title, post.slug)
   />
   {
     post.data.hero ? (
-      <div class="-mt-8 mb-8 w-full max-w-[720px] mx-auto rounded overflow-clip shadow">
+      <div class="-mt-8 mb-8 w-full max-w-[720px] mx-auto relative">
         <Image
           src={post.data.hero.image}
           alt={post.data.hero.alt}
@@ -43,9 +43,14 @@ const socialImages = await generateSocialImages(title, post.slug)
           placeholder="blur"
           densities={[1, 2]}
           quality="min"
-          class="max-w-full w-full"
+          class="max-w-full w-full rounded shadow"
           style={{ aspectRatio: post.data.hero.image.width / post.data.hero.image.height }}
         />
+        <p class="absolute bottom-0 right-0 z-10 text-xs pb-1 pr-0.5">
+          <a href={post.data.hero.credit} class="p-1 bg-black/80 rounded-sm text-gray-100">
+            Credit: Unsplash
+          </a>
+        </p>
       </div>
     ) : null
   }

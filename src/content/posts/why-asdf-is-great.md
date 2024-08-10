@@ -3,7 +3,7 @@ title: Why asdf Is Great
 date: 2024-01-20
 category: infrastructure
 hero:
-  # https://unsplash.com/photos/white-red-and-green-wooden-street-sign-Aohf8gqa7Zc
+  credit: https://unsplash.com/photos/white-red-and-green-wooden-street-sign-Aohf8gqa7Zc
   image: ../../assets/hero/asdf.jpg
   alt: Road sign pointing in many different directions
 ---

@@ -3,7 +3,7 @@ title: 'Optimizing Jest Runs with Dynamic Roots'
 date: 2024-02-10
 category: code
 hero:
-  # https://unsplash.com/photos/brown-tree-trunk-with-green-moss-MskbR8VLNrA
+  credit: https://unsplash.com/photos/brown-tree-trunk-with-green-moss-MskbR8VLNrA
   image: ../../assets/hero/jest-dynamic-roots.jpg
   alt: Tree roots
 ---

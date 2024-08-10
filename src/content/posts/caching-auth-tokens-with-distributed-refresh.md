@@ -3,7 +3,7 @@ title: Caching Auth Tokens with Distributed Refresh
 date: 2024-03-09
 category: code
 hero:
-  # https://unsplash.com/photos/thunderstorm-with-lightning-trnTvywx2Rg
+  credit: https://unsplash.com/photos/thunderstorm-with-lightning-trnTvywx2Rg
   image: ../../assets/hero/thundering-herd.jpg
   alt: A massive thunderstorm
 ---

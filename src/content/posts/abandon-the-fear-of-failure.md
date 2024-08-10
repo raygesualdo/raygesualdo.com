@@ -3,7 +3,7 @@ title: Abandon the Fear of Failure
 date: 2022-11-16
 category: learning
 hero:
-  # https://unsplash.com/photos/a-desert-landscape-with-rocks-and-sand-THlO6Mkf5uI
+  credit: https://unsplash.com/photos/a-desert-landscape-with-rocks-and-sand-THlO6Mkf5uI
   image: ../../assets/hero/abandon-fear.jpeg
   alt: A beautiful desert landscape.
 ---

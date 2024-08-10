@@ -3,7 +3,7 @@ title: Moar Gooderer Public Speakingness
 date: 2024-03-23
 category: speaking
 hero:
-  # https://unsplash.com/photos/a-microphone-that-is-sitting-on-a-stand-ekHSHvgr27k
+  credit: https://unsplash.com/photos/a-microphone-that-is-sitting-on-a-stand-ekHSHvgr27k
   image: ../../assets/hero/moar-gooderer-public-speakingness.jpg
   alt: A microphone in focus
 ---

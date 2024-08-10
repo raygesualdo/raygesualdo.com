@@ -3,7 +3,7 @@ title: Being a Software Architect at Salesloft
 date: 2024-01-27
 category: process
 hero:
-  # https://unsplash.com/photos/green-trees-on-mountain-during-daytime-pELzxFLSOM0
+  credit: https://unsplash.com/photos/green-trees-on-mountain-during-daytime-pELzxFLSOM0
   image: ../../assets/being-a-software-architect.jpg
   alt: A very high view
 ---

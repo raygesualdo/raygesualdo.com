@@ -7,7 +7,7 @@ series:
   order: 2
   includeNameInPageTitle: true
 hero:
-  # https://unsplash.com/photos/white-and-black-stars-in-the-sky-qebM8Nmr7Ok
+  credit: https://unsplash.com/photos/white-and-black-stars-in-the-sky-qebM8Nmr7Ok
   image: ../../assets/hero/astro-2.jpg
   alt: The beautiful night sky
 ---

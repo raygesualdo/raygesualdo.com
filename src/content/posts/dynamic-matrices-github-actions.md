@@ -3,7 +3,7 @@ title: 'Dynamic Matrices in GitHub Actions: Streamlining Our Jest Runs'
 date: 2024-02-24
 category: code
 hero:
-  # https://unsplash.com/photos/black-and-white-checkered-illustration-iBG594vhR1k
+  credit: https://unsplash.com/photos/black-and-white-checkered-illustration-iBG594vhR1k
   image: ../../assets/hero/gha-dynamic-matrices.jpg
   alt: Many-squared architecture.
 ---

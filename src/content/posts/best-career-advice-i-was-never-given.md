@@ -3,7 +3,7 @@ title: The Best Career Advice I Was Never Given
 date: 2024-03-02
 category: learning
 hero:
-  # https://unsplash.com/photos/brown-wall-bricks-n-FXsVuiokA
+  credit: https://unsplash.com/photos/brown-wall-bricks-n-FXsVuiokA
   image: ../../assets/hero/best-career-advice-i-was-never-given.jpg
   alt: Bricks with mortar filling the gaps between them
 ---

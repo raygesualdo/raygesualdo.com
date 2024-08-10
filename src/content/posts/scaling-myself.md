@@ -3,7 +3,7 @@ title: 'Scaling Myself: Adjusting to a Staff Role'
 date: 2024-08-10
 category: learning
 hero:
-  # https://unsplash.com/photos/running-field-during-daytime-52p1K0d0euM
+  credit: https://unsplash.com/photos/running-field-during-daytime-52p1K0d0euM
   image: ../../assets/hero/scaling-myself.jpg
   alt: A measuring tape
 ---

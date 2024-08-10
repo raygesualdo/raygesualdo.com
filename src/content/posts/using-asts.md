@@ -3,7 +3,7 @@ title: Using ASTs
 date: 2024-03-30
 category: code
 hero:
-  # https://unsplash.com/photos/green-leaf-tree-on-shore-XBxQZLNBM0Q
+  credit: https://unsplash.com/photos/green-leaf-tree-on-shore-XBxQZLNBM0Q
   image: ../../assets/hero/using-asts.jpg
   alt: A single tree in the middle of a field in front of the ocean
 ---
