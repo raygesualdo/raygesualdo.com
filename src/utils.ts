@@ -1,3 +1,4 @@
+import { access } from 'node:fs/promises'
 import { getEntry, type CollectionEntry } from 'astro:content'
 import { compileLocalTemplate } from '@resoc/create-img'
 import { FacebookOpenGraph, TwitterCard } from '@resoc/core'
@@ -16,23 +17,34 @@ export const generateSocialImages = async (title: string, slug: string) => {
   }
 }
 
-const generateOGImage = (title: string, slug: string) =>
-  compileLocalTemplate(
+const generateOGImage = async (title: string, slug: string) => {
+  const path = `public/social-images/og-${slug}.jpg`
+  try {
+    await access(path)
+    return
+  } catch {}
+  return compileLocalTemplate(
     'src/social-image-template/resoc.manifest.json',
     { title },
     FacebookOpenGraph,
     `public/social-images/og-${slug}.jpg`,
     { cache: true }
   )
-
-const generateTwitterImage = (title: string, slug: string) =>
-  compileLocalTemplate(
+}
+const generateTwitterImage = async (title: string, slug: string) => {
+  const path = `public/social-images/twitter-${slug}.jpg`
+  try {
+    await access(path)
+    return
+  } catch {}
+  return compileLocalTemplate(
     'src/social-image-template/resoc.manifest.json',
     { title },
     TwitterCard,
     `public/social-images/twitter-${slug}.jpg`,
     { cache: true }
   )
+}
 
 export function formatDate(date = new Date()) {
   return date.toLocaleString('en-US', {
