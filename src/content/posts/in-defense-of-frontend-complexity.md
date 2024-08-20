@@ -2,6 +2,10 @@
 title: In Defense of Frontend Complexity
 date: 2024-06-01
 category: code
+hero:
+  credit: https://unsplash.com/photos/green-and-white-ball-on-white-surface-_afH9fjiom0
+  image: ../../assets/hero/in-defense-of-frontend-complexity.jpg
+  alt: A dark metal globe covered in connected green lines and spheres
 ---
 
 I see a clickbait-y tweet just about every day regarding how difficult and complex it is to build web applications today, particularly on the frontend. While I don't disagree with the statement itself, the general disdain it's delivered with is completely unwarranted. The requirements for modern web applications are completely different than they were even ten years ago.
