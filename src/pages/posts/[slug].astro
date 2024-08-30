@@ -2,12 +2,7 @@
 import { getCollection, getEntry } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import PageTitle from '../../components/PageTitle.astro'
-import {
-  extractHeroImagePath,
-  filterPostCollection,
-  generateSocialImages,
-  getPostTitle,
-} from '../../utils'
+import { filterPostCollection, generateSocialImages, getPostTitle } from '../../utils'
 import Image from '../../components/Image.astro'
 import ArticleMeta from '../../components/ArticleMeta.astro'
 import Markdown from '../../components/Markdown.astro'
@@ -26,7 +21,8 @@ const { slug } = Astro.params
 const post = await getEntry('posts', slug)
 const { Content, remarkPluginFrontmatter } = await post.render()
 const title = await getPostTitle(post)
-const heroImagePath = extractHeroImagePath(post.data.hero?.image.src)
+// @ts-expect-error
+const heroImagePath: string | undefined = post.data.hero?.image.fsPath
 const socialImages = await generateSocialImages(title, post.slug, heroImagePath)
 ---
 

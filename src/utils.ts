@@ -55,11 +55,6 @@ const generateTwitterImage = async (title: string, slug: string, heroImage: stri
   ).then(() => console.log(`Twitter image for "${slug}" generated.`))
 }
 
-export function extractHeroImagePath(heroImagePath?: string) {
-  if (!heroImagePath) return
-  return heroImagePath.replace('/@fs', '').split('?')[0]
-}
-
 export function formatDate(date = new Date()) {
   return date.toLocaleString('en-US', {
     month: 'long',
