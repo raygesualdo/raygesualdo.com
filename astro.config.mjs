@@ -13,7 +13,7 @@ import { generateSocialImages } from './src/plugins.ts'
 export default defineConfig({
   site: getCurrentDomain(),
   integrations: [
-    tailwind(),
+    tailwind({ nesting: true }),
     sitemap(),
     generateSocialImages(),
     expressiveCode({
