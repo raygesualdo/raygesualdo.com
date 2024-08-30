@@ -1,4 +1,4 @@
-import { access } from 'node:fs/promises'
+import { access, readFile } from 'node:fs/promises'
 import { getEntry, type CollectionEntry } from 'astro:content'
 import { compileLocalTemplate } from '@resoc/create-img'
 import { FacebookOpenGraph, TwitterCard } from '@resoc/core'
@@ -7,9 +7,14 @@ export type SocialImages = Awaited<ReturnType<typeof generateSocialImages>>
 
 globalThis.socialImagePromises ??= []
 
-export const generateSocialImages = async (title: string, slug: string) => {
-  globalThis.socialImagePromises.push(generateOGImage(title, slug))
-  globalThis.socialImagePromises.push(generateTwitterImage(title, slug))
+export const generateSocialImages = async (title: string, slug: string, heroImagePath?: string) => {
+  const heroImage = heroImagePath
+    ? `data:image/png;base64,${await readFile(heroImagePath, 'base64')}`
+    : ''
+  if (import.meta.env.PROD || import.meta.env.GENERATE_OG_IMAGES) {
+    globalThis.socialImagePromises.push(generateOGImage(title, slug, heroImage))
+    globalThis.socialImagePromises.push(generateTwitterImage(title, slug, heroImage))
+  }
 
   return {
     ogImage: `social-images/og-${slug}.jpg`,
@@ -17,33 +22,42 @@ export const generateSocialImages = async (title: string, slug: string) => {
   }
 }
 
-const generateOGImage = async (title: string, slug: string) => {
+const generateOGImage = async (title: string, slug: string, heroImage: string) => {
   const path = `public/social-images/og-${slug}.jpg`
   try {
     await access(path)
     return
   } catch {}
   return compileLocalTemplate(
-    'src/social-image-template/resoc.manifest.json',
-    { title },
+    heroImage
+      ? 'src/social-image-template/resoc.manifest.json'
+      : 'src/social-image-template/noHero_resoc.manifest.json',
+    { title, heroImage },
     FacebookOpenGraph,
     `public/social-images/og-${slug}.jpg`,
     { cache: true }
-  )
+  ).then(() => console.log(`OG image for "${slug}" generated.`))
 }
-const generateTwitterImage = async (title: string, slug: string) => {
+const generateTwitterImage = async (title: string, slug: string, heroImage: string) => {
   const path = `public/social-images/twitter-${slug}.jpg`
   try {
     await access(path)
     return
   } catch {}
   return compileLocalTemplate(
-    'src/social-image-template/resoc.manifest.json',
-    { title },
+    heroImage
+      ? 'src/social-image-template/resoc.manifest.json'
+      : 'src/social-image-template/noHero_resoc.manifest.json',
+    { title, heroImage },
     TwitterCard,
     `public/social-images/twitter-${slug}.jpg`,
     { cache: true }
-  )
+  ).then(() => console.log(`Twitter image for "${slug}" generated.`))
+}
+
+export function extractHeroImagePath(heroImagePath?: string) {
+  if (!heroImagePath) return
+  return heroImagePath.replace('/@fs', '').split('?')[0]
 }
 
 export function formatDate(date = new Date()) {

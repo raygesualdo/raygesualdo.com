@@ -2,7 +2,12 @@
 import { getCollection, getEntry } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import PageTitle from '../../components/PageTitle.astro'
-import { filterPostCollection, generateSocialImages, getPostTitle } from '../../utils'
+import {
+  extractHeroImagePath,
+  filterPostCollection,
+  generateSocialImages,
+  getPostTitle,
+} from '../../utils'
 import Image from '../../components/Image.astro'
 import ArticleMeta from '../../components/ArticleMeta.astro'
 import Markdown from '../../components/Markdown.astro'
@@ -21,7 +26,8 @@ const { slug } = Astro.params
 const post = await getEntry('posts', slug)
 const { Content, remarkPluginFrontmatter } = await post.render()
 const title = await getPostTitle(post)
-const socialImages = await generateSocialImages(title, post.slug)
+const heroImagePath = extractHeroImagePath(post.data.hero?.image.src)
+const socialImages = await generateSocialImages(title, post.slug, heroImagePath)
 ---
 
 <Layout title={title}>
@@ -46,7 +52,7 @@ const socialImages = await generateSocialImages(title, post.slug)
           class="max-w-full w-full rounded shadow"
           style={{ aspectRatio: post.data.hero.image.width / post.data.hero.image.height }}
         />
-        <p class="absolute bottom-0 right-0 z-10 text-xs pb-1 pr-0.5">
+        <p class="absolute bottom-0 right-0 z-10 text-xs mb-[5px] mr-0.5">
           <a href={post.data.hero.credit} class="p-1 bg-black/80 rounded-sm text-gray-100">
             Credit: Unsplash
           </a>

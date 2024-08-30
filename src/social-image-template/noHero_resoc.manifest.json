@@ -1,6 +1,6 @@
 {
   "partials": {
-    "content": "./content.html.mustache",
+    "content": "./nohero.html.mustache",
     "styles": "./theme.css.mustache"
   },
   "parameters": [
@@ -8,11 +8,6 @@
       "name": "title",
       "type": "text",
       "demoValue": "Building a macOS Locked Status Notifier in Swift"
-    },
-    {
-      "name": "heroImage",
-      "type": "imageUrl",
-      "demoValue": ""
     }
   ]
 }
