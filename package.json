@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev --host",
     "build": "astro check && astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "og": "npx -y itdk view src/social-image-template/resoc.manifest.json"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.5",
