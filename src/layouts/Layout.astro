@@ -7,6 +7,7 @@ import ThemeToggle from '../components/ThemeToggle.astro'
 import Fonts from '../components/Fonts.astro'
 import ToTop from '../components/ToTop.astro'
 import ThemeToggleScript from '../components/ThemeToggleScript.astro'
+import IconBluesky from '../components/IconBluesky.astro'
 
 interface Props {
   title?: string
@@ -61,6 +62,13 @@ const { title } = Astro.props
           <a href="/rss.xml" class="block p-1.5 md:p-2 rounded hover:bg-white/10"> Feed</a>
         </nav>
         <div class="space-x-3 md:space-x-1 flex justify-center items-center">
+          <a
+            class="block px-1.5 md:px-2.5 py-1.5 md:py-2.5 leading-6 rounded hover:bg-white/10"
+            href="https://bsky.app/profile/raygesualdo.com"
+          >
+            <span class="sr-only">My Bluesky profile</span>
+            <IconBluesky class="inline text-inherit -mt-1" />
+          </a>
           <a
             class="block px-1.5 md:px-2.5 py-1.5 md:py-2.5 leading-6 rounded hover:bg-white/10"
             href="https://twitter.com/RayGesualdo"
