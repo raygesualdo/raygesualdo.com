@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import { sortPostsByPublishDate } from '../../utils'
+import ArticleBlock from '../../components/ArticleBlock.astro'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts')
+  const tags = posts.flatMap((post) => {
+    return post.data.tagsWithSlugs ?? []
+  })
+
+  return tags.map((tag) => {
+    return { params: { slug: tag.slug } }
+  })
+}
+
+const { slug } = Astro.params
+const allPosts = await getCollection('posts')
+const tags = allPosts.flatMap((post) => {
+  return post.data.tagsWithSlugs ?? []
+})
+const tag = tags.find((tag) => tag.slug === slug)!
+const posts = allPosts
+  .filter((post) => post.data.tags?.includes(tag.label))
+  .toSorted(sortPostsByPublishDate)
+---
+
+<Layout title={`Tag: ${tag.label}`}>
+  <div class="text-lg text-center font-display text-red-500">— Tag —</div>
+  <h1 class="text-5xl mb-16 text-center font-display text-red-500">
+    {tag.label}
+  </h1>
+  {posts.map((post) => <ArticleBlock post={post} showCategory={false} />)}
+</Layout>

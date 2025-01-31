@@ -1,5 +1,6 @@
 import { z, defineCollection, reference } from 'astro:content'
 import { isDraft } from '../utils'
+import slugify from 'slugify'
 
 const postsCollection = defineCollection({
   type: 'content',
@@ -23,8 +24,19 @@ const postsCollection = defineCollection({
             includeNameInPageTitle: z.literal(true).optional(),
           })
           .optional(),
+        tags: z.array(z.string()).optional(),
       })
-      .transform((value) => Object.assign(value, { isDraft: isDraft(value.date) })),
+      .transform((value) => Object.assign(value, { isDraft: isDraft(value.date) }))
+      .transform((value) => {
+        return Object.assign(value, {
+          tagsWithSlugs: value.tags?.map((tag) => {
+            return {
+              slug: slugify(tag, { lower: true }),
+              label: tag,
+            }
+          }),
+        })
+      }),
 })
 
 const categoriesCollection = defineCollection({

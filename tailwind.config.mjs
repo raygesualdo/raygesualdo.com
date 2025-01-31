@@ -8,6 +8,8 @@ export default {
     fontFamily: {
       display: 'Montserrat, sans-serif',
       body: 'Georgia, Cambria, serif',
+      monospace:
+        'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
     },
     extend: {
       colors: {
