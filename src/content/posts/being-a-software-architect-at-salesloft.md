@@ -6,6 +6,9 @@ hero:
   credit: https://unsplash.com/photos/green-trees-on-mountain-during-daytime-pELzxFLSOM0
   image: ../../assets/being-a-software-architect.jpg
   alt: A very high view
+tags:
+  - Salesloft
+  - Software Architect
 ---
 
 A recurring question I get at the office is "what does it mean to be an architect?" This is an excellent question and touches upon a principle that applies to all senior+ roles no matter what company one is working for.

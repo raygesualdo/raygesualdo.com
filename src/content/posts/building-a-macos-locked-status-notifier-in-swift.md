@@ -2,6 +2,10 @@
 title: 'Building a macOS Locked Status Notifier in Swift'
 date: 2019-10-06
 category: code
+tags:
+  - macOS
+  - Swift
+  - JavaScript
 ---
 
 At my job, we're supposed to keep our computers locked if we ever walk away from them, a good practice wherever you are. But I constantly found myself walking away from my Mac and forgetting if I locked it or not. I wanted a way to check my laptop's locked or unlocked status from my phone. To do this, I built both a Swift app that runs on my laptop to notify "the cloud" when my computer locks or unlocks as well as a website to surface that information. In this post, I'll share how I arrived at this solution I did and how I implemented it. We will walk through much of the code together so feel free to code along or view the [GitHub repository](https://github.com/raygesualdo/amiunlocked). I hope you find it useful.

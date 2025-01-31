@@ -6,6 +6,9 @@ hero:
   credit: https://unsplash.com/photos/red-crab-on-rock-b2iviaMJtoU
   image: ../../assets/hero/bullish-on-rspack.jpg
   alt: A crab
+tags:
+  - Rspack
+  - Build tools
 ---
 
 If you haven't heard of it, [Rspack](https://www.rspack.dev/) is a Rust-based drop-in replacement for Webpack. It hasn't hit its v1 release yet, but it's already a favorite tool in my build pipeline toolbelt. I've used it in smaller projects at Salesloft and plan to migrate our primary frontend application[^1] to it this year. Here's why I'm bullish on Rspack.

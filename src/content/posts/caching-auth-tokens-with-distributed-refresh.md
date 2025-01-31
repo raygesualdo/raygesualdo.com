@@ -6,6 +6,9 @@ hero:
   credit: https://unsplash.com/photos/thunderstorm-with-lightning-trnTvywx2Rg
   image: ../../assets/hero/thundering-herd.jpg
   alt: A massive thunderstorm
+tags:
+  - JavaScript
+  - TypeScript
 ---
 
 Ever been in this situation? You make an innocuous change to your authentication logic only to realize upon deploy that it invalidated all your users' sessions. Even worse, they're all trying to reauthenticate at once. So now every client is trying to re-authenticate to your system at the same time. Worse still, your authentication re-auth logic means you're going to have a [thundering herd problem](https://en.wikipedia.org/wiki/Thundering_herd_problem) every 5 minutes when the clients request new credentials.

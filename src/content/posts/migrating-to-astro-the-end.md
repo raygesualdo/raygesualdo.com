@@ -10,6 +10,11 @@ hero:
   credit: https://unsplash.com/photos/a-starry-night-sky-over-a-mountain-range-Ie-4ZBfvI2U
   image: ../../assets/hero/astro-3.jpg
   alt: Night with the sun on the horizon
+tags:
+  - Astro
+  - web
+  - TypeScript
+  - Build tools
 ---
 
 Howdy again! We're in the final mile now. We got the individual blog post pages working last time. In this final installment, we'll add a few more pages, look at RSS feeds and social sharing images, and add a dark/light theme toggle. Let's get started!

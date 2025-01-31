@@ -6,6 +6,9 @@ hero:
   credit: https://unsplash.com/photos/black-and-white-checkered-illustration-iBG594vhR1k
   image: ../../assets/hero/gha-dynamic-matrices.jpg
   alt: Many-squared architecture.
+tags:
+  - GitHub
+  - GitHub actions
 ---
 
 We had a problem: our test runs in CI were too slow. This was in our primary frontend application at Salesloft, a codebase nearing one million lines of code. Granted, considering how large the codebase is, the test runs weren't too bad. Worst case scenario they would take about 10 minutes wall clock time[^1], but we knew there was room for improvement because our billable time was still quite high. What follows is our adventures streamling our Jest runs by making our GitHub actions job matrix dynamic.

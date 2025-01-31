@@ -6,6 +6,8 @@ hero:
   credit: https://unsplash.com/photos/green-leaf-tree-on-shore-XBxQZLNBM0Q
   image: ../../assets/hero/using-asts.jpg
   alt: A single tree in the middle of a field in front of the ocean
+tags:
+  - JavaScript
 ---
 
 Few things accelerated my understanding of code, and what I could do with it, faster than Abstract Syntax Trees (ASTs). ASTs are data representations of code. Said another way, it's how computers parse code into it's different pieces and parts, much like students diagramming sentences in school. Each bit of code has a name and a job that the computer can understand. To be clear, this is not about executing code. That is done separately. This is about breaking the code down into a machine-readable format the computer can analyze, verify, validate or change it in some way.

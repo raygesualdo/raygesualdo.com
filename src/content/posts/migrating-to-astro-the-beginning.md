@@ -10,6 +10,11 @@ hero:
   credit: https://unsplash.com/photos/blue-and-black-galaxy-digital-wallpaper-qtRF_RxCAo0
   image: ../../assets/hero/astro-1.jpg
   alt: Oodles of space!
+tags:
+  - Astro
+  - web
+  - TypeScript
+  - Build tools
 ---
 
 My website hasn't gotten much attention the past few years. In 2020, I slowly migrated from Gatsby to Next.js. I even had a partially-written blog post about it.[^1] But I was never happy with my setup. Next.js doesn't have great support for content sites out-of-the-box. My primary pain point was converting Markdown content to HTML. I had to manually create a conversion pipeline using remark and wire the content up to pages as opposed to it being built into the framework. Next.js also had many features I didn't need and seemed unnecessary for my use case.

@@ -2,6 +2,8 @@
 title: Flattening Object Keys with TypeScript Types
 date: 2022-04-26
 category: code
+tags:
+  - TypeScript
 ---
 
 A few weeks ago, I was working on a project where I needed to get all the flattened keys from a deeply nested object as a string union. I looked around the internet, but everything I found was about flattening the keys at runtime. I was looking for the types only. I eventually figured out how to do it and wanted to document it in case others found it helpful.

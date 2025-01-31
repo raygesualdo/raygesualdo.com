@@ -6,6 +6,8 @@ hero:
   credit: https://unsplash.com/photos/running-field-during-daytime-52p1K0d0euM
   image: ../../assets/hero/scaling-myself.jpg
   alt: A measuring tape
+tags:
+  - Software Architect
 ---
 
 It's been just over two years since I was promoted to Staff Software Architect at Salesloft. My then-manager, Daniel, and I had numerous conversations before and after the promotion regarding how my day-to-day needed to change as I transitioned into a staff-level role. Through all the conversations, a constant theme emerged: I needed to scale myself. The work I had done up to that point needed to be spread out further across the organization. Our discussions produced four concrete steps I could take to effectively scale myself. Here's what I did:

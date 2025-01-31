@@ -2,6 +2,8 @@
 title: 301 Redirects with Next.js
 date: 2017-05-09
 category: code
+tags:
+  - Next.js
 ---
 
 Last week, 3blades - the company I work for - launched our new website using [Next.js](https://github.com/zeit/next.js)/[Now](https://github.com/zeit/now-cli). In the process, we moved our company blog from our main website to a Medium site. Consequently, we had a block of 301 redirects from `3blades.io/blog` to `blog.3blades.io`. I looked through the Next.js documentation and googled around, but I couldn't find any 301 redirect examples. Since Next.js let's you use any custom server you want, I figured I could hand-wire it using Express. There's an [Express example site](https://github.com/zeit/next.js/tree/master/examples/custom-server-express) in the Next.js repo I used for reference.

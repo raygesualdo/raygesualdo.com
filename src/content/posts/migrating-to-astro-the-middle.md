@@ -10,6 +10,11 @@ hero:
   credit: https://unsplash.com/photos/white-and-black-stars-in-the-sky-qebM8Nmr7Ok
   image: ../../assets/hero/astro-2.jpg
   alt: The beautiful night sky
+tags:
+  - Astro
+  - web
+  - TypeScript
+  - Build tools
 ---
 
 Welcome back! Last time we walked through generating a new site, getting the blog post index page working, and adding the talks page. This time we'll look at the individual blog post pages. There's a good bit to cover here so let's dive in.

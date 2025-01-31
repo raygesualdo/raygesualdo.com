@@ -10,6 +10,9 @@ hero:
   credit: https://unsplash.com/photos/running-field-during-daytime-52p1K0d0euM
   image: ../../assets/hero/salesloft-architecture-where-we-started.jpg
   alt: A starting line
+tags:
+  - Salesloft
+  - Frontend Architecture
 ---
 
 My primary focus the last 6 years at Salesloft has been architecting our main frontend application. The project began solely as a plan to transition us from AngularJS to React – a project which is almost complete! As we started planning, it became apparent we needed more than "get AngularJS out of the codebase". We needed an architecture that would scale with us now and far into the future. Salesloft is not a FAANG company. We are just now getting to medium-sized and the process of "scaling to medium" isn't talked about enough. So join me as I walk through the thought processes, learnings, mistakes, implementations, and reflections of the past 6 years in a new series about Salesloft Frontend Architecture.

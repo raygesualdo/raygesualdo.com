@@ -10,6 +10,9 @@ hero:
   credit: https://unsplash.com/photos/brown-pencil-on-white-printing-paper-fteR0e2BzKo
   image: ../../assets/hero/salesloft-architecture-defining-an-architecture.jpg
   alt: A pencil and ruler sitting on top of blueprints or schematics
+tags:
+  - Salesloft
+  - Frontend Architecture
 ---
 
 I've [written before](/posts/being-a-software-architect-at-salesloft) about what it means to be an architect: determining direction and defining incremental steps to get there. But what if you don't know your direction yet? What if you don't even have a framework to help you determine a direction? This is where I found myself when I started on our new frontend architecture six years ago. There weren't many resources that talked about how to develop a frontend arcthitecture at the time and I struggled to figure out how to go about the process. Hopefully this post can be one such resource and serve as a meta discussion about how one can develop an architecture.

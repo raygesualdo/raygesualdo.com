@@ -2,6 +2,9 @@
 title: Why I Use Tailwind
 date: 2022-02-03
 category: code
+tags:
+  - CSS
+  - Build tools
 ---
 
 I am admittedly a big fan of Tailwind, but for one primary reason: **it makes me more productive**. It may do the same for you. It may not. Perhaps you love the power and flexibility of vanilla CSS. Or a CSS-in-JS library makes the most sense for your situation. Or you've forgotten more about SCSS mixins than I will ever know. That’s fine. No tool is right for every person and every project. But for me, Tailwind hits a lot of right notes that let me build and create UIs more seamlessly.
