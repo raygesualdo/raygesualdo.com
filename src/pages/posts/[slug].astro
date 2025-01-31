@@ -62,9 +62,9 @@ const tags = post.data.tagsWithSlugs
     <Content />
     {
       tags ? (
-        <>
-          <hr />
-          <div class="not-prose flex gap-6 mx-3 -mt-8 mb-8">
+        <div class="not-prose">
+          <hr class="my-8" />
+          <div class="flex gap-6 mx-3">
             {tags.map((tag) => (
               <a
                 href={`/tags/${tag.slug}`}
@@ -76,7 +76,7 @@ const tags = post.data.tagsWithSlugs
               </a>
             ))}
           </div>
-        </>
+        </div>
       ) : null
     }
   </Markdown>
