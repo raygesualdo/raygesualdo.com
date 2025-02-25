@@ -7,7 +7,7 @@ export async function GET(context: APIContext) {
   const posts = await getCollection('posts', filterPostCollection)
   return rss({
     title: 'RayGesualdo.com',
-    description: 'The personal site of Ray Gesualdo.',
+    description: 'Some thoughts on code, learning, and life',
     site: String(context.site),
     items: await Promise.all(
       posts.map(async (post) => {
