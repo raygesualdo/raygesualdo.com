@@ -12,15 +12,21 @@ interface Props {
 const { post, showCategory } = Astro.props
 const { remarkPluginFrontmatter } = await post.render()
 const title = await getPostTitle(post)
+const heroImage = post.data.hero
 ---
 
-<article class="mb-12 flex flex-col md:flex-row justify-stretch gap-4">
+<article
+  class:list={[
+    'flex flex-col md:flex-row justify-stretch gap-4',
+    heroImage ? 'mb-16' : 'my-20 md:mx-20',
+  ]}
+>
   {
-    post.data.hero ? (
+    heroImage ? (
       <div class="flex-[1_0_25%]">
         <Image
-          src={post.data.hero.image}
-          alt={post.data.hero.alt}
+          src={heroImage.image}
+          alt={heroImage.alt}
           class="max-w-full aspect-square w-full object-cover rounded [--aspectRatioOverride:21/9] md:[--aspectRatioOverride:1]"
           placeholder="blur"
           style={{ aspectRatio: 'var(--aspectRatioOverride)' }}

@@ -39,13 +39,13 @@ const seriesIdByMostRecentPostDate = Array.from(
     seriesIdByMostRecentPostDate.map((id) => {
       const series = allSeries.find((series) => series.id === id)!
       return (
-        <div class="mb-24 max-w-[60ch] mx-auto">
+        <div class="mb-24 max-w-[50ch] mx-auto">
           <h2 class="text-2xl font-display text-sky-600 dark:text-sky-500 mb-2 text-center">
             <a href={`/series/${series.id}`} class="no-underline">
               {series.data.name}
             </a>
           </h2>
-          <p class="text-center">{series.data.description}</p>
+          <p class="text-center text-balance">{series.data.description}</p>
           {postsBySeries[series.id] && (
             <ul class="my-4">
               {postsBySeries[series.id].map((post) => {
