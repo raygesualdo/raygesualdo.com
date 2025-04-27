@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import PageTitle from '../../components/PageTitle.astro'
+import Tag from '../../components/Tag.astro'
+
+const tags = (await getCollection('posts'))
+  .flatMap((post) => {
+    return post.data.tagsWithSlugs ?? []
+  })
+  .reduce<
+    {
+      slug: string
+      label: string
+    }[]
+  >((acc, tag) => {
+    if (!acc.find((t) => t.slug === tag.slug)) acc.push(tag)
+    return acc
+  }, [])
+  .toSorted((a, b) => a.label.localeCompare(b.label))
+---
+
+<Layout title="Tags">
+  <PageTitle>Tags</PageTitle>
+  <div class="flex flex-wrap gap-x-6 gap-y-4 mx-3">
+    {tags.map((tag) => <Tag tag={tag} size="lg" />)}
+  </div>
+</Layout>

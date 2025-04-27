@@ -8,6 +8,7 @@ import ArticleMeta from '../../components/ArticleMeta.astro'
 import Markdown from '../../components/Markdown.astro'
 import SEO from '../../components/SEO.astro'
 import SeriesInfo from '../../components/SeriesInfo.astro'
+import Tag from '../../components/Tag.astro'
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', filterPostCollection)
@@ -64,16 +65,9 @@ const tags = post.data.tagsWithSlugs
       tags ? (
         <div class="not-prose">
           <hr class="my-8" />
-          <div class="flex gap-6 mx-3">
+          <div class="flex flex-wrap gap-x-6 gap-y-4  mx-3">
             {tags.map((tag) => (
-              <a
-                href={`/tags/${tag.slug}`}
-                class="bg-blue-50 dark:bg-blue-100 text-blue-950 text-xs font-semibold pl-3.5 pr-2.5 py-1 font-monospace no-underline relative"
-              >
-                <div class="absolute right-full top-0 h-0 w-0 border-y-[12px] border-y-transparent border-r-[12px] border-r-blue-50" />
-                <div class="absolute rounded-full bg-blue-950 size-1 left-0.5 top-1/2 -mt-0.5" />
-                {tag.label}
-              </a>
+              <Tag tag={tag} />
             ))}
           </div>
         </div>

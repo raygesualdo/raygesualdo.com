@@ -1,0 +1,24 @@
+---
+import { type CollectionEntry } from 'astro:content'
+
+interface Props {
+  tag: Exclude<CollectionEntry<'posts'>['data']['tagsWithSlugs'], undefined>[number]
+  size?: 'md' | 'lg'
+}
+
+const { tag } = Astro.props
+---
+
+<a
+  href={`/tags/${tag.slug}`}
+  class:list={[
+    'bg-blue-50 dark:bg-blue-100 text-blue-950 text-xs font-semibold pl-3.5 pr-2.5 py-1 font-monospace no-underline relative',
+  ]}
+>
+  <div
+    class="absolute right-full top-0 h-0 w-0 border-y-[12px] border-y-transparent border-r-[12px] border-r-blue-50"
+  >
+  </div>
+  <div class="absolute rounded-full bg-blue-950 size-1 left-0.5 top-1/2 -mt-0.5"></div>
+  {tag.label}
+</a>
