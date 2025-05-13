@@ -6,6 +6,8 @@ hero:
   credit: https://unsplash.com/photos/a-microphone-that-is-sitting-on-a-stand-ekHSHvgr27k
   image: ../../assets/hero/moar-gooderer-public-speakingness.jpg
   alt: A microphone in focus
+tags:
+  - Speaking
 ---
 
 Yes, you read that title correctly. A while ago, one of the employee resource groups at Salesloft hosted a learning series for those who wanted to improve their public speaking skills. Now I am by no means an expert, but I have spoken dozens of times to groups ranging in size from a handful of people to a few thousand. I have learned many lessons in that time, both through experience and via experts in the field. I was honored to present what I had learned to the group...and couldn't resist having a little fun with the title. The remainder of this post is a condensed version of that talk in text form.
