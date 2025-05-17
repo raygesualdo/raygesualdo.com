@@ -5,21 +5,22 @@ import { filterPostCollection, getPostTitle } from '../utils'
 
 export async function GET(context: APIContext) {
   const posts = await getCollection('posts', filterPostCollection)
+  const items = await Promise.all(
+    posts.map(async (post) => {
+      const { remarkPluginFrontmatter } = await post.render()
+      return {
+        title: await getPostTitle(post),
+        link: `/posts/${post.slug}`,
+        pubDate: post.data.date ?? new Date(),
+        description: remarkPluginFrontmatter.excerpt,
+      } satisfies RSSFeedItem
+    })
+  )
   return rss({
     title: 'RayGesualdo.com',
     description: 'Some thoughts on code, learning, and life',
     site: String(context.site),
-    items: await Promise.all(
-      posts.map(async (post) => {
-        const { remarkPluginFrontmatter } = await post.render()
-        return {
-          title: await getPostTitle(post),
-          link: `/posts/${post.slug}`,
-          pubDate: post.data.date ?? new Date(),
-          description: remarkPluginFrontmatter.excerpt,
-        } satisfies RSSFeedItem
-      })
-    ),
+    items: items.toSorted((a, b) => a.pubDate.toISOString().localeCompare(b.pubDate.toISOString())),
     customData: `<language>en</language>
 <copyright>Copyright © Ray Gesualdo ${new Date().getFullYear()}</copyright>`,
   })
