@@ -16,3 +16,7 @@ pnpm dev
 ```
 
 Open [http://localhost:4321/](http://localhost:4321/) in your browser to see the result.
+
+## Robots.txt
+
+Sourced from https://github.com/ai-robots-txt/ai.robots.txt.
