@@ -23,6 +23,7 @@ const {
   srcset,
   width,
   height,
+  // @ts-expect-error - the types for `style` don't understand `aspectRatio`
   style: { aspectRatio = 'auto' } = {},
   srcMeta,
   generated,

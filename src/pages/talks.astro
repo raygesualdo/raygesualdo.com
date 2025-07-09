@@ -9,7 +9,7 @@ function capitalize(str: string) {
   return str.at(0)?.toUpperCase() + str.slice(1)
 }
 
-const { data } = await getEntry('talks', 'talks')
+const { data } = await getEntry('talks', 'talks')!
 ---
 
 <Layout title="Talks">

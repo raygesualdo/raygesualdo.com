@@ -84,5 +84,6 @@ export async function getPostTitle(post: CollectionEntry<'posts'>) {
   if (!post.data.series) return post.data.title
   if (!post.data.series.includeNameInPageTitle) return post.data.title
   const series = await getEntry(post.data.series.id.collection, post.data.series.id.id)
+  if (!series) return post.data.title
   return `${series.data.name}: ${post.data.title}`
 }

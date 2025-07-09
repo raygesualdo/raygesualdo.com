@@ -1,4 +1,5 @@
 ---
+import assert from 'node:assert'
 import { getCollection, getEntry } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import { filterPostCollection, sortPostsByPublishDate } from '../../utils'
@@ -13,7 +14,8 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params
-const category = await getEntry('categories', slug)
+const category = await getEntry('categories', slug)!
+assert(category)
 const posts = (
   await getCollection('posts', (post) => {
     return filterPostCollection(post) && post.data.category?.id === category.id
