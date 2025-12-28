@@ -1,9 +1,10 @@
-import { z, defineCollection, reference } from 'astro:content'
-import { isDraft } from '../utils'
+import { defineCollection, z, reference } from 'astro:content'
+import { glob } from 'astro/loaders'
 import slugify from 'slugify'
+import { isDraft } from './utils'
 
 const postsCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '*.md', base: './src/content/posts' }),
   schema: ({ image }) =>
     z
       .object({
@@ -40,14 +41,14 @@ const postsCollection = defineCollection({
 })
 
 const categoriesCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '*.yml', base: './src/content/categories' }),
   schema: z.object({
     name: z.string(),
   }),
 })
 
 const seriesCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '*.yml', base: './src/content/series' }),
   schema: z.object({
     name: z.string(),
     description: z.string().optional(),
@@ -56,7 +57,7 @@ const seriesCollection = defineCollection({
 })
 
 const talksCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '*.yml', base: './src/content/talks' }),
   schema: z.array(
     z.object({
       title: z.string(),
