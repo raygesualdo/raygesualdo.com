@@ -1,6 +1,6 @@
 ---
 title: From Gatsby to Next.js
-date:
+
 category: code
 ---
 

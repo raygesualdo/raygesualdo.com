@@ -50,10 +50,10 @@ const hasDraftPosts = posts.some((post) => isDraft(post.data.date))
               <span class="italic text-slate-500 dark:text-slate-300">
                 {post.data.title} (Coming soon...)
               </span>
-            ) : post.slug === Astro.params?.slug ? (
+            ) : post.id === Astro.params?.slug ? (
               <span>{post.data.title}</span>
             ) : (
-              <Link href={`/posts/${post.slug}`}>{post.data.title}</Link>
+              <Link href={`/posts/${post.id}`}>{post.data.title}</Link>
             )}
           </div>
         </li>

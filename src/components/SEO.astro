@@ -1,6 +1,6 @@
 ---
 import { FacebookOpenGraph as FOG } from '@resoc/core'
-import { getEntry, type CollectionEntry } from 'astro:content'
+import { render, getEntry, type CollectionEntry } from 'astro:content'
 import { getPostTitle, type SocialImages } from '../utils'
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 const abs = (path: string) => `${Astro.site}${path}`
 
 const { post, socialImages } = Astro.props
-const { remarkPluginFrontmatter } = await post.render()
+const { remarkPluginFrontmatter } = await render(post)
 
 const title = await getPostTitle(post)
 const permalink = Astro.url.href

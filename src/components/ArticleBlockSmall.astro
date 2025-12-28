@@ -1,6 +1,6 @@
 ---
 import Image from '../components/Image.astro'
-import type { CollectionEntry } from 'astro:content'
+import { render, type CollectionEntry } from 'astro:content'
 import ArticleMeta from './ArticleMeta.astro'
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { post } = Astro.props
-const { remarkPluginFrontmatter } = await post.render()
+const { remarkPluginFrontmatter } = await render(post)
 ---
 
 <article class="mb-4 flex justify-stretch gap-4">
@@ -29,7 +29,7 @@ const { remarkPluginFrontmatter } = await post.render()
   }
   <div>
     <h1 class="mt-1 text-xl text-sky-600 dark:text-sky-500 font-display">
-      <a href={`/posts/${post.slug}`}>
+      <a href={`/posts/${post.id}`}>
         {post.data.isDraft ? '(Draft) ' : ''}
         {post.data.title}
       </a>

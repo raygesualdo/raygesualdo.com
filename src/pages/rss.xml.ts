@@ -1,16 +1,16 @@
 import type { APIContext } from 'astro'
 import rss, { type RSSFeedItem } from '@astrojs/rss'
-import { getCollection } from 'astro:content'
+import { render, getCollection } from 'astro:content'
 import { filterPostCollection, getPostTitle } from '../utils'
 
 export async function GET(context: APIContext) {
   const posts = await getCollection('posts', filterPostCollection)
   const items = await Promise.all(
     posts.map(async (post) => {
-      const { remarkPluginFrontmatter } = await post.render()
+      const { remarkPluginFrontmatter } = await render(post)
       return {
         title: await getPostTitle(post),
-        link: `/posts/${post.slug}`,
+        link: `/posts/${post.id}`,
         pubDate: post.data.date ?? new Date(),
         description: remarkPluginFrontmatter.excerpt,
       } satisfies RSSFeedItem
