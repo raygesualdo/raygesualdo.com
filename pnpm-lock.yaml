@@ -25,6 +25,9 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^6.0.2
     version: 6.0.2(astro@5.11.0)(tailwindcss@3.4.1)
+  '@atproto/api':
+    specifier: ^0.18.17
+    version: 0.18.17
   '@resoc/core':
     specifier: ^0.9.1
     version: 0.9.1(isomorphic-fetch@3.0.0)(mustache@4.2.0)
@@ -43,6 +46,9 @@ dependencies:
   astro-expressive-code:
     specifier: ^0.33.4
     version: 0.33.4(astro@5.11.0)
+  lit-html:
+    specifier: ^3.3.2
+    version: 3.3.2
   lqip-modern:
     specifier: ^2.0.0
     version: 2.0.0
@@ -229,6 +235,67 @@ packages:
     resolution: {integrity: sha512-GOfvSr5Nqy2z5XiwqTouBBpy5FyI6DEe+/g/Mk5am9SjILN1S5fOEvYK0GuWHg98yS/dobP4m8qyqw/URW35fQ==}
     dependencies:
       yaml: 2.8.0
+    dev: false
+
+  /@atproto/api@0.18.17:
+    resolution: {integrity: sha512-TeJkLGPkiK3jblwTDSNTH+CnS6WgaOiHDZeVVzywtxomyyF0FpQVSMz5eP3sDhxyHJqpI3E2AOYD7PO/JSbzJw==}
+    dependencies:
+      '@atproto/common-web': 0.4.13
+      '@atproto/lexicon': 0.6.1
+      '@atproto/syntax': 0.4.3
+      '@atproto/xrpc': 0.7.7
+      await-lock: 2.2.2
+      multiformats: 9.9.0
+      tlds: 1.261.0
+      zod: 3.25.76
+    dev: false
+
+  /@atproto/common-web@0.4.13:
+    resolution: {integrity: sha512-TewRUyB/dVJ5PtI3QmJzEgT3wDsvpnLJ+48hPl+LuUueJPamZevXKJN6dFjtbKAMFRnl2bKfdsf79qwvdSaLKQ==}
+    dependencies:
+      '@atproto/lex-data': 0.0.9
+      '@atproto/lex-json': 0.0.9
+      '@atproto/syntax': 0.4.3
+      zod: 3.25.76
+    dev: false
+
+  /@atproto/lex-data@0.0.9:
+    resolution: {integrity: sha512-1slwe4sG0cyWtsq16+rBoWIxNDqGPkkvN+PV6JuzA7dgUK9bjUmXBGQU4eZlUPSS43X1Nhmr/9VjgKmEzU9vDw==}
+    dependencies:
+      multiformats: 9.9.0
+      tslib: 2.8.1
+      uint8arrays: 3.0.0
+      unicode-segmenter: 0.14.5
+    dev: false
+
+  /@atproto/lex-json@0.0.9:
+    resolution: {integrity: sha512-Q2v1EVZcnd+ndyZj1r2UlGikA7q6It24CFPLbxokcf5Ba4RBupH8IkkQX7mqUDSRWPgQdmZYIdW9wUln+MKDqw==}
+    dependencies:
+      '@atproto/lex-data': 0.0.9
+      tslib: 2.8.1
+    dev: false
+
+  /@atproto/lexicon@0.6.1:
+    resolution: {integrity: sha512-/vI1kVlY50Si+5MXpvOucelnYwb0UJ6Qto5mCp+7Q5C+Jtp+SoSykAPVvjVtTnQUH2vrKOFOwpb3C375vSKzXw==}
+    dependencies:
+      '@atproto/common-web': 0.4.13
+      '@atproto/syntax': 0.4.3
+      iso-datestring-validator: 2.2.2
+      multiformats: 9.9.0
+      zod: 3.25.76
+    dev: false
+
+  /@atproto/syntax@0.4.3:
+    resolution: {integrity: sha512-YoZUz40YAJr5nPwvCDWgodEOlt5IftZqPJvA0JDWjuZKD8yXddTwSzXSaKQAzGOpuM+/A3uXRtPzJJqlScc+iA==}
+    dependencies:
+      tslib: 2.8.1
+    dev: false
+
+  /@atproto/xrpc@0.7.7:
+    resolution: {integrity: sha512-K1ZyO/BU8JNtXX5dmPp7b5UrkLMMqpsIa/Lrj5D3Su+j1Xwq1m6QJ2XJ1AgjEjkI1v4Muzm7klianLE6XGxtmA==}
+    dependencies:
+      '@atproto/lexicon': 0.6.1
+      zod: 3.25.76
     dev: false
 
   /@babel/helper-string-parser@7.27.1:
@@ -1407,6 +1474,10 @@ packages:
       '@types/node': 20.10.5
     dev: false
 
+  /@types/trusted-types@2.0.7:
+    resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
+    dev: false
+
   /@types/unist@2.0.10:
     resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==}
     dev: false
@@ -1738,6 +1809,10 @@ packages:
       picocolors: 1.1.1
       postcss: 8.5.6
       postcss-value-parser: 4.2.0
+    dev: false
+
+  /await-lock@2.2.2:
+    resolution: {integrity: sha512-aDczADvlvTGajTDjcjpJMqRkOF6Qdz3YbPZm/PyW6tKPkx2hlYBzxMhEywM/tU72HrVZjgl5VCdRuMlA7pZ8Gw==}
     dev: false
 
   /axobject-query@4.1.0:
@@ -2906,6 +2981,10 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: false
 
+  /iso-datestring-validator@2.2.2:
+    resolution: {integrity: sha512-yLEMkBbLZTlVQqOnQ4FiMujR6T4DEcCb1xizmvXS+OxuhwcbtynoosRzdMA69zZCShCNAbi+gJ71FxZBBXx1SA==}
+    dev: false
+
   /isomorphic-fetch@3.0.0:
     resolution: {integrity: sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==}
     dependencies:
@@ -2975,6 +3054,12 @@ packages:
 
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
+    dev: false
+
+  /lit-html@3.3.2:
+    resolution: {integrity: sha512-Qy9hU88zcmaxBXcc10ZpdK7cOLXvXpRoBxERdtqV9QOrfpMZZ6pSYP91LhpPtap3sFMUiL7Tw2RImbe0Al2/kw==}
+    dependencies:
+      '@types/trusted-types': 2.0.7
     dev: false
 
   /locate-path@5.0.0:
@@ -3528,6 +3613,10 @@ packages:
 
   /muggle-string@0.4.1:
     resolution: {integrity: sha512-VNTrAak/KhO2i8dqqnqnAHOa3cYBwXEZe9h+D5h/1ZqFSTEFHdM65lR7RoIqq3tBBYavsOXV84NoHXZ0AkPyqQ==}
+    dev: false
+
+  /multiformats@9.9.0:
+    resolution: {integrity: sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==}
     dev: false
 
   /mustache@4.2.0:
@@ -4757,6 +4846,11 @@ packages:
       picomatch: 4.0.2
     dev: false
 
+  /tlds@1.261.0:
+    resolution: {integrity: sha512-QXqwfEl9ddlGBaRFXIvNKK6OhipSiLXuRuLJX5DErz0o0Q0rYxulWLdFryTkV5PkdZct5iMInwYEGe/eR++1AA==}
+    hasBin: true
+    dev: false
+
   /to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
@@ -4833,6 +4927,12 @@ packages:
     resolution: {integrity: sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==}
     dev: false
 
+  /uint8arrays@3.0.0:
+    resolution: {integrity: sha512-HRCx0q6O9Bfbp+HHSfQQKD7wU70+lydKVt4EghkdOvlK/NlrF90z+eXV34mUd48rNvVJXwkrMSPpCATkct8fJA==}
+    dependencies:
+      multiformats: 9.9.0
+    dev: false
+
   /ultrahtml@1.6.0:
     resolution: {integrity: sha512-R9fBn90VTJrqqLDwyMph+HGne8eqY1iPfYhPzZrvKpIfwkWZbcYlfpsb8B9dTvBfpy1/hqAD7Wi8EKfP9e8zdw==}
     dev: false
@@ -4858,6 +4958,10 @@ packages:
     dependencies:
       base64-js: 1.5.1
       unicode-trie: 2.0.0
+    dev: false
+
+  /unicode-segmenter@0.14.5:
+    resolution: {integrity: sha512-jHGmj2LUuqDcX3hqY12Ql+uhUTn8huuxNZGq7GvtF6bSybzH3aFgedYu/KTzQStEgt1Ra2F3HxadNXsNjb3m3g==}
     dev: false
 
   /unicode-trie@2.0.0:

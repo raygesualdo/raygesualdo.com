@@ -10,6 +10,7 @@ import Markdown from '../../components/Markdown.astro'
 import SEO from '../../components/SEO.astro'
 import SeriesInfo from '../../components/SeriesInfo.astro'
 import Tag from '../../components/Tag.astro'
+import BlueskyComments from '../../components/BlueskyComments.astro'
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', filterPostCollection)
@@ -28,6 +29,7 @@ const title = await getPostTitle(post)
 const heroImagePath: string | undefined = post.data.hero?.image.fsPath
 const socialImages = await generateSocialImages(title, post.id, heroImagePath)
 const tags = post.data.tagsWithSlugs
+const postId = post.data.blueskyPostId
 ---
 
 <Layout title={title}>
@@ -63,15 +65,14 @@ const tags = post.data.tagsWithSlugs
   {post.data.series ? <SeriesInfo id={post.data.series.id.id} /> : null}
   <Markdown>
     <Content />
+    {(postId || tags) && <hr class="my-8" />}
+    {postId && <BlueskyComments class="mt-6" blueskyPostId={postId} />}
     {
       tags ? (
-        <div class="not-prose">
-          <hr class="my-8" />
-          <div class="flex flex-wrap gap-x-6 gap-y-4  mx-3">
-            {tags.map((tag) => (
-              <Tag tag={tag} />
-            ))}
-          </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-4 mt-8 mx-3 not-prose">
+          {tags.map((tag) => (
+            <Tag tag={tag} />
+          ))}
         </div>
       ) : null
     }

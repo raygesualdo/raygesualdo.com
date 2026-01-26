@@ -1,0 +1,21 @@
+---
+interface Props {
+  blueskyPostId: string
+  class?: string
+}
+const { blueskyPostId, class: class_ } = Astro.props
+---
+
+<bluesky-comments data-bluesky-post-id={blueskyPostId} class:list={['block not-prose', class_]}>
+  <div id="root">
+    <noscript>
+      <div
+        class="min-h-12 text-sm text-center grid place-content-center rounded-lg bg-slate-50 dark:bg-slate-900"
+      >
+        JavaScript must be enabled to see Bluesky comments.
+      </div>
+    </noscript>
+  </div>
+</bluesky-comments>
+
+<script src="../scripts/blueskyComments.ts"></script>
