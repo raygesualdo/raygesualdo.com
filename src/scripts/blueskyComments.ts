@@ -150,7 +150,7 @@ class BlueskyComments extends HTMLElement {
   }
 
   renderRoot(thread: Thread) {
-    const repliesList = this.renderReplies(thread)
+    const repliesList = this.generateReplies(thread)
     render(
       rootTemplate({
         postUrl: atUriToBskyAppUrl(thread.post.uri),
@@ -172,7 +172,7 @@ class BlueskyComments extends HTMLElement {
     )
   }
 
-  renderReplies(thread: Thread, depth = 0): ReturnType<typeof map> {
+  generateReplies(thread: Thread, depth = 0): ReturnType<typeof map> {
     const replies = thread.replies?.filter(isThreadViewPost) ?? []
     return map(replies, (reply) => {
       return replyTemplate({
@@ -184,7 +184,7 @@ class BlueskyComments extends HTMLElement {
         likes: reply.post.likeCount ?? 0,
         time: timeFormatter.format(new Date(reply.post.record.createdAt as string)),
         date: dateFormatter.format(new Date(reply.post.record.createdAt as string)),
-        replies: this.renderReplies(reply, depth + 1),
+        replies: this.generateReplies(reply, depth + 1),
         hasMoreReplies: depth >= this.maxReplyDepth && !!thread.replies?.length,
       })
     })
