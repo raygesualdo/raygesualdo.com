@@ -1,8 +1,9 @@
-import type { AppBskyFeedDefs } from '@atproto/api'
+import type { AppBskyFeedDefs, AppBskyFeedGetLikes } from '@atproto/api'
 import { html, render } from 'lit-html'
 import { map } from 'lit-html/directives/map.js'
 
 type Thread = AppBskyFeedDefs.ThreadViewPost
+type Like = AppBskyFeedGetLikes.Like
 type NestedTemplate = unknown
 
 const timeFormatter = new Intl.DateTimeFormat(undefined, { timeStyle: 'short' })
@@ -10,14 +11,22 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, { dateStyle: 'long' })
 
 function rootTemplate(data: {
   postUrl: string
-  replies: number
-  likes: number
-  quotes: number
+  numReplies: number
+  numLikes: number
+  numQuotes: number
   repliesList: NestedTemplate
+  likes: Like[]
 }) {
+  const displayLimit = 5
+  const likesToDisplay = data.likes.slice(0, displayLimit)
+  const numRemainingLikes = data.numLikes > displayLimit ? data.numLikes - data.likes.length : 0
   return html`
     <div>
-      <a href="${data.postUrl}" class="text-sky-700 dark:text-sky-400 flex items-center gap-2 mb-2">
+      <a
+        href="${data.postUrl}"
+        target="_blank"
+        class="text-sky-700 dark:text-sky-400 flex items-center gap-2 mb-2"
+      >
         <svg
           class="bluesky-flutter size-6"
           viewBox="0 0 566 500"
@@ -36,12 +45,39 @@ function rootTemplate(data: {
         Join the discussion on Bluesky!
       </a>
     </div>
-    <div class="flex gap-2 text-sm tabular-nums mb-4">
-      <div>${data.replies} replies</div>
-      <div>·</div>
-      <div>${data.likes} likes</div>
-      <div>·</div>
-      <div>${data.quotes} quotes</div>
+    <div class="flex gap-4 items-center mb-4">
+      <div class="flex ms-1.5">
+        ${map(
+          likesToDisplay,
+          (like, index) => html`
+            <a
+              href="https://bsky.app/profile/${like.actor.handle}"
+              title="@${like.actor.handle}"
+              target="_blank"
+              class="rounded-full size-8 border-2 border-slate-300 dark:border-slate-700 overflow-clip -ms-1.5"
+              style="z-index: ${displayLimit - index}"
+            >
+              <img src="${like.actor.avatar ?? ''}" class="" />
+            </a>
+          `
+        )}
+        ${numRemainingLikes
+          ? html`
+              <div
+                class="rounded-full size-8 border-2 border-slate-300 dark:border-slate-700 overflow-clip -ms-1.5 grid place-content-center dark:bg-surface-dark"
+              >
+                <span class="text-xs leading-none cursor-default">+${numRemainingLikes}</span>
+              </div>
+            `
+          : null}
+      </div>
+      <div class="flex gap-2 text-sm tabular-nums">
+        <div>${data.numLikes} ${pluralize(data.numLikes, 'like', 'likes')}</div>
+        <div>·</div>
+        <div>${data.numReplies} ${pluralize(data.numReplies, 'reply', 'replies')}</div>
+        <div>·</div>
+        <div>${data.numQuotes} ${pluralize(data.numQuotes, 'quote', 'quotes')}</div>
+      </div>
     </div>
     <div>
       <div>${data.repliesList}</div>
@@ -76,6 +112,7 @@ function replyTemplate(data: {
       <a
         href="${data.postUrl}"
         class="flex gap-2 md:gap-3 mb-2 py-2 px-1 md:px-3 hover:bg-slate-100 dark:hover:bg-white/10 rounded-lg"
+        target="_blank"
       >
         <span class="flex-shrink-0 mt-1">
           <img src="${data.avatar}" class="rounded-full size-12" />
@@ -120,6 +157,7 @@ function replyTemplate(data: {
         ? html`
             <a
               href="${data.postUrl}"
+              target="_blank"
               class="block -mt-2 pl-1 md:pl-3 text-sky-700 dark:text-sky-400"
             >
               View more replies...
@@ -141,23 +179,27 @@ class BlueskyComments extends HTMLElement {
 
   async getBlueskyData(postId: string) {
     try {
-      const thread = await getPostThread(postId, this.maxReplyDepth)
-      this.renderRoot(thread)
+      const [thread, likes] = await Promise.all([
+        getPostThread(postId, this.maxReplyDepth),
+        getPostLikes(postId),
+      ])
+      this.renderRoot(thread, likes)
     } catch (error) {
       console.error(error)
       this.renderError()
     }
   }
 
-  renderRoot(thread: Thread) {
+  renderRoot(thread: Thread, likes: Like[]) {
     const repliesList = this.generateReplies(thread)
     render(
       rootTemplate({
         postUrl: atUriToBskyAppUrl(thread.post.uri),
-        replies: thread.post.replyCount ?? 0,
-        likes: thread.post.likeCount ?? 0,
-        quotes: thread.post.quoteCount ?? 0,
+        numReplies: thread.post.replyCount ?? 0,
+        numLikes: thread.post.likeCount ?? 0,
+        numQuotes: thread.post.quoteCount ?? 0,
         repliesList,
+        likes,
       }),
       this.root
     )
@@ -217,16 +259,51 @@ async function getPostThread(postId: string, depth: number) {
   const thread = data.thread
 
   if (!isThreadViewPost(thread)) {
-    throw new Error('Could not find thread')
+    throw new Error('Fetched post data is invalid')
   }
 
   return thread
+}
+
+async function getPostLikes(postId: string) {
+  try {
+    const uri = `at://did:plc:r7tcvme4xkh6o6pmosqcsv4j/app.bsky.feed.post/${postId}`
+    const params = new URLSearchParams({ uri })
+
+    const res = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getLikes?${params}`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+      },
+      cache: 'no-store',
+    })
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch post likes\n\n${await res.text()}`)
+    }
+
+    const data = await res.json()
+    const likes = data.likes
+
+    if (!Array.isArray(likes) || !likes.every(isLike)) {
+      throw new Error('Fetched like data is invalid')
+    }
+
+    return likes
+  } catch (error) {
+    console.error(error)
+    return []
+  }
 }
 
 function isThreadViewPost(t: unknown): t is Thread {
   return (
     !!t && typeof t === 'object' && '$type' in t && t.$type === 'app.bsky.feed.defs#threadViewPost'
   )
+}
+
+function isLike(t: unknown): t is Like {
+  return !!t && typeof t === 'object' && 'actor' in t
 }
 
 // Copied from https://github.com/bluesky-social/atproto/discussions/2523#discussioncomment-12096639
@@ -254,4 +331,8 @@ function atUriToBskyAppUrl(atUri: string, didOverride?: string): string {
   } else {
     return ''
   }
+}
+
+function pluralize(num: number, singular: string, plural: string) {
+  return num === 1 ? singular : plural
 }
