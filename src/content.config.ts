@@ -26,6 +26,7 @@ const postsCollection = defineCollection({
           })
           .optional(),
         tags: z.array(z.string()).optional(),
+        blueskyPostId: z.string().optional(),
       })
       .transform((value) => Object.assign(value, { isDraft: isDraft(value.date) }))
       .transform((value) => {

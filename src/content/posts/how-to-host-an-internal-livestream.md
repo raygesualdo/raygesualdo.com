@@ -9,6 +9,7 @@ hero:
   credit: https://unsplash.com/photos/a-close-up-view-of-a-camera-lens-h4gvSFXBPPE
   image: ../../assets/hero/how-to-host-an-internal-livestream.jpg
   alt: A close-up of a camera lens
+blueskyPostId: 3ltfazguq3c2t
 ---
 
 I [wrote a while back](/posts/scaling-myself#2-coding-in-public) about Coding in Public™, internal livestreams I hosted at my previous company, Salesloft. In them, I would share my screen as I worked through interesting problems, allowing time for questions and feedback from anyone on the call. These were invaluable opportunities for me to share my thought process and for others in the org – both managers and individual contributors – to get plugged in to the proof-of-concepts or bleeding-edge code I was typically working on. I'm glad to say the Coding in Public sessions have continued at Salesloft even after I left because the organization found them so impactful. If you're interested in doing something similar, here are some practical lessons I learned preparing and running these livestreams.
