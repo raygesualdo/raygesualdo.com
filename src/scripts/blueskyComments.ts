@@ -1,4 +1,4 @@
-import { type AppBskyFeedDefs } from '@atproto/api'
+import type { AppBskyFeedDefs } from '@atproto/api'
 import { html, render } from 'lit-html'
 import { map } from 'lit-html/directives/map.js'
 
