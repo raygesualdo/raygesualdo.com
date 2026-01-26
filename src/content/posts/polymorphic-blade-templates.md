@@ -10,6 +10,7 @@ tags:
   - PHP
   - Laravel
   - Blade
+blueskyPostId: 3lizohahdak2t
 ---
 
 I've spent most of the frontend aspects of my career building in React. It's common to find base components – usually from a UI kit or library – that allow for polymorphism:
