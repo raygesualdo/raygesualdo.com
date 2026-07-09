@@ -34,13 +34,10 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.8.3"
   },
-  "packageManager": "pnpm@8.12.1",
+  "packageManager": "pnpm@10.34.3",
   "pnpm": {
     "patchedDependencies": {
       "@resoc/create-img@0.9.1": "patches/@resoc__create-img@0.9.1.patch"
-    },
-    "overrides": {
-      "@types/node": "20.10.5"
     }
   }
 }
