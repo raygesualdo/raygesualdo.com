@@ -1,14 +1,16 @@
 ---
 import { getCollection } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
-import { sortPostsByPublishDate } from '../../utils'
+import { dedupeTags, sortPostsByPublishDate } from '../../utils'
 import ArticleBlock from '../../components/ArticleBlock.astro'
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts')
-  const tags = posts.flatMap((post) => {
-    return post.data.tagsWithSlugs ?? []
-  })
+  const tags = dedupeTags(
+    posts.flatMap((post) => {
+      return post.data.tagsWithSlugs ?? []
+    })
+  )
 
   return tags.map((tag) => {
     return { params: { slug: tag.slug } }

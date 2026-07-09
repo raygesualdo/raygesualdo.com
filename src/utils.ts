@@ -1,5 +1,5 @@
 import { access, readFile } from 'node:fs/promises'
-import { getEntry, type CollectionEntry } from 'astro:content'
+import { getEntry, type CollectionEntry, type InferEntrySchema } from 'astro:content'
 import { compileLocalTemplate } from '@resoc/create-img'
 import { FacebookOpenGraph, TwitterCard } from '@resoc/core'
 
@@ -68,6 +68,18 @@ export function sortPostsByPublishDate(a: CollectionEntry<'posts'>, b: Collectio
   if (!a.data.date) return -1
   if (!b.data.date) return 1
   return b.data.date.getTime() - a.data.date.getTime()
+}
+
+type TagsWithSlugs = Exclude<InferEntrySchema<'posts'>['tagsWithSlugs'], undefined>
+type TagWithSlug = TagsWithSlugs[number]
+
+export function dedupeTags(tags: TagsWithSlugs): TagsWithSlugs {
+  return Object.values(
+    tags.reduce<Record<string, TagWithSlug>>((acc, tag) => {
+      acc[tag.slug] ??= tag
+      return acc
+    }, {})
+  )
 }
 
 export function isDraft(date?: Date) {
