@@ -27,28 +27,28 @@ export default defineConfig({
   },
   markdown: {
     processor: unified({
-    remarkPlugins: [remarkReadingTime, remarkExcerpt],
-    rehypePlugins: [
-      [rehypeAttrs, { properties: 'attr' }],
-      rehypeTitleFigure,
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          content: {
-            type: 'text',
-            value: '#',
+      remarkPlugins: [remarkReadingTime, remarkExcerpt],
+      rehypePlugins: [
+        [rehypeAttrs, { properties: 'attr' }],
+        rehypeTitleFigure,
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            content: {
+              type: 'text',
+              value: '#',
+            },
+            headingProperties: { class: 'relative group' },
+            properties: {
+              ariaHidden: true,
+              ariaLabel: 'Header anchor',
+              class:
+                'invisible group-hover:visible absolute right-full p-1 -mt-1 text-current no-underline',
+            },
           },
-          headingProperties: { class: 'relative group' },
-          properties: {
-            ariaHidden: true,
-            ariaLabel: 'Header anchor',
-            class:
-              'invisible group-hover:visible absolute right-full p-1 -mt-1 text-current no-underline',
-          },
-        },
+        ],
       ],
-    ],
     }),
   },
 })
