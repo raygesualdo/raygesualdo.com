@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "astro dev --host",
     "build": "astro check && astro build",
-    "preview": "astro preview",
-    "og": "npx -y itdk view src/social-image-template/resoc.manifest.json"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/check": "0.9.9",
@@ -15,8 +14,6 @@
     "@astrojs/sitemap": "3.7.3",
     "@astrojs/tailwind": "^6.0.2",
     "@atproto/api": "^0.18.17",
-    "@resoc/core": "^0.9.1",
-    "@resoc/create-img": "^0.9.1",
     "@tailwindcss/typography": "^0.5.10",
     "@types/lqip-modern": "^1.1.7",
     "astro": "^7.0.7",
@@ -36,17 +33,5 @@
     "takumi-js": "^2.0.1",
     "typescript": "^6.0.3"
   },
-  "packageManager": "pnpm@10.34.3",
-  "pnpm": {
-    "patchedDependencies": {
-      "@resoc/create-img@0.9.1": "patches/@resoc__create-img@0.9.1.patch"
-    },
-    "ignoredBuiltDependencies": [
-      "esbuild",
-      "sharp"
-    ],
-    "onlyBuiltDependencies": [
-      "puppeteer"
-    ]
-  }
+  "packageManager": "pnpm@10.34.3"
 }

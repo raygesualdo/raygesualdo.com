@@ -4,7 +4,7 @@ import { render } from 'takumi-js'
 import { googleFonts } from 'takumi-js/helpers'
 import { getImages, renderHeroTemplate, renderNoHeroTemplate } from './ogTemplates'
 
-const resolutions = {
+export const resolutions = {
   openGraph: {
     width: 1200,
     height: 630,
