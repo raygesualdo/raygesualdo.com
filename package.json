@@ -38,6 +38,13 @@
   "pnpm": {
     "patchedDependencies": {
       "@resoc/create-img@0.9.1": "patches/@resoc__create-img@0.9.1.patch"
-    }
+    },
+    "ignoredBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ],
+    "onlyBuiltDependencies": [
+      "puppeteer"
+    ]
   }
 }
