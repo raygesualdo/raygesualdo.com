@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
+import { unified } from '@astrojs/markdown-remark'
 import rehypeTitleFigure from 'rehype-title-figure'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
@@ -25,6 +26,7 @@ export default defineConfig({
     prefetchAll: true,
   },
   markdown: {
+    processor: unified({
     remarkPlugins: [remarkReadingTime, remarkExcerpt],
     rehypePlugins: [
       [rehypeAttrs, { properties: 'attr' }],
@@ -47,6 +49,7 @@ export default defineConfig({
         },
       ],
     ],
+    }),
   },
 })
 
