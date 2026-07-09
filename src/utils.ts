@@ -30,8 +30,8 @@ export const generateSocialImages = async (title: string, slug: string, heroImag
   }
 
   return {
-    ogImage: `social-images/og-${slug}.jpg`,
-    twitterImage: `social-images/twitter-${slug}.jpg`,
+    ogImage: `social-images/og-${slug}.webp`,
+    twitterImage: `social-images/twitter-${slug}.webp`,
   }
 }
 
