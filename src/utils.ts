@@ -1,19 +1,32 @@
-import { access, readFile } from 'node:fs/promises'
+import { writeFile } from 'node:fs/promises'
 import { getEntry, type CollectionEntry, type InferEntrySchema } from 'astro:content'
-import { compileLocalTemplate } from '@resoc/create-img'
-import { FacebookOpenGraph, TwitterCard } from '@resoc/core'
+import { render } from 'takumi-js'
+import { googleFonts } from 'takumi-js/helpers'
+import { getImages, renderHeroTemplate, renderNoHeroTemplate } from './ogTemplates'
+
+const resolutions = {
+  openGraph: {
+    width: 1200,
+    height: 630,
+  },
+  twitter: {
+    width: 1500,
+    height: 750,
+  },
+}
 
 export type SocialImages = Awaited<ReturnType<typeof generateSocialImages>>
+
+declare global {
+  var socialImagePromises: Promise<unknown>[]
+}
 
 globalThis.socialImagePromises ??= []
 
 export const generateSocialImages = async (title: string, slug: string, heroImagePath?: string) => {
-  const heroImage = heroImagePath
-    ? `data:image/png;base64,${await readFile(heroImagePath, 'base64')}`
-    : ''
   if (import.meta.env.PROD || import.meta.env.GENERATE_OG_IMAGES) {
-    globalThis.socialImagePromises.push(generateOGImage(title, slug, heroImage))
-    globalThis.socialImagePromises.push(generateTwitterImage(title, slug, heroImage))
+    globalThis.socialImagePromises.push(generateWithTakumi('og', title, slug, heroImagePath))
+    globalThis.socialImagePromises.push(generateWithTakumi('twitter', title, slug, heroImagePath))
   }
 
   return {
@@ -22,37 +35,32 @@ export const generateSocialImages = async (title: string, slug: string, heroImag
   }
 }
 
-const generateOGImage = async (title: string, slug: string, heroImage: string) => {
-  const path = `public/social-images/og-${slug}.jpg`
-  try {
-    await access(path)
-    return
-  } catch {}
-  return compileLocalTemplate(
-    heroImage
-      ? 'src/social-image-template/resoc.manifest.json'
-      : 'src/social-image-template/noHero_resoc.manifest.json',
-    { title, heroImage },
-    FacebookOpenGraph,
-    `public/social-images/og-${slug}.jpg`,
-    { cache: true }
-  ).then(() => console.log(`OG image for "${slug}" generated.`))
-}
-const generateTwitterImage = async (title: string, slug: string, heroImage: string) => {
-  const path = `public/social-images/twitter-${slug}.jpg`
-  try {
-    await access(path)
-    return
-  } catch {}
-  return compileLocalTemplate(
-    heroImage
-      ? 'src/social-image-template/resoc.manifest.json'
-      : 'src/social-image-template/noHero_resoc.manifest.json',
-    { title, heroImage },
-    TwitterCard,
-    `public/social-images/twitter-${slug}.jpg`,
-    { cache: true }
-  ).then(() => console.log(`Twitter image for "${slug}" generated.`))
+async function generateWithTakumi(
+  type: 'og' | 'twitter',
+  title: string,
+  slug: string,
+  heroImage?: string
+) {
+  const outPath =
+    type === 'og'
+      ? `public/social-images/og-${slug}.webp`
+      : `public/social-images/twitter-${slug}.webp`
+  const desiredResolution = type === 'og' ? resolutions.openGraph : resolutions.twitter
+  const additionalImages = heroImage ? { heroImage } : undefined
+  const renderer = heroImage ? renderHeroTemplate : renderNoHeroTemplate
+
+  const image = await render(renderer({ title }), {
+    ...desiredResolution,
+    format: 'webp',
+    quality: 80,
+    fontFamilies: ['Montserrat'],
+    fonts: await googleFonts({
+      families: ['Montserrat'],
+    }),
+    images: getImages(additionalImages),
+  })
+
+  await writeFile(outPath, image)
 }
 
 export function formatDate(date = new Date()) {
