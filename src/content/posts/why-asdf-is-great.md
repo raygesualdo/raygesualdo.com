@@ -10,7 +10,7 @@ hero:
 
 A few weeks ago, [@chantastic](https://twitter.com/chantastic) tweeted asking how people are managing their Node.js versions these days. My response was simple.
 
-![@chantastic asking on Twitter "what do you use to manage node versions? nvm? volta? i've enjoyed volta. but i'm regularly having to bypass its shims to work across package managers" and me replying with "asdf. All day. Every day."](../../assets/asdf-tweet.png 'Seriously. Every day.')<!--rehype:style=width:589px;-->
+![@chantastic asking on Twitter "what do you use to manage node versions? nvm? volta? i've enjoyed volta. but i'm regularly having to bypass its shims to work across package managers" and me replying with "asdf. All day. Every day."](../../assets/asdf-tweet.png 'Seriously. Every day.') :inlineStyles{style="width:589px;"}
 
 Even for my personal projects, I always reach for [`asdf`](https://asdf-vm.com/). Here's why:
 
