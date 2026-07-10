@@ -3,9 +3,18 @@ import type { ImagesInput } from 'takumi-js'
 
 type ImageLoader = Extract<ImagesInput, Array<unknown>>
 
-const TWITTER_PIC_PAYLOAD = fetch(
-  'https://pbs.twimg.com/profile_images/550139150066651136/II7xw5O__400x400.jpeg'
-).then((x) => x.arrayBuffer())
+let cachedTwitterPicPayload: Promise<ArrayBuffer> | null = null
+async function fetchTwitterPic() {
+  cachedTwitterPicPayload ??= fetch(
+    'https://pbs.twimg.com/profile_images/550139150066651136/II7xw5O__400x400.jpeg'
+  )
+    .then((x) => x.arrayBuffer())
+    .catch(() => {
+      cachedTwitterPicPayload = null
+      return new ArrayBuffer()
+    })
+  return cachedTwitterPicPayload
+}
 
 export function getImages(additionalImages?: Record<string, string>): ImageLoader {
   if (additionalImages) {
@@ -19,14 +28,14 @@ export function getImages(additionalImages?: Record<string, string>): ImageLoade
       })),
       {
         src: 'twitter',
-        data: () => TWITTER_PIC_PAYLOAD,
+        data: fetchTwitterPic,
       },
     ]
   }
   return [
     {
       src: 'twitter',
-      data: () => TWITTER_PIC_PAYLOAD,
+      data: fetchTwitterPic,
     },
   ]
 }
