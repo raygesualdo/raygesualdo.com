@@ -33,6 +33,9 @@ export default {
               fontSize: theme('fontSize.2xl[0]'),
               ...theme('fontSize.2xl[1]'),
             },
+            hr: {
+              marginBlock: theme('space.8'),
+            },
           },
         },
         DEFAULT: {
@@ -68,6 +71,9 @@ export default {
             },
             summary: {
               cursor: 'pointer',
+            },
+            hr: {
+              marginBlock: theme('space.8'),
             },
           },
         },

@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config'
-import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
 import { unified } from '@astrojs/markdown-remark'
 import rehypeTitleFigure from 'rehype-title-figure'
@@ -7,6 +6,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import rehypeAttrs from 'rehype-attr'
 import expressiveCode from 'astro-expressive-code'
+import tailwindcss from '@tailwindcss/vite'
 import { remarkExcerpt, remarkReadingTime } from './src/remark.mjs'
 import { generateSocialImages } from './src/plugins.ts'
 
@@ -14,7 +14,6 @@ import { generateSocialImages } from './src/plugins.ts'
 export default defineConfig({
   site: getCurrentDomain(),
   integrations: [
-    tailwind({ nesting: true }),
     sitemap(),
     generateSocialImages(),
     expressiveCode({
@@ -50,6 +49,9 @@ export default defineConfig({
         ],
       ],
     }),
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
 })
 

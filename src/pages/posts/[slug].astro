@@ -65,7 +65,7 @@ const postId = post.data.blueskyPostId
   {post.data.series ? <SeriesInfo id={post.data.series.id.id} /> : null}
   <Markdown>
     <Content />
-    {(postId || tags) && <hr class="my-8" />}
+    {(postId || tags) && <hr />}
     {postId && <BlueskyComments class="mt-6" blueskyPostId={postId} />}
     {
       tags ? (

@@ -114,7 +114,7 @@ function replyTemplate(data: {
         class="flex gap-2 md:gap-3 mb-2 py-2 px-1 md:px-3 hover:bg-slate-100 dark:hover:bg-white/10 rounded-lg"
         target="_blank"
       >
-        <span class="flex-shrink-0 mt-1">
+        <span class="shrink-0 mt-1">
           <img src="${data.avatar}" class="rounded-full size-12" />
         </span>
         <span>
