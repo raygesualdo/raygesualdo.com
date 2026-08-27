@@ -1,22 +1,20 @@
-import {
-  defineHastPlugin,
-  defineMdastPlugin,
-  type MdastNode,
-  type MdastVisitorContext,
-  type HastNode,
-} from 'satteri'
+import { defineHastPlugin, defineMdastPlugin, type HastNode } from 'satteri'
 import stripMarkdown from 'strip-markdown'
 import { toString } from 'mdast-util-to-string'
 import getReadingTime from 'reading-time'
 
+declare module 'satteri' {
+  interface DataMap {
+    astro: {
+      frontmatter: Record<string, unknown>
+    }
+  }
+}
+
 export const mdastReadingTime = defineMdastPlugin({
   name: 'reading-time',
-  textDirective(node, ctx) {
+  before(root, ctx) {
     if (!ctx.data.astro) return
-    if (node.name !== 'rootFinder') return
-    const root = findRoot(node, ctx)
-    if (!root) return
-
     const contents = toString(root)
     const readingTime = getReadingTime(contents)
     ctx.data.astro.frontmatter.readingTime = readingTime.minutes
@@ -25,12 +23,8 @@ export const mdastReadingTime = defineMdastPlugin({
 
 export const mdastExcerpt = defineMdastPlugin({
   name: 'excerpt',
-  textDirective(node, ctx) {
+  before(root, ctx) {
     if (!ctx.data.astro) return
-    if (node.name !== 'rootFinder') return
-    const root = findRoot(node, ctx)
-    if (!root) return
-
     const clonedRoot = structuredClone(root)
     const cleanedRoot = stripMarkdown({
       keep: ['blockquote'],
@@ -102,7 +96,7 @@ export const hastAutolinkHeadings = defineHastPlugin({
         tagName: 'a',
         properties: {
           href: `#${node.properties.id}`,
-          ariaHidden: true,
+          ariaHidden: 'true',
           ariaLabel: 'Header anchor',
           class:
             'invisible group-hover:visible absolute right-full p-1 -mt-1 text-current no-underline',
@@ -114,13 +108,6 @@ export const hastAutolinkHeadings = defineHastPlugin({
     },
   },
 })
-
-function findRoot(node: MdastNode, ctx: MdastVisitorContext) {
-  if (node.type === 'root') return node
-  const parent = ctx.parent(node)
-  if (!parent) return
-  return findRoot(parent, ctx)
-}
 
 function isObject(item: unknown): item is Record<string, unknown> {
   return !!item && typeof item === 'object' && !Array.isArray(item)

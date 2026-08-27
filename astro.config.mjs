@@ -3,7 +3,6 @@ import sitemap from '@astrojs/sitemap'
 import { satteri, satteriHeadingIdsPlugin } from '@astrojs/markdown-satteri'
 import expressiveCode from 'astro-expressive-code'
 import tailwindcss from '@tailwindcss/vite'
-import { remarkExcerpt, remarkReadingTime } from './src/remark.mjs'
 import { generateSocialImages } from './src/plugins.ts'
 import {
   hastAutolinkHeadings,
@@ -28,7 +27,13 @@ export default defineConfig({
     prefetchAll: true,
   },
   markdown: {
-    processor: wrappedSatteriProcessor(),
+    processor: satteri({
+    features: {
+      directive: true,
+    },
+    mdastPlugins: [mdastReadingTime, mdastExcerpt, mdastAttrs],
+    hastPlugins: [satteriHeadingIdsPlugin(), hastAutolinkHeadings, hastTitleFigure],
+  }),
   },
   vite: {
     plugins: [tailwindcss()],
@@ -43,28 +48,4 @@ function getCurrentDomain() {
     return process.env.URL
   }
   return 'http://localhost:4321'
-}
-
-/** Temporary workaround until Satteri supports visitors to the Root node */
-function wrappedSatteriProcessor() {
-  const original = satteri({
-    features: {
-      directive: true,
-    },
-    mdastPlugins: [mdastReadingTime, mdastExcerpt, mdastAttrs],
-    hastPlugins: [satteriHeadingIdsPlugin(), hastAutolinkHeadings, hastTitleFigure],
-  })
-  async function overriddenCreateRenderer(shared) {
-    const ret = await original.createRenderer(shared)
-    return {
-      render(content, opts) {
-        const newContent = content + '\n\n:rootFinder'
-        return ret.render(newContent, opts)
-      },
-    }
-  }
-  return {
-    ...original,
-    createRenderer: overriddenCreateRenderer,
-  }
 }
