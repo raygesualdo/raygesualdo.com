@@ -10,7 +10,7 @@ hero:
 
 I'm a self-taught software engineer, so while I have relied on many community resources throughout my career, I've never had any formal education or mentorship. There's been a lot of learning on the job, trial by fire, that sort of thing. As I've become more senior, others earlier in their career have asked for advice on how they can continue to grow. There was a particular aspect of my growth – one I felt quite deeply – that I had a hard time articulating until I ran across this [tweet](https://twitter.com/dan_abramov/status/1470623700705845251) by Dan Abramov:
 
-![Tweet from Dan Abramov saying "41. taking ownership over something unowned (but that everybody cares about) is one of the most valuable things you can do on a team. try not to drop it though (i’m guilty of that)"](../../assets/own-the-unowned.png 'In a thread about 100 things he learned on the React team')<!--rehype:style=width:595px;-->
+![Tweet from Dan Abramov saying "41. taking ownership over something unowned (but that everybody cares about) is one of the most valuable things you can do on a team. try not to drop it though (i’m guilty of that)"](../../assets/own-the-unowned.png 'In a thread about 100 things he learned on the React team') :inlineStyles{style="width:595px;"}
 
 ## Own the unowned
 

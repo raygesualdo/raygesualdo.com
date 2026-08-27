@@ -1,14 +1,16 @@
 import { defineConfig } from 'astro/config'
 import sitemap from '@astrojs/sitemap'
-import { unified } from '@astrojs/markdown-remark'
-import rehypeTitleFigure from 'rehype-title-figure'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeSlug from 'rehype-slug'
-import rehypeAttrs from 'rehype-attr'
+import { satteri, satteriHeadingIdsPlugin } from '@astrojs/markdown-satteri'
 import expressiveCode from 'astro-expressive-code'
 import tailwindcss from '@tailwindcss/vite'
-import { remarkExcerpt, remarkReadingTime } from './src/remark.mjs'
 import { generateSocialImages } from './src/plugins.ts'
+import {
+  hastAutolinkHeadings,
+  hastTitleFigure,
+  mdastAttrs,
+  mdastExcerpt,
+  mdastReadingTime,
+} from './src/saterriPlugins.ts'
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,30 +27,13 @@ export default defineConfig({
     prefetchAll: true,
   },
   markdown: {
-    processor: unified({
-      remarkPlugins: [remarkReadingTime, remarkExcerpt],
-      rehypePlugins: [
-        [rehypeAttrs, { properties: 'attr' }],
-        rehypeTitleFigure,
-        rehypeSlug,
-        [
-          rehypeAutolinkHeadings,
-          {
-            content: {
-              type: 'text',
-              value: '#',
-            },
-            headingProperties: { class: 'relative group' },
-            properties: {
-              ariaHidden: true,
-              ariaLabel: 'Header anchor',
-              class:
-                'invisible group-hover:visible absolute right-full p-1 -mt-1 text-current no-underline',
-            },
-          },
-        ],
-      ],
-    }),
+    processor: satteri({
+    features: {
+      directive: true,
+    },
+    mdastPlugins: [mdastReadingTime, mdastExcerpt, mdastAttrs],
+    hastPlugins: [satteriHeadingIdsPlugin(), hastAutolinkHeadings, hastTitleFigure],
+  }),
   },
   vite: {
     plugins: [tailwindcss()],
