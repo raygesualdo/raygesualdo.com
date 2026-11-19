@@ -9,6 +9,13 @@
   abstract: >
     Navigation in a single page app has always been a little kludgy. The history object has a weird API. There’s no way to listen for all URL changes. But the Navigation API is here to solve these problems. It is a brand new way to handle client-side navigation and brings many new features like a cleaner JavaScript interface, navigation interception, and automatic scroll and focus handling. Together, we’ll walk through all the aspects of the new Navigation API that library authors and application developers alike can take advantage of.
 
+- title: 'Scaling to Medium: The Overlooked Stage of Frontend Apps'
+  events:
+    - title: Gun.io Meetup (2024)
+      slides: https://rayg.me/gunio-meetup-scaling-to-medium-2024
+  abstract: >
+    In my time at Salesloft, we’ve scaled a mission-critical business app from 30 engineers and 10,000 users to 150 engineers and 100,000 users. And we’re not slowing down. This process wasn’t easy. There aren’t many resources that talk about this stage of growth. But that’s what this talk is for! I’ve learned many important lessons along the way of what to do (and not to do) when scaling a frontend application and I can’t wait to share them with you. Together, we’ll walk through the technical, people, customer, and philosophical changes we made to successfully scale our application to this exciting new stage.
+
 - title: 'Brick by Brick: What Lego Taught Me About Great APIs'
   events:
     - title: ConnectTech 2022
